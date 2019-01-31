@@ -1,0 +1,57 @@
+page{
+  width: 100%;
+  top:0;
+  height: 100%;
+}
+.triangleLeft{
+      width: 0;
+			height: 0;
+			border-left: 12rpx solid transparent;
+			border-right:12rpx solid transparent;
+			border-top: 15rpx solid #28c2f2;
+			border-bottom: 15rpx solid transparent;
+
+}
+.triangleDown{
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: red transparent transparent transparent;
+}
+.borderRadiuClose{
+  border:2px solid white;
+  border-radius:25px;
+  width:30%;
+  height:40%;
+  display: flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+.borderCircleColse{
+  width:40rpx;
+  height:40rpx;
+  border-radius:25px;
+  background: white;
+}
+.borderRadiuOpen{
+  border:2px solid  #febf51;
+  background: #febf51;
+  border-radius:25px;
+  width:30%;
+  height:40%;
+  display: flex;
+  align-items:center;
+  justify-content:flex-end;
+}
+.borderCircleOpen{
+  width:40rpx;
+  height:40rpx;
+  border-radius:25px;
+  background: white;
+}
+.classBorder{
+  border: 4rpx solid #6ad3f3;
+  border-left: transparent;
+  margin: 0;
+  padding: 0;	
+}
