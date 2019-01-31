@@ -1,13 +1,108 @@
+<!--设置周次-->
 <view class='marsk' style='top:0px;' hidden='{{setNowWeek.hidden}}'></view>
 <view hidden='{{setNowWeek.hidden}}' class='alert flexColumn' style='left:{{setNowWeek.alertLeft}}px;top:{{setNowWeek.alertTop}}px;height:{{setNowWeek.alertHeight}}rpx'>
-  <view style='background:#51d6ff;width:100%;height:25%;color:white;' class='flexRow flexRowCenterAndAround' ><text style='width:88%;text-align:center;'>修改周次</text><view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/close.png") no-repeat;background-size: 100% 100%;width:10%;height:50%;position:relative;' bindtap='closeSetWeek'></view><view style='width:2%;'></view></view>
-  <view style='flex:1;background:#f6f6f6' class='flexRow flexRowCenterAndAround'>
+  <view style='background:#51d6ff;width:100%;height:25%;color:white;' class='flexRow flexRowCenterAndAround' ><text style='width:88%;text-align:center;'>修改周次</text><view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/close.png") no-repeat;background-size: 100% 100%;width:10%;height:50%;position:relative;' bindtap='closeTan' data-type ='setNowWeek'></view><view style='width:2%;'></view></view>
+  <view style='flex:1;background:#f6f6f6;font-size:small;' class='flexColumn flexRowCenterAndAround'>
       <view style='width:80%;height:50%;'>
-       <picker value="{{setNowWeek.index}}" range="{{setNowWeek.value}}">
-           <view class="picker">
-              当前周次：<text style='border:#d8d6d6 solid 1px;background:white;border-radius:10rpx;'>{{setNowWeek.value[setNowWeek.index]}}</text>
-            </view>
-        </picker>
+         <picker-view
+            indicator-style="border:transparent;"
+            style="width: 100%; height: 80%;background:#f6f6f6;"
+            class=''f6f6f6
+            value="{{setNowWeek.index}}"
+            bindchange='changeFirstClass'
+          >
+            <view style="line-height: 50px">当前周次</view>
+            <picker-view-column style='left:50rpx;'>
+              <view wx:for="{{setNowWeek.value}}" wx:key='week' style="line-height: 40px;background:white;padding-left:50rpx;">{{item}}</view>
+            </picker-view-column>
+          </picker-view>
       </view>
+      <view style='width:100%;height:30%;justify-content:space-around;' class='flexRow flexRowCenterAndAround'>
+        <view style='width:25%;background:#51d6ff;height:60rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'  bindtap='closeTan' data-type ='setNowWeek'><text>取消</text></view>
+        <view style='width:25%;background:#51d6ff;height:60rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'><text>确定</text></view>
+      </view>
+  </view>
+</view>
+
+<!--添加课程-->
+<view class='marsk' style='top:0px;' hidden='{{addClassMes.hidden}}'></view>
+<view class='alert flexColumn' style='left:{{addClassMes.alertLeft}}px;top:{{addClassMes.alertTop}}px;height:{{addClassMes.alertHeight}}rpx;width:{{addClassMes.alertWidth}}rpx' hidden='{{addClassMes.hidden}}'>
+  <view style='background:#51d6ff;width:100%;height:15%;color:white;' class='flexRow flexRowCenterAndAround' ><text style='width:88%;text-align:center;'>添加课程</text><view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/close.png") no-repeat;background-size: 100% 100%;width:40rpx;height:40rpx;position:relative;' bindtap='closeTan' data-type ='addClassMes'></view><view style='width:2%;'></view></view>
+  <view style='background:#51d6ff;width:100%;height:25%;color:white;font-size:small;justify-content:space-around;box-shadow:0 50rpx 50rpx 0rpx rgb(230, 230, 230);' class='flexColumn flexRowCenterAndAround'>
+    <view class='flexRow flexRowCenterAndAround' style='width:80%;color:#707070;'>
+      <text style=''>课程名称：</text>
+      <input type='text' placeholder='请输入课程名称' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
+    </view>
+    <view class='flexRow flexRowCenterAndAround' style='width:80%;color:#707070;'>
+      <text style=''>课程地点：</text>
+      <input type='text' placeholder='请输入课程地点' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
+    </view>
+  </view>
+  <view style='flex:1;' class='flexColumn flexRowCenterAndAround'>
+    <view style='flex:5;width:100%' class='flexColumn flexRowCenterAndAround'>
+      <view class='flexColumn flexRowCenterAndAround'>
+        <view wx:for='{{[1,2,3,4]}}' wx:key='row' class='flexRow flexRowCenterAndAround' wx:for-item='row'>
+          <view wx:for='{{[1,2,3,4,5,6]}}' wx:key='column'  wx:for-item='column' style='width:70rpx;height:50rpx;border:solid 1px #d8d6d6;color:#707070;'  class='flexRow flexRowCenterAndAround'> <text>{{(row-1)*6+column}}</text></view>
+        </view>
+      </view>
+    </view>
+    <view style='flex:2;width:100%;font-size:small;font-weight:800;' class='flexColumn flexRowCenterAndAround'>
+      <text style='width:80%;flex:1'>课程时间</text>
+      <view style='width:100%;flex:2'>
+          <picker-view
+            indicator-style=""
+            style="width: 100%; height: 80%;"
+            class=''
+            value="{{addClassMes.value}}"
+            bindchange='changeFirstClass'
+          >
+            <picker-view-column style='left:60rpx;'>
+              <view wx:for="{{addClassMes.week}}" wx:key='week' style="line-height: 50px">{{item}}</view>
+            </picker-view-column>
+            <picker-view-column style='left:60rpx;'>
+              <view wx:for="{{addClassMes.firstClass}}" wx:key='firstClass' style="line-height: 50px">第{{item}}节</view>
+            </picker-view-column>
+            <text style="line-height: 50px">~</text>
+            <picker-view-column style='left:60rpx;'>
+              <view wx:for="{{addClassMes.secondClass}}" style="line-height: 50px" wx:key='secondClass'>第{{item}}节</view>
+            </picker-view-column>
+          </picker-view>
+      </view>
+    </view>
+    <view style='flex:2;width:100%;justify-content:space-around;' class='flexRow flexRowCenterAndAround'>
+      <view style='width:25%;background:#51d6ff;height:70rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround' bindtap='closeTan' data-type ='addClassMes'><text>取消</text></view>
+      <view style='width:25%;background:#51d6ff;height:70rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'><text>确定</text></view>
+    </view>
+  </view>
+</view>
+
+<!--分享课程-->
+<view class='marsk' style='top:0px;' hidden='{{shareClass.hidden}}'></view>
+<view class='alert flexColumn' style='left:{{shareClass.alertLeft}}px;top:{{shareClass.alertTop}}px;height:{{shareClass.alertHeight}}rpx;width:{{shareClass.alertWidth}}rpx' hidden='{{shareClass.hidden}}'>
+  <view style='background:#51d6ff;width:100%;height:15%;color:white;box-shadow:0 20rpx 50rpx 0rpx rgb(230, 230, 230);' class='flexRow flexRowCenterAndAround'  ><text style='width:88%;text-align:center;'>分享课程</text><view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/close.png") no-repeat;background-size: 100% 100%;width:40rpx;height:40rpx;position:relative;' bindtap='closeTan' data-type ='shareClass'></view><view style='width:2%;'></view></view>
+  <view style='flex:1;' class='flexColumn flexRowCenterAndAround'>
+    <view style='flex:5;background:white;width:100%;' class='flexColumn flexRowCenterAndAround'>
+      <view style='background:url("{{shareClass.scanUrl}}") no-repeat;background-size: 100% 100%;width:380rpx;height:380rpx;'></view>
+    </view>
+    <view style='flex:1;width:100%;' class='flexColumn flexRowCenterAndAround'><text style='font-size:small;color:#BCBCC0;'>扫描二维码即可分享课程</text></view>
+  </view>
+</view>
+
+<!--发送弹幕-->
+<view class='marsk' style='top:0px;' hidden='{{sendDanMu.hidden}}'></view>
+<view class='alert flexColumn' style='left:{{sendDanMu.alertLeft}}px;top:{{sendDanMu.alertTop}}px;height:{{sendDanMu.alertHeight}}rpx;width:{{sendDanMu.alertWidth}}rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/danmuBG.png") no-repeat;background-size: 100% 100%;' hidden='{{sendDanMu.hidden}}'>
+  <view style='width:100%;height:15%;color:white;' class='flexRow flexRowCenterAndAround'><text style='width:88%;text-align:center;'>发弹幕</text><view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/close.png") no-repeat;background-size: 100% 100%;width:30rpx;height:30rpx;position:relative;' bindtap='closeTan' data-type ='sendDanMu'></view><view style='width:2%;'></view></view>
+  <view style='flex:1;width:100%;'class='flexColumn flexRowCenterAndAround'>
+    <view style='flex:1;width:100%;'></view>
+    <view style='flex:16;width:80%;background:white;border-radius:20rpx;'>
+      <textarea style='width:100%;height:100%;font-size:medium;' placeholder='输入弹幕内容'></textarea>
+    </view>
+    <view style='flex:4;width:100%;'>
+      <view style='width:100%;height:30%;justify-content:space-around;' class='flexRow flexRowCenterAndAround'>
+        <view class='flexRow flexRowCenterAndAround btnClass'  bindtap='closeTan' data-type ='sendDanMu'><text>取消</text></view>
+        <view class='flexRow btnClass flexRowCenterAndAround'><text>确定</text></view>
+      </view>
+    
+    </view>
   </view>
 </view>

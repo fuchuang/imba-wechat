@@ -20,14 +20,14 @@
 
 
 <view style='width:100%;height:120rpx;position:fixed;background:#f6f6f6;top:{{headHeight}}px;'>
- <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
+ <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;' bindtap='menuBindEvent' data-type ='sendDanMu'/>
   <view style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
   <!--选择周数-->
   <view style='width:100%;height:1000px;position:absolute;left:0;' hidden='{{chooseWeek}}' bindtap='clooseOpenMenuAndWC'/>
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>
     <view> 
       <view bindtap='chooseWeekEvent' style=''>
-        <p>{{weekNums[0]}}</p>
+        <p>{{weekNums[setNowWeek.index]}}</p>
         <p style='position:fixed;'>
           <view class='triangleLeft' style='position:relative;top:18rpx;left:10rpx;'></view>
         </p>
@@ -41,13 +41,13 @@
     <view style='font-size:x-small;'>{{gradeNums[0]}}</view>
   </view>
    <!--菜单-->
-  <view style='width:60rpx;;height:35rpx;left:650rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/menu.png") no-repeat;background-size: 100% 100%;position:absolute;top:40rpx;z-index:1;' bindtap='chooseMenuEvent'>
-  </view>
+  <view style='width:60rpx;;height:35rpx;left:650rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/menu.png") no-repeat;background-size: 100% 100%;position:absolute;top:40rpx;z-index:1;' bindtap='chooseMenuEvent' />
+
   <view style='width:100%;height:1000px;position:absolute;left:0;z-index:2' hidden='{{chooseMenu}}' bindtap='clooseOpenMenuAndWC'/>
   <view style='width:280rpx;;height:642rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/select.png") no-repeat;background-size: 100% 100%;position:absolute;left:440rpx;top:80rpx;z-index:100;justify-content:flex-end;align-items:center;' class='flexColumn' hidden='{{chooseMenu}}'>
    
-    <view style='width:96%;height:105rpx;align-items:center;justify-content:space-between;' wx:for='{{menuNums}}' wx:for-item='i' wx:index='index' wx:key='chooseMenu' class='flexRow' bindtap='menuBindEvent' data-index='{{index}}'>
-      <view style='width:70%;color:white;'>{{i}}</view>
+    <view style='width:96%;height:105rpx;align-items:center;justify-content:space-between;' wx:for='{{menuNums}}' wx:for-item='i' wx:index='index' wx:key='chooseMenu' class='flexRow' bindtap='menuBindEvent' data-index='{{index}}' data-type='{{i.type}}'>
+      <view style='width:70%;color:white;'>{{i.name}}</view>
       <view style='width:20%;height:30%;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/leftA.png") no-repeat;background-size: 30% 100%;'hidden='{{index==5?true:false}}'></view>
       <view hidden='{{index==5?false:true}}' class='{{classDanmu[1]}}'>
         <view class='{{classDanmu[2]}}'></view>

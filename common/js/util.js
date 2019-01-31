@@ -38,7 +38,9 @@ function dateLater(dates, later) {
   return dateObj;
 
 }
+
 module.exports = {
   formatTime: formatTime,
-  getDates: getDates
+  getDates: getDates,
+
 }

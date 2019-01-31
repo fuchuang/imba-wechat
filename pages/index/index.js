@@ -2,6 +2,7 @@ const app = getApp()
 const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
 const util = require('../../common/js/util.js');
+const alertEvent = require('../../common/js/alertEvent.js');
 let getWeekAndData = function (that) {
   let time = util.formatTime(new Date());
   let data = util.getDates(7, time);
@@ -41,24 +42,60 @@ Page({
     weekAndDataPosTop: app.globalData.statusBarHeight + (windowWidth / 750 * 120) +50,
     containPosTop: app.globalData.statusBarHeight + (windowWidth / 750 * 190) + 50 ,
     containPosHeight: windowHeight - app.globalData.statusBarHeight - (windowWidth / 750 * 320) - 50 ,
-    //弹出框位置
+    //弹出框信息
     setNowWeek: { 
       alertLeft: windowWidth / 2 - windowWidth / 750 * 200, 
       alertHeight: 300, 
       alertTop: windowHeight / 2 - windowWidth / 750 * 150,
       value: ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周', '第9周', '第10周', '第11周', '第12周', '第13周', '第14周', '第15周', '第16周', '第17周', '第18周', '第19周', '第20周', '第21周', '第22周', '第23周', '第24周'],
       index:0,
+      lastIndex:0,
       hidden:true
       },
-    alertLeft: windowWidth/2 - windowWidth/ 750 * 200 ,
-    alertHeight:400,
-    alertTop: windowHeight / 2 - windowWidth / 750 * 200,
+    addClassMes:{
+      alertWidth: 600,
+      alertLeft: windowWidth / 2 - windowWidth / 750 * 300,
+      alertHeight: 900,
+      alertTop: windowHeight / 2 - windowWidth / 750 * 450,
+      index: 0,
+      hidden: true,
+      week: ['周一', '周二', '周三', '周四', '周五', '周六', '周七'],
+      firstClass:[1,2,3,4,5,6,7,8,9,10,11,12,13],
+      secondClass: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      value: [0, 0, 1]
+    },
+    shareClass:{
+      alertWidth: 600,
+      alertLeft: windowWidth / 2 - windowWidth / 750 * 300,
+      alertHeight: 700,
+      alertTop: windowHeight / 2 - windowWidth / 750 * 350,
+      index: 0,
+      hidden: true,
+      scanUrl:'https://campus.gbdev.cn:8443/Miniapp/imba/scan.png'
+    },
+    sendDanMu:{
+      alertWidth: 500,
+      alertLeft: windowWidth / 2 - windowWidth / 750 * 250,
+      alertHeight: 500,
+      alertTop: windowHeight / 2 - windowWidth / 750 * 250,
+      hidden: true
+
+    },
+
+
     //弹幕样式
     classDanmu: [false, 'borderRadiuClose','borderCircleColse'],
    
     weekNums: ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周', '第9周', '第10周', '第11周', '第12周', '第13周', '第14周', '第15周', '第16周', '第17周', '第18周', '第19周', '第20周', '第21周', '第22周', '第23周', '第24周'],
     gradeNums: ['大一 上学期', '大一 下学期', '大二 上学期', '大二 下学期', '大三 上学期', '大三 下学期', '大四 上学期', '大四 下学期', '大五 上学期', '大五 下学期'],
-    menuNums : ['修改周次','添加课程','分享课程','添加背景','扫一扫','弹幕  '],
+    menuNums: [
+      { name: '修改周次', type: 'setNowWeek' }, 
+      { name: '添加课程', type: 'addClassMes' }, 
+      { name: '分享课程', type: 'shareClass' }, 
+      { name: '添加背景', type: 'changeBG' },
+      { name: '扫一扫', type: 'havaAScan' },
+      { name: '弹幕   ', type: 'danMu' },
+      ],
 
     classAboutSevenM:{}
   },
@@ -67,6 +104,7 @@ Page({
     getWeekAndData(this)
 
   },
+  // 选择周次
   chooseWeekEvent: function(e){
     let flag = !this.data.chooseWeek;
     this.setData({
@@ -74,6 +112,7 @@ Page({
     })
     console.log('open')
   },
+  //关闭菜单
   clooseOpenMenuAndWC: function (e) {
 
     this.setData({
@@ -82,6 +121,7 @@ Page({
     })
     console.log('close')
   },
+  //打开菜单
   chooseMenuEvent: function(e){
     let flag = !this.data.chooseMenu
     this.setData({
@@ -92,11 +132,12 @@ Page({
   },
   //菜单点击事件
   menuBindEvent:function(e){
-    console.log(e.currentTarget.dataset.index)
-    //弹幕
+    console.log(e.currentTarget.dataset)
+    //弹框
     let index = e.currentTarget.dataset.index
-    switch (index){
-      case 5 :
+    let type = e.currentTarget.dataset.type
+    let str = type + '.hidden'
+    if (index===5){
         let classDanmu = this.data.classDanmu
         if (classDanmu[0]){
           this.setData({
@@ -107,25 +148,33 @@ Page({
             classDanmu: [true, 'borderRadiuOpen', 'borderCircleOpen'],
           }) 
         }
-        
-        break;
-      case 0:
-        let str = 'setNowWeek.hidden'
-        this.setData({
-          [str] : false,
-          chooseWeek: true,
-          chooseMenu: true
-
-        })
-      break;
-      default:break;
+    }else{
+      alertEvent.alertAndCloseMenu(str, this)
     }
   },
-  //关闭弹出框
-  closeSetWeek:function(e){
-    let str = 'setNowWeek.hidden'
+  //关闭设置弹出框
+  closeTan:function(e){
+    let type = e.currentTarget.dataset.type,
+    str = type + '.hidden'
+    alertEvent.closeAlert(str, this)
+    
+  },
+  // 确定设置周次
+  changeValue:function(e){
+    console.log(e)
+    let str = 'setNowWeek.index', str1 = 'setNowWeek.hidden'
     this.setData({
-      [str]: true,
+      [str]: e.detail.value,
+      [str1]:true
+    })
+
+  },
+  // 添加课程 滚动第一节课 改变第二节的上限
+  changeFirstClass: function(e){
+    let value = alertEvent.changeFirstClass(e)
+    let str = 'addClassMes.value'
+    this.setData({
+      [str]: value
     })
   }
 })

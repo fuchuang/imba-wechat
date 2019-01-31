@@ -67,3 +67,12 @@ color: transparent;
   z-index: 2;
   top: 0;
 }
+.inputPlaceholder{
+  background: white;
+  border-radius: 20rpx;
+  padding: 0 5rpx;
+  font: black;
+}
+.btnClass{
+  width:25%;background:#5BFFCD;height:60rpx;border-radius:20rpx;color:white;font-size:medium;
+}
