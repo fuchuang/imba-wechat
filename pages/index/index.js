@@ -18,9 +18,19 @@ let getWeekAndData = function (that) {
       time: time
     }
   }
+  //当前 周几
+  let nowdata = new Date(time).getDay() - 1;
+  let str1 ='nowData[' + nowdata +'].nowData',
+    str2 = 'nowData[' + (nowdata-1) + '].lastData',
+    str3 = 'nowData[' + (nowdata + 1) + '].nextData'
+  console.log(str1)
   that.setData({
-    classAboutSevenM: classAboutSevenM
+    classAboutSevenM: classAboutSevenM,
+    [str1] :false,
+    [str2]:false,
+    [str3]:false
   })
+
 }
 Page({
   data: {
@@ -42,6 +52,7 @@ Page({
     weekAndDataPosTop: app.globalData.statusBarHeight + (windowWidth / 750 * 120) +50,
     containPosTop: app.globalData.statusBarHeight + (windowWidth / 750 * 190) + 50 ,
     containPosHeight: windowHeight - app.globalData.statusBarHeight - (windowWidth / 750 * 320) - 50 ,
+    
     //弹出框信息
     setNowWeek: { 
       alertLeft: windowWidth / 2 - windowWidth / 750 * 200, 
@@ -81,8 +92,18 @@ Page({
       hidden: true
 
     },
-
-
+    // 当前日期
+    nowData: [
+      { data: '周一', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周二', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周三', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周四', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周五', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周六', flag: true, nowData: true, lastData: true, nextData: true }, 
+      { data: '周日', flag: true, nowData: true, lastData: true, nextData: true}],
+    //课程表和签筒切换
+    isClass:true,
+    qianTongHeight: windowHeight - app.globalData.statusBarHeight - 50 - (windowWidth / 750 * 130) ,
     //弹幕样式
     classDanmu: [false, 'borderRadiuClose','borderCircleColse'],
    
@@ -175,6 +196,13 @@ Page({
     let str = 'addClassMes.value'
     this.setData({
       [str]: value
+    })
+  },
+  // 改变课程表显示模式
+  changeClassStyle: function (e) {
+    let isClass = !this.data.isClass
+    this.setData({
+      isClass: isClass
     })
   }
 })

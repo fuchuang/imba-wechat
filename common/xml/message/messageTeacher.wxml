@@ -1,0 +1,32 @@
+<view  style='top:{{gradeCardTop+50}}rpx; width:  650rpx;position: absolute;left: 50rpx;'>
+  <view
+    wx:for='{{teacherMessage}}'
+    wx:for-item='item'
+    for-index='index'
+    wx:key = 'teacherMessage'
+    class='teacherBG flexColumn'
+    style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/teacherBG{{index%3+1}}.png") no-repeat;background-size:100% 100%;' 
+  >
+    <view class='teacherContain flexRow' >
+        <view style='width:30%;height:100%;' class='flexRow flexRowCenterAndAround'> 
+          <view class='circle' style='background:url({{item.photoUrl}}) no-repeat;background-size:100% 100%;'></view>
+        </view>
+        <view style='' class='flexColumn teacherItem'>
+        <!--文字内容-->
+          <view 
+          wx:for='{{item.message}}'
+          wx:for-item='itemContain'
+          wx:key = 'itemContain{{index}}'
+          style='align-items: center;justify-content: space-around;'
+          class='flexRow'
+          >
+             <view 
+             style='width:14rpx;height:14rpx;border-radius:7rpx;background:white;margin-left:20rpx;' />
+             <view style='margin-left:10rpx;font-weight:200;'>{{itemContain.title}}：</view>
+             <view style='margin-left:2rpx;font-weight:700;' class='fontOverFlowScroll'>{{itemContain.contain}}</view>
+          </view>
+        </view>
+    </view>
+  </view>
+  <view style='width:100%;height:130rpx;'></view>
+</view>

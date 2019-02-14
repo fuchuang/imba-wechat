@@ -1,9 +1,12 @@
 {
   "pages":[
+    "pages/message/message",
     "pages/index/index"
+    
+
   ],
   "window":{
-    "navigationStyle":"custom",
-    "cloud": true
+    "navigationStyle":"custom"
+    
   }
 }

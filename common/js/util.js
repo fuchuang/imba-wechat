@@ -36,9 +36,10 @@ function dateLater(dates, later) {
   dateObj.time = yearDate + '-' + month + '-' + dayFormate;
   dateObj.week = show_day[day];
   return dateObj;
-
 }
-
+function getNowData(later){
+  
+}
 module.exports = {
   formatTime: formatTime,
   getDates: getDates,

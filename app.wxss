@@ -74,5 +74,21 @@ color: transparent;
   font: black;
 }
 .btnClass{
-  width:25%;background:#5BFFCD;height:60rpx;border-radius:20rpx;color:white;font-size:medium;
+  width:25%;background:#5BFFCD;
+  height:60rpx;
+  border-radius:20rpx;
+  color:white;
+  font-size:medium;
+}
+.inManyLine{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  text-align:center;
+  align-items:center;
+  justify-content: center;
+  color:#DE4139;
 }

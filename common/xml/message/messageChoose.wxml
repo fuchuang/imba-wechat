@@ -1,0 +1,31 @@
+<view  style='top:{{gradeCardTop+20}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
+  <view style='' class='chooseInput'>选课宝典</view>
+  <view class='inputSearch flexRow flexRowCenterAndAround'>
+    <view style='width:540rpx;height:50rpx;background:white;border-radius:10rpx;' class='flexRow flexRowCenterAndAround'>
+        <input type='text' placeholder='输入你想要的内容' confirm-type='search' placeholder-style='margin-left:20rpx;' style='margin-left:20rpx;width:480rpx;'/>
+        <view class='serchLogo'/>
+        
+
+    </view>
+  </view>
+  <view style='width:100%;height:60rpx;margin-top:30rpx;' class='flexRow flexRowCenterAndAround'> 
+    <!--按钮-->
+    <view style='background:{{item.bgColor}};' class='chooseBtnMessage flexRowCenterAndAround flexRow' wx:for='{{chooseBtn}}' wx:for-item='item' wx:key='chooseBtn' bindtap='chooseBtn' data-color='{{item.bgColor}}'><text>{{item.title}}</text></view>
+  </view>
+      <!--内容-->
+  <view style='background:{{chooseBGColor}};' class='chooseBG flexRow flexRowCenterAndAround'>
+    <view style='height:{{chooseHeight}}rpx;min-height:{{chooseHeight}}rpx;' class='flexRow chooseContain'>
+        <view wx:for='{{chooseClass}}' class='chooseClass flexRow' wx:key='chooseClass' wx:for-item='item'>
+          <view style='width:75%;height:100%;' class='flexColumn'>
+            <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.title}}</view>
+            <view style='font-size:small;color:#A1A1A1;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.teacher}}</view>
+          </view>
+          <view style='width:25%;height:100%;color:#FF4040;' class='flexRow flexRowCenterAndAround'>
+            <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/chooseLoveLogo.png");background-size:100% 100%;width:32rpx;height:32rpx;'></view><text style='font-size:xx-small;'>{{item.num}}</text>
+          </view>
+        
+        </view>
+    </view>
+  </view>
+  <view style='width:100%;height:130rpx;' />
+</view>

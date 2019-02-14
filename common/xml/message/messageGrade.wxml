@@ -1,0 +1,46 @@
+
+
+<view class='mainBG' hidden='{{messageGrade}}'/>
+
+<!--成绩显示-->
+<view class='grade flexRow flexRowCenterAndAround' style='top:{{gradeCardTop+60}}rpx;' >
+  <scroll-view style='' class='gradeBG' scroll-y >
+    <view class='flexColumn flexRowCenterAndAround' wx:for='{{gradeMessage}}' wx:key='grade' wx:for-item='item'>
+      <view style='' class='testLine flexRow'>
+         <view class='testLineFont'>{{item.title}}:</view>
+         <view class='testLineFont'>{{item.num}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view style='top:{{gradeCardTop}}rpx;' class='gradeCardTop'/>
+
+<!--成绩详情-->
+<view class='detailBG flexRow flexRowCenterAndAround' style='top:{{gradeCardTop+550}}rpx;'>
+ 
+  <scroll-view style='' class='detailContain' scroll-y >
+    <view class='flexColumn flexRowCenterAndAround' wx:for='{{detailGrade}}' wx:key='detailGrade' wx:for-item='item'>
+      <view style='' class='testLine flexRow'>
+         <view class='testLineFont'>{{item.title}}:</view>
+          
+         <view class='testLineFont'>{{item.num}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<!--按钮事件的背后-->
+<view style='width:100%;height:100%;position:fixed;' bindtap='choseClose' hidden='{{!gradeBtnOpen}}' />
+
+
+
+
+<view class='gradeScroll flexCloumn' style='top:{{gradeCardTop+470}}rpx;' >
+  <view class='flexRow flexRowCenterAndAround' style='height: 60rpx;' wx:for='{{gradeBtnMessage}}' wx:for-item='item' hidden='{{item.flag}}' for-index='index' wx:key='gradeBtnMessage' bindtap='choseGradeData' data-index='{{index}}'>  
+    <text>{{item.title}}</text>
+    <view class='gradeAngle' hidden='{{item.angleFlag}}'></view>
+    <view  style='width:28rpx;height: 28rpx;' hidden='{{!item.angleFlag}}'></view>
+  </view>
+</view>
+
+

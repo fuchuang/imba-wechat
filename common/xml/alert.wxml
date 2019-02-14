@@ -13,7 +13,7 @@
           >
             <view style="line-height: 50px">当前周次</view>
             <picker-view-column style='left:50rpx;'>
-              <view wx:for="{{setNowWeek.value}}" wx:key='week' style="line-height: 40px;background:white;padding-left:50rpx;">{{item}}</view>
+              <view wx:for="{{setNowWeek.value}}" wx:key='nowWeek' style="line-height: 40px;background:white;padding-left:50rpx;">{{item}}</view>
             </picker-view-column>
           </picker-view>
       </view>
