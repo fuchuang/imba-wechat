@@ -1,0 +1,48 @@
+/* 教务通知 */
+.notice{
+  width: 100%;
+  position: absolute;
+}
+.noticeItem{
+  width: 650rpx;
+  position: relative;
+  left: 50rpx;
+  height: 123rpx; 
+  background: #37FABE;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
+}
+.noticeItemContian{
+  width: 630rpx;
+  left: 50rpx;
+  height: 103rpx; 
+  background: white;
+  border-radius: 10rpx;
+}
+.haveRead{
+    background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notive_hasRead.png");
+  background-size:100% 100%;
+  width: 30rpx;
+  height: 30rpx;
+}
+.noticeLogo{
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notice_logo.png");
+  background-size:100% 100%;
+  width: 44rpx;
+  height: 38rpx;
+}
+.moreMessage{
+  width:  650rpx;
+  background: #37FABE;
+  border-radius: 20rpx;
+  position: absolute;
+  left: 50rpx;
+  height: auto;
+}
+.moreMessageContain{
+  width:  650rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background: white;
+}

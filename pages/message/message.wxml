@@ -20,8 +20,12 @@
     <view hidden='{{pageControll.messageChoose}}' style='width:100%;height:100%;'>
     <include src='../../common/xml/message/messageChoose.wxml'/>
   </view>
-      <view hidden='{{pageControll.messageAdd}}' style='width:100%;height:100%;'>
+  <view hidden='{{pageControll.messageAdd}}' style='width:100%;height:100%;'>
     <include src='../../common/xml/message/messageAdd.wxml'/>
+  </view>
+  <!-- 二级页面-->
+    <view hidden='{{secondPageControll.messageNotice}}' style='width:100%;height:100%;'>
+    <include src='../../common/xml/message/noticeContain.wxml'/>
   </view>
 </view>
 <!--返回-->

@@ -21,7 +21,7 @@ Page({
     //  页面切换
     path:'../../common/xml/message/messageTeacher.wxml',
     pageControll:{
-      messageIndex: false,
+      messageIndex: true,
       messageGrade: true,
       messageNotice: true,
       messageTeacher:true,
@@ -29,9 +29,9 @@ Page({
       messageChoose:true,
       messageAdd:true
     },
-    secondPagse:false,
+    secondPagse:true,
     secondPageControll:{
-      messageNotice:true,
+      messageNotice:false,
       messageTeacher: true,
       messageChoose: true,
       messageAdd: true
@@ -226,18 +226,9 @@ Page({
   // 首页窗口
   btnEvent: function(e){
     let str = e.currentTarget.dataset.message
-    let secondPagse = this.data.secondPagse
-    if (!secondPagse) {// 是否一级界面
-      mes.turnInOther(str, this)
-      this.setData({
-        secondPagse:true
-      })
-    } else {// 二级页面跳转
-      mes.turnInSecond(str,this)
-    }
-    console.log(this.data.secondPageControll)
-    
-    
+    mes.turnInOther(str, this)
+
+
   },
   // 选择 成绩对应的日期
   choseGradeData:function (e) {
@@ -280,21 +271,29 @@ Page({
   },
 //  返回键
   returnIndex (e) {
-    
     let secondPagse = this.data.secondPagse
-    if(secondPagse){
-      let str = 'messageIndex'
+    let secondPageControll = this.data.secondPageControll
+    let str = 'messageIndex'
+    if(!secondPagse){
       mes.turnInOther(str, this)
-      this.setData({
-        secondPagse :false
-      })
+
+      console.log('321')
+    }else{
+      for (let i in secondPageControll) {
+        if (secondPageControll[i] === false) {
+          str = i;
+        }
+      }
+      mes.returnSecond(str,this)
+      console.log('123')
     }
     
   },
   // 教务通知事件
   noticeEvent (e) {
-    console.log(e.currentTarget.dataset)
-
+    let str = e.currentTarget.dataset.message
+    mes.turnInSecond(str, this)
+    
   },
   //宝典按钮
   chooseBtn(e){

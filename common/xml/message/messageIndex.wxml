@@ -12,7 +12,7 @@
 
 <view style='width:100%;position:absolute;top:{{cardTop+270}}rpx;justify-content: space-between;' class='flexColumn'>
   <view class='flexRow ' style='width:100%;  justify-content:space-around;margin-top:20rpx;' wx:for='{{btnMessage}}'  wx:key='btn' wx:for-item='item'>
-    <view class='flexRow btn_bg' wx:for='{{item}}' wx:for-item='message' wx:key='{{message.key}}' data-message='{{message.bindEvent}}' bindtap='btnEvent'>
+    <view class='flexRow btn_bg' wx:for='{{item}}' wx:for-item='message' wx:key='{{message.key}}' data-message='{{message.bindEvent}}' bindtap='btnEvent' >
       <view style='width:20rpx;' hidden='{{message.flag}}'/>
       <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/{{message.url}}.png") no-repeat; background-size:100% 100%;' class='btn_logo' hidden='{{message.flag}}' />
       <view style='width:20rpx;' hidden='{{message.flag}}'/>

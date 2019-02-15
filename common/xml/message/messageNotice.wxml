@@ -1,8 +1,8 @@
 <view class='notice' style='top:{{gradeCardTop+60}}rpx;'>
-  <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'>
+  <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
     <view class='noticeItemContian flexRow flexRowCenterAndAround' >
       <view style='width:80%;' class='flexCloumn flexRowCenterAndAround'>
-        <view class='flexRow flexRowCenterAndAround' bindtap='btnEvent' data-message='messageNotice'>
+        <view class='flexRow flexRowCenterAndAround' >
           <view class='noticeLogo' />
           <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
           <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>

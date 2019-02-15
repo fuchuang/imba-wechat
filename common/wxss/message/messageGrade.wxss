@@ -1,0 +1,75 @@
+/* 成绩查询 */
+.grade{
+  width: 650rpx;
+  height: 380rpx;
+  background: #FFC35A;
+  position: absolute;
+  left: 50rpx;
+  border-radius: 20rpx;
+  box-shadow:0rpx 15rpx 50rpx 5rpx rgb(200, 200, 200);
+}
+.gradeBG{
+  width:620rpx;
+  height: 350rpx;
+  background:white;
+}
+.gradeCardTop{
+  display:block;
+  position:absolute;
+  width:176rpx;
+  height:110rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_card_top.png") no-repeat;
+  background-size:100% 100%;
+  left:287rpx;
+}
+.testLine{
+  width:80%;
+  height: 60rpx;
+  margin-top:20rpx;
+  border-bottom: solid 1px #CBCBCB;
+  justify-content: space-between;
+  align-items: center;
+}
+.testLineFont{
+  color: #36CCFA;
+  font-size: large;
+  font-weight: 700;
+}
+.gradeScroll{
+  position: absolute;
+  width: 290rpx;
+  border: solid 5rpx #36CCFA;
+  color: #36CCFA;
+  font-size: large;
+  border-radius: 20rpx;
+  background: white;
+  background-size: 100% 100%;
+  left: 230rpx;
+  letter-spacing: 10rpx;
+  align-items: center;
+  justify-content: space-around;
+}
+.gradeAngle{
+  width:28rpx;
+  height: 28rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_grade_scroll_tri.png") no-repeat;
+  background-size:100% 100%;
+}
+.detailBG{
+  width: 650rpx;
+  height:auto;
+  background: #37FABE;
+  position:absolute;
+  left: 50rpx;
+  border-radius: 20rpx;
+
+}
+.detailContain{
+  width: 630rpx;
+  height:auto!important;
+  height:500rpx;
+  min-height:500rpx;
+  margin: 10rpx 0;
+  background: white;
+  border-radius: 20rpx;
+}

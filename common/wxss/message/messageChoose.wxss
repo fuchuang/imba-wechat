@@ -1,0 +1,53 @@
+/*选课宝典*/
+.chooseInput{
+  position:relative;
+  width:200rpx;
+  left:275rpx;
+  color:#29C1F2;
+  font-weight:800;
+}
+.inputSearch{
+  background: #51D6FF;
+  font-size: medium;
+  border-radius: 20rpx;
+  width: 550rpx;
+  position: relative;
+  left: 50rpx;
+  height: 65rpx;
+}
+.serchLogo{
+  width: 40rpx;
+  height: 40rpx;
+  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/searchLogo.png") no-repeat;
+  background-size: 100% 100%;
+}
+.chooseBtnMessage{
+  text-align:center;
+  color: white;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  width:191rpx;
+  height:100%;
+  font-size: medium;
+}
+.chooseBG{
+  width:100%;
+  background: black;
+}
+.chooseContain{
+  width:100%;
+  margin: 10rpx;
+  background:white;
+  height:auto!important;
+  justify-content:flex-start;
+  align-content: flex-start;
+  flex-wrap:wrap;
+}
+.chooseClass{
+  background: white;
+  border: 2px solid #29C1F2;
+  width: 300rpx;
+  height: 80rpx;
+  margin: 15rpx 5rpx;
+  border-radius: 20rpx;
+}

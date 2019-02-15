@@ -1,0 +1,22 @@
+/**增加页面*/
+.addBG1{
+  width:300rpx;
+  height:189rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/add_BG1.png") no-repeat;     background-size:100% 100%;
+  margin:20rpx 10rpx;
+}
+.addBG2{
+  width:300rpx;
+  height:189rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/add_BG2.png") no-repeat;     background-size:100% 100%;
+  margin:20rpx 10rpx;
+}
+.addBorderBottom{
+  width:500rpx;
+  height:20rpx;
+  border-bottom:solid 1px #7c7c7c;
+  left:75rpx;
+  position:relative;
+  color: #787878;
+  font-size: medium;
+}

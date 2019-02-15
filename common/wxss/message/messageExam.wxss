@@ -1,0 +1,19 @@
+/*/*考试信息*/
+.examBG{
+  width:100%;
+  height:174rpx;
+  background:#51D6FF;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
+}
+.examTitle{
+  margin-left:20rpx;
+  font-size: larger;
+  color: white;
+}
+.examItem{
+  width:120rpx;
+  margin-left:20rpx;
+  color:#51D6FF;
+}

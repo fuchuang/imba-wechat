@@ -1,0 +1,38 @@
+/*教师信息*/
+.teacherBG{
+  box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
+  width:650rpx;
+  height: 287rpx;
+  justify-content: flex-end;
+  margin-bottom: 50rpx;
+  
+}
+.teacherContain{
+  width: 650rpx;
+  height: 243rpx;
+}
+.teacherItem{
+  align-items: flex-start;
+  justify-content: space-around;
+  width:80%;
+  height:100%;
+  color: white;
+  font-size: small;
+}
+.circle{
+  width: 120rpx; 
+  height: 120rpx; 
+  background: red; 
+  -moz-border-radius: 60rpx; 
+  -webkit-border-radius: 60rpx; 
+  border-radius: 60rpx; 
+}
+.fontOverFlowHidden{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.fontOverFlowScroll{
+  overflow: scroll;
+  white-space: nowrap;
+}

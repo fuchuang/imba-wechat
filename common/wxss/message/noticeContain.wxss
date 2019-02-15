@@ -1,0 +1,45 @@
+/**教务通知 详情*/
+.noticeContainBG{
+  width:  650rpx;
+  background: #37FABE;
+  border-radius: 20rpx;
+  position: absolute;
+  left: 50rpx;
+  height: auto;
+  box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
+}
+.noticeContainTitle{
+  height:120rpx;
+  width:640rpx;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: larger;
+  color: #7c7c7c;
+  font-weight: 700;
+}
+.noticeContainText{
+  font-size: inherit;
+  word-wrap:break-word;
+  height: auto;
+  width: 600rpx;
+  text-indent: 1.5em;
+  line-height: 80rpx;
+  font-weight: 600;
+  color: #707070;
+
+}
+.noticeContainFoot{
+  height:120rpx;
+  margin-top: 200rpx;
+  width: 600rpx;
+  color: #28c2f2;
+  font-size: large;
+  font-weight: 700;
+  justify-content: space-between;
+}
+.noticeContainStar{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left:640rpx;
+}
