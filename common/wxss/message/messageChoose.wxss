@@ -32,7 +32,7 @@
 }
 .chooseBG{
   width:100%;
-  background: black;
+
 }
 .chooseContain{
   width:100%;
@@ -46,7 +46,7 @@
 .chooseClass{
   background: white;
   border: 2px solid #29C1F2;
-  width: 300rpx;
+  width: 295rpx;
   height: 80rpx;
   margin: 15rpx 5rpx;
   border-radius: 20rpx;

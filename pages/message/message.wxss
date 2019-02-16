@@ -5,6 +5,7 @@
 @import "../../common/wxss/message/messageExam.wxss";
 @import "../../common/wxss/message/messageChoose.wxss";
 @import "../../common/wxss/message/messageAdd.wxss";
+@import "../../common/wxss/message/messageChooseContain.wxss";
 page{
   width: 100%;
   top:0;

@@ -1,0 +1,24 @@
+.MCC_contain{
+  width:600rpx;
+  align-items: center;
+  height:auto;
+  position:absolute;
+  left: 75rpx;
+}
+.MCC_contain_bg{
+  background:white;width:560rpx;align-items: center;
+  box-shadow:0 15rpx 150rpx 5rpx rgb(200, 200, 200);
+}
+.MCC_contain_classTitle{
+  color:#28C2F2;font-weight:500;width:200rpx;
+}
+.MCC_contain_classCntain{
+  font-weight:500;color:#949494;
+}
+.MCC_contain_classBtn{
+  justify-content: flex-end;width:540rpx;
+}
+.MCC_contain_classBtnSize{
+  width: 68rpx;
+  height: 68rpx;
+}

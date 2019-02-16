@@ -24,11 +24,21 @@
     <include src='../../common/xml/message/messageAdd.wxml'/>
   </view>
   <!-- 二级页面-->
-    <view hidden='{{secondPageControll.messageNotice}}' style='width:100%;height:100%;'>
+  <view hidden='{{secondPageControll.messageNotice}}' style='width:100%;height:100%;'>
     <include src='../../common/xml/message/noticeContain.wxml'/>
+  </view>
+  <view hidden='{{secondPageControll.messageChoose}}' style='width:100%;height:100%;'>
+    <include src='../../common/xml/message/messageChooseContain.wxml'/>
+  </view>
+  <view hidden='{{secondPageControll.messageAdd1}}' style='width:100%;height:100%;'>
+    <include src='../../common/xml/message/messageAddContain.wxml'/>
+  </view>
+  <view hidden='{{secondPageControll.messageAdd2}}' style='width:100%;height:100%;'>
+    <include src='../../common/xml/message/messageAddContain.wxml'/>
   </view>
 </view>
 <!--返回-->
-<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!pageControll.messageIndex}}'/>
+<view class='return' style='top:{{gradeCardTop+10}}rpx;' 
+bindtap='returnIndex' hidden='{{!pageControll.messageIndex}}'/>
 <include src='../../common/xml/head.wxml'/>
 <include src='../../common/xml/footer.wxml'/>

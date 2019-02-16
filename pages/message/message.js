@@ -31,10 +31,11 @@ Page({
     },
     secondPagse:true,
     secondPageControll:{
-      messageNotice:false,
+      messageNotice:true,
       messageTeacher: true,
-      messageChoose: true,
-      messageAdd: true
+      messageChoose: false,
+      messageAdd1: true,
+      messageAdd2: true
 
     },
     // 成绩信息
@@ -274,33 +275,50 @@ Page({
     let secondPagse = this.data.secondPagse
     let secondPageControll = this.data.secondPageControll
     let str = 'messageIndex'
+    let flag = true
     if(!secondPagse){
       mes.turnInOther(str, this)
-
       console.log('321')
     }else{
+      // 返回二级页面
       for (let i in secondPageControll) {
         if (secondPageControll[i] === false) {
           str = i;
+          flag =false
         }
       }
-      mes.returnSecond(str,this)
-      console.log('123')
+      if (flag) {
+        // 如果没有进一步进入第三级
+        mes.turnInOther(str, this)
+      } else {
+        mes.returnSecond(str,this)
+      }
     }
     
   },
   // 教务通知事件
   noticeEvent (e) {
     let str = e.currentTarget.dataset.message
+    
     mes.turnInSecond(str, this)
     
   },
-  //宝典按钮
+  // 选课宝典时间
+  chooseEvent (e) {
+    let str = e.currentTarget.dataset.message
+    mes.turnInSecond(str, this)
+  },
+  //宝典内部按钮
   chooseBtn(e){
     let color = e.currentTarget.dataset.color
-    console.log(e.currentTarget.dataset)
     this.setData({
       chooseBGColor: color
     })
+  },
+  // 比赛信息事件
+  addEvent : function(e) {
+    let str = e.currentTarget.dataset.message
+    let index = e.currentTarget.dataset.kind
+    mes.turnInSecond(str, this, index)
   }
 })
