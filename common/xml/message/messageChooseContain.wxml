@@ -6,20 +6,20 @@
 </view>
 <view 
   class="flexColumn MCC_contain" 
-  style="top:{{gradeCardTop+100}}rpx;">
+  style="top:{{gradeCardTop+80}}rpx;">
   <view style="" class='flexColumn MCC_contain_bg'>
-    <view wx:for='{{[1,2,3,4]}}' class="flexRow" 
-     style="border-bottom:1rpx solid #707070;width:540rpx;justify-content: flex-start;line-height:65rpx;">
+    <view wx:for='{{[1,2,3,4]}}' class="flexRow MCC_contain_classContain" 
+    wx:key = 'classContain'>
       <view  style="" class="MCC_contain_classTitle">授课名称:</view>
       <view style='' class="MCC_contain_classCntain">六大明珠</view>
     </view>
     <view style="" class="flexRow MCC_contain_classBtn">
-      <view class="MCC_contain_classBtnSize" style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png") no-repeat;background-size:100% 100%;'></view>
-      <view class="MCC_contain_classBtnSize" style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png") no-repeat;background-size:100% 100%;'></view>
+      <view class="MCC_contain_classBtnSize" style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MCC_saveOff.png") no-repeat;background-size:100% 100%;'></view>
+      <view class="MCC_contain_classBtnSize" style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MCC_zanOff.png") no-repeat;background-size:100% 100%;'></view>
     </view>
   </view>
-   <view style="margin-top:20rpx;" class='flexColumn MCC_contain_bg'>
-      <view wx:for='{{[1,2,3]}}' class="flexRow" style="margin:0 20rpx;width:100%;align-items: center;  justify-content: space-around;">
+   <scroll-view style="margin-top:20rpx;height:{{windowHeight*0.3}}px;" class='flexColumn MCC_contain_bg' scroll-y>
+      <view wx:for='{{[1,2,3,5,6,7,8]}}' class="flexRow" style="margin:0 20rpx;width:100%;align-items: center;  justify-content: space-around;" wx:key='peopleCommon'>
         <view  style='width:100rpx;height:100rpx;border-radius: 50rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png") no-repeat;background-size:100% 100%;'></view>
         <view class='flexColumn' style="width:400rpx;margin:20rpx;">
           <text style='font-size:large;'>血寻</text>
@@ -27,5 +27,9 @@
           <text style='font-size:small;color:#A6A6A6;font-weight:200;border-bottom:1px #a6a6a6 solid;'>2018.1.12 12：20</text>
         </view>
       </view>
+   </scroll-view>
+   <view  style='height:100rpx;margin-top:50rpx;align-items: center;justify-content: center;font-size:medium;color:#a7a7a7;' class=' MCC_contain_bg flexRow'>
+    <text>发表评论</text>
+    <view style='width:39rpx;height:30rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MCC_write.png") no-repeat;background-size:100% 100%;'/>
    </view>
 </view>

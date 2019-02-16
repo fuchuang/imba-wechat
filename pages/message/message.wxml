@@ -31,10 +31,10 @@
     <include src='../../common/xml/message/messageChooseContain.wxml'/>
   </view>
   <view hidden='{{secondPageControll.messageAdd1}}' style='width:100%;height:100%;'>
-    <include src='../../common/xml/message/messageAddContain.wxml'/>
+    <include src='../../common/xml/message/messageAddContain1.wxml'/>
   </view>
   <view hidden='{{secondPageControll.messageAdd2}}' style='width:100%;height:100%;'>
-    <include src='../../common/xml/message/messageAddContain.wxml'/>
+    <include src='../../common/xml/message/messageAddContain2.wxml'/>
   </view>
 </view>
 <!--返回-->

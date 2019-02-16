@@ -16,9 +16,16 @@
   font-weight:500;color:#949494;
 }
 .MCC_contain_classBtn{
-  justify-content: flex-end;width:540rpx;
+  justify-content: flex-end;
+  width:540rpx;
 }
 .MCC_contain_classBtnSize{
-  width: 68rpx;
-  height: 68rpx;
+  width: 48rpx;
+  margin: 10rpx;
+  height: 48rpx;
+}
+.MCC_contain_classContain{
+  border-bottom:1rpx solid #707070;
+  width:540rpx;justify-content: 
+  flex-start;line-height:65rpx;
 }

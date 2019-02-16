@@ -73,5 +73,13 @@ page{
   background:url("https://campus.gbdev.cn:8443/Miniapp/imba/main_bg.png");
   background-size:100% 100%;
 }
-
+.fontOverFlowHidden{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.fontOverFlowScroll{
+  overflow: scroll;
+  white-space: nowrap;
+}
 

@@ -33,9 +33,9 @@ Page({
     secondPageControll:{
       messageNotice:true,
       messageTeacher: true,
-      messageChoose: false,
+      messageChoose: true,
       messageAdd1: true,
-      messageAdd2: true
+      messageAdd2: false
 
     },
     // 成绩信息
@@ -197,6 +197,7 @@ Page({
         },
       ],
     // 选课宝典的内容高度
+    windowHeight: app.globalData.windowHeight,
     chooseHeight:0,
     chooseBGColor:'#29C1F2',
     chooseBtn: [
