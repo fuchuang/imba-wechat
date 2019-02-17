@@ -1,0 +1,44 @@
+
+
+<view class='borderRadius flexColumn flexRowCenterAndAround MYREcontainBG' style='top:{{gradeCardTop+50}}rpx;  height:{{noticeHeight}}rpx;'>
+  <view class='borderRadius flexColumn MYREcontain' scroll-y style='height:{{noticeHeight-10}}rpx;'>
+    <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'><text>title</text></view>
+    <view style='width:100rpx;height:80rpx;'></view>
+    <scroll-view class="table borderRadius" scroll-y style='height:{{noticeHeight-230}}rpx;'>
+      <view class="tr ">
+        <view class="th tableTitle" />
+        <scroll-view scroll-x class="th" style='flex:1;border-left: 3px solid #adf2ff; font-size: medium;' >
+        <view class='flexRow '>          
+          <view wx:for='{{[1,1,1,1,1,1,1,1]}}' wx:for-item='item' wx:for-index='index' wx:key='test' >
+            {{index}}
+          </view>
+         </view>
+
+        </scroll-view>
+        
+      </view>
+      <block wx:for="{{listData}}" wx:key="{{code}}">
+        <view class="tr">
+          <view class="td" style='border-right: 3px solid #adf2ff;'>{{item.code}}</view>
+          <scroll-view class="td" style='flex:1;'>
+            <view class='flexRow'>
+              <view wx:for='{{[1,2,3,4,5,6]}}' wx:for-item='item' wx:for-index='index' wx:key='test'>
+                      {{index}}
+              </view>
+            </view>        
+          </scroll-view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+    <!--按钮事件的背后-->
+    <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
+    <view style='top:{{gradeCardTop+170}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
+      <view style='' wx:for='{{recordBtnMessage}}' wx:key='recordChoose' wx:for-item='item' class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
+        <view style='width:210rpx;'>{{item.text}}</view>
+        <view class='gradeAngle' hidden='{{item.angleFlag}}'/>
+      </view>
+    </view>
+

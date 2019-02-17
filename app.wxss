@@ -29,6 +29,7 @@ color: transparent;
 .flexRowCenterAndAround{
   align-items: center;
   justify-content: space-around;
+
 }
 .testBG{
   background: blue;
@@ -91,4 +92,22 @@ color: transparent;
   align-items:center;
   justify-content: center;
   color:#DE4139;
+}
+.fontOverFlowHidden{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.fontOverFlowScroll{
+  overflow: scroll;
+  white-space: nowrap;
+}
+.box-shadow{
+  box-shadow:0 -5rpx 50rpx 5rpx rgb(230, 230, 230);
+}
+.gradeAngle{
+  width:28rpx;
+  height: 28rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_grade_scroll_tri.png") no-repeat;
+  background-size:100% 100%;
 }

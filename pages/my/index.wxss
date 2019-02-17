@@ -1,0 +1,72 @@
+@import "../../common/wxss/my/record.wxss";
+page{
+  width: 100%;
+  top:0;
+  height: 100%;
+}
+.borderRadius{
+  border-radius: 20rpx;
+}
+.containBg{
+  background: #80ffd8;position:absolute;width:650rpx;left:50rpx;
+}
+.titleBG{
+  width:630rpx;height:300rpx;align-items: center;  justify-content: space-around;
+}
+.titleTextBG{
+  width:350rpx;height: 280rpx;background:#5BFFCD;
+}
+.titleTextContain{
+  width:340rpx;height:270rpx;background:white;font-size:medium;
+}
+.peopleSize{
+  width:180rpx;height:180rpx;border-radius:90rpx;
+}
+.containTextLine{
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/my/line.png') no-repeat;
+  background-size: 100% 100%;
+  width: 600rpx;
+  height: 2rpx;
+}
+.btnLogo{
+  width: 60rpx;height: 60rpx;  margin: 10rpx 20rpx;
+}
+.btnBg{
+  align-items: center;
+  justify-content: flex-start;
+  color: #51d6ff;
+  font-weight: 700;
+}
+
+.table {
+  border: 3px solid #adf2ff;
+  width: 620rpx;
+}
+.tr {
+  display: flex;
+  justify-content: center;
+  height: 50rpx;
+  align-items: center;
+}
+.td {
+    width: 188rpx;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 3px solid #adf2ff;
+    font-size: medium;
+    height: 100%;
+}
+
+.th {
+  border-bottom: 3px solid #adf2ff;
+  width: 188rpx;
+  height: 50rpx;
+  justify-content: center;
+  display: flex;
+  font-size: medium;
+  align-items: center;
+}
+.tableTitle{
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/table.png");
+  background-size: 100% 100%;
+}

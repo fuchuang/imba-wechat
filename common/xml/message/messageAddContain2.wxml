@@ -10,3 +10,4 @@
     </view>
   </scroll-view>
 </view>
+<view style='width:39rpx;height:59rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
