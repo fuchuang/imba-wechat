@@ -19,3 +19,38 @@
   width:260rpx;height:50rpx;align-items:center;font-size:medium;color:#51d6ff;
 
 }
+.thItem{
+  width: 50rpx;
+  height:50rpx;
+  border-right: 3px solid #adf2ff;
+}
+.table {
+  border: 3px solid #adf2ff;
+  width: 615rpx;
+  
+}
+.tr {
+  display: flex;
+  justify-content: center;
+  height: 50rpx;
+  align-items: center;
+}
+.td {
+    width: 180rpx;
+    border-bottom: 3px solid #adf2ff;
+    border-right: 3px solid #adf2ff;
+    font-size: medium;
+    height: 50rpx;
+}
+
+.th {
+  border-bottom: 3px solid #adf2ff;
+  border-right: 3px solid #adf2ff;
+  width: 50rpx;
+  height: 50rpx;
+}
+.tableTitle{
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/table.png");
+  background-size: 100% 100%;
+  border-bottom: 3px solid #adf2ff;
+}

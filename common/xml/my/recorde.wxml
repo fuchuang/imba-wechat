@@ -4,32 +4,45 @@
   <view class='borderRadius flexColumn MYREcontain' scroll-y style='height:{{noticeHeight-10}}rpx;'>
     <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'><text>title</text></view>
     <view style='width:100rpx;height:80rpx;'></view>
-    <scroll-view class="table borderRadius" scroll-y style='height:{{noticeHeight-230}}rpx;'>
+    <!--表格-->
+    <view class='flexCloumn table ' style='height:{{noticeHeight-280}}rpx;'>
+      <view style='width:620rpx;' class='flexRow'>  
+        <view class='tableTitle td' />
+        <view class='th' wx:for='{{[1,2,3,4,5,6,7,8]}}'></view>
+      </view>
+      <scroll-view scroll-y style='flex:1;height:{{noticeHeight-330}}rpx;width:620rpx;' >
+          <view class='flexRow' wx:for='recorderMessage' style=''>
+            <view style='' class='td flexRow flexRowCenterAndAround'>123</view>
+            <view class='th' wx:for='{{[1,2,3,4,5,6,7,8]}}'></view>
+          </view>
+      </scroll-view>
+    </view>
+    <!--
+    <scroll-view  class="table borderRadius" scroll-y style='height:{{noticeHeight-230}}rpx;'>
       <view class="tr ">
         <view class="th tableTitle" />
         <scroll-view scroll-x class="th" style='flex:1;border-left: 3px solid #adf2ff; font-size: medium;' >
         <view class='flexRow '>          
-          <view wx:for='{{[1,1,1,1,1,1,1,1]}}' wx:for-item='item' wx:for-index='index' wx:key='test' >
-            {{index}}
+          <view wx:for='{{recorderMessage}}' wx:for-item='item' wx:for-index='index' wx:key='test' class='thItem flexColumn flexRowCenterAndAround'>
+          <view> {{index}}</view> 
           </view>
          </view>
-
         </scroll-view>
         
       </view>
       <block wx:for="{{listData}}" wx:key="{{code}}">
         <view class="tr">
           <view class="td" style='border-right: 3px solid #adf2ff;'>{{item.code}}</view>
-          <scroll-view class="td" style='flex:1;'>
+          <scroll-view class="td" style='flex:1;' scroll-x>
             <view class='flexRow'>
-              <view wx:for='{{[1,2,3,4,5,6]}}' wx:for-item='item' wx:for-index='index' wx:key='test'>
-                      {{index}}
+              <view wx:for='{{recorderMessage}}' wx:for-item='item' wx:for-index='index' wx:key='test'  class='thItem flexColumn flexRowCenterAndAround'>
+                    <view>{{index}}</view>  
               </view>
             </view>        
           </scroll-view>
         </view>
       </block>
-    </scroll-view>
+    </scroll-view>-->
   </view>
 </view>
 

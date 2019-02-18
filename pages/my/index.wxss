@@ -38,35 +38,3 @@ page{
   font-weight: 700;
 }
 
-.table {
-  border: 3px solid #adf2ff;
-  width: 620rpx;
-}
-.tr {
-  display: flex;
-  justify-content: center;
-  height: 50rpx;
-  align-items: center;
-}
-.td {
-    width: 188rpx;
-    justify-content: center;
-    text-align: center;
-    border-bottom: 3px solid #adf2ff;
-    font-size: medium;
-    height: 100%;
-}
-
-.th {
-  border-bottom: 3px solid #adf2ff;
-  width: 188rpx;
-  height: 50rpx;
-  justify-content: center;
-  display: flex;
-  font-size: medium;
-  align-items: center;
-}
-.tableTitle{
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/table.png");
-  background-size: 100% 100%;
-}
