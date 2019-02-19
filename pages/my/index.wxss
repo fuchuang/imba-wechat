@@ -1,6 +1,6 @@
 @import "../../common/wxss/my/record.wxss";
 @import "../../common/wxss/my/collect.wxss";
-
+@import "../../common/wxss/my/save.wxss";
 page{
   width: 100%;
   top:0;

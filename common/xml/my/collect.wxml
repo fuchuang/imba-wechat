@@ -1,11 +1,11 @@
-<view class='mainBG' />
+
 <view  style='top:{{gradeCardTop+50}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
   <view class='flexRow flexRowCenterAndAround chooseBtnBG'> 
     <!--按钮-->
     <view style='' 
     class='chooseBtnMessage flexRowCenterAndAround flexRow' 
-    wx:for='{{chooseBtn}}' wx:for-item='item' wx:key='chooseBtn' 
-    bindtap='chooseBtn' data-color='{{item.bgColor}}'>
+    wx:for='{{collectBtn}}' wx:for-item='item' wx:key='chooseBtn' 
+    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}'>
       <text>{{item.title}}</text>
     </view>
   </view>
@@ -14,7 +14,7 @@
   class=' flexRow flexRowCenterAndAround chooseContainBG' >
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="chooseContain">
       <!-- 公选课 -->
-      <view class='flexRow chooseContain' hidden='true'>
+      <view class='flexRow chooseContain' hidden='{{collectContainControll!==2}}'>
          <view wx:for='{{chooseClass}}' class='chooseClass flexRow' 
           wx:key='chooseClass' wx:for-item='item'>
             <view style='width:75%;height:100%;' class='flexColumn'>
@@ -28,7 +28,7 @@
           </view>
       </view>
       <!-- 通知 -->
-      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='true'>
+      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==1}}'>
         <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
           <view class='noticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>

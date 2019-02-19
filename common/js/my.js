@@ -39,9 +39,19 @@ const displayAllBtn = function (that, recordBtnMessage) {
     recorderBtnFlag: true
   })
 }
-
+// 切换页面
+const changePage = function (that,str) {
+  let pageSecond = that.data.pageSecond
+  for (let i in pageSecond) {
+    str === i ? pageSecond[i] = false : pageSecond[i] = true;
+  }
+  that.setData({
+    pageSecond: pageSecond
+  })
+}
 module.exports = {
   recordBtn: recordBtn,
   openChooseBtn: openChooseBtn,
-  displayAllBtn: displayAllBtn
+  displayAllBtn: displayAllBtn,
+  changePage: changePage
 }

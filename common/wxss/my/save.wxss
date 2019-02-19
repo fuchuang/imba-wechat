@@ -1,0 +1,20 @@
+.moreMessageContain{
+  width:  650rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background: white;
+}
+.moreMessage{
+  width:  650rpx;
+  background: #37FABE;
+  border-radius: 20rpx;
+  position: absolute;
+  left: 50rpx;
+  height: auto;
+}
+.documentLogo1{
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/my/documentLogo1.png');
+  background-size: 100% 100%;
+  width: 106rpx;
+  height: 130rpx;
+}

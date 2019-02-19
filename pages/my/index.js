@@ -19,13 +19,23 @@ Page({
 
     // 按钮信息
     btnMessage: [
-      { logoUrl: 'recordlogo', text: '考勤记录', btnEvent: 'record' },
-      { logoUrl: 'treelogo', text: '我们的树', btnEvent: 'tree' },
-      { logoUrl: 'lovelogo', text: '个人收藏', btnEvent: 'love' },
-      { logoUrl: 'historylogo', text: '浏览记录', btnEvent: 'history' },
-      { logoUrl: 'tielogo', text: '我的帖子', btnEvent: 'tie' },
-      { logoUrl: 'savelogo', text: '下载附件', btnEvent: 'save' }
+      { logoUrl: 'recordlogo', text: '考勤记录', btnEvent: 'pagerecord' },
+      { logoUrl: 'treelogo', text: '我们的树', btnEvent: 'pagetree' },
+      { logoUrl: 'lovelogo', text: '个人收藏', btnEvent: 'pagecollect' },
+      { logoUrl: 'historylogo', text: '浏览记录', btnEvent: 'pagehistory' },
+      { logoUrl: 'tielogo', text: '我的帖子', btnEvent: 'pagetie' },
+      { logoUrl: 'savelogo', text: '下载附件', btnEvent: 'pagesave' }
     ],
+    secondPageTextColor: '#fadb91;',
+    pageSecond:{
+      pagerecord: true, 
+      pagetree: true, 
+      pagecollect: true, 
+      pagehistory: true, 
+      pagetie: true, 
+      pagesave: true, 
+      pageindex: false, 
+    },
     // 考勤按钮
     recorderBtnFlag: false,
     recordBtnMessage: [
@@ -49,11 +59,12 @@ Page({
       { className: '大学英语', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] }
     ],
     // 收藏
-    chooseBtn: [
-      { title: '通知', bgColor: '#51D6FF' },
-      { title: '视频', bgColor: '#49F7C2' },
-      { title: '公选课', bgColor: '#FEBF50' }
+    collectBtn: [
+      { title: '通知'},
+      { title: '视频'},
+      { title: '公选课' }
     ],
+    collectContainControll:0,
     chooseClass: [
       { title: '中国建筑', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑1', teacher: '王阳', zan: false, num: 123 },
@@ -102,6 +113,17 @@ Page({
         contain: '热烈欢迎',
         hasRead: false
       },
+    ],
+    // 我的帖子按钮
+    myTieBtn: [
+      { title: '已发', color:'#fadb91;'},
+      { title: '已看', color: '#7c7c7c' },
+      { title: '喜欢', color: '#7c7c7c;' }
+    ],
+    // 浏览记录
+    historyBtn:[
+      { title: '通知' },
+      { title: '视频' }
     ]
   },
   onLoad: function () {
@@ -110,6 +132,20 @@ Page({
     this.setData({
       noticeHeight: noticeHeight
     })
+  },
+
+  // 收藏按钮
+  collectBtn (e) {
+    let index =e.currentTarget.dataset.index
+    let item = e.currentTarget.dataset.item
+    let num = parseInt(e.currentTarget.dataset.item)
+    for(let i = 0;i<num;i++) {
+
+    }
+    console.log(this.data[item])
+    this.setData({
+      collectContainControll:index
+    }) 
   },
   // 记录按钮
   choseClose (e) {
@@ -148,5 +184,19 @@ Page({
       // left
       my.recordBtn(this, -8, 2, 18)
     }
+  },
+  // 下一个页面的时间
+  turnToNext (e) {
+    let btnEvent = e.currentTarget.dataset.btnevent
+    my.changePage(this, btnEvent)
+  },
+  // 返回
+  returnIndex (e) {
+    let str = 'pageindex'
+    my.changePage(this,str)
+    // 初始化 页面内容显示的页面
+    this.setData({
+      collectContainControll: 0
+    }) 
   }
 })

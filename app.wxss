@@ -18,6 +18,15 @@ height: 0;
 color: transparent;
 
 }
+.return{
+  width: 32rpx;
+  height: 56rpx;
+  position: fixed;
+  left: 15rpx;
+
+   background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_return.png");
+  background-size:100% 100%;
+}
 /* 特殊背景 */
 .mainBG{
   position:absolute;
