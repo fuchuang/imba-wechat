@@ -5,9 +5,13 @@
   align-items: center;width:640rpx;background:white;
 }
 .MYREcontainText{
-  font-size:larger;letter-spacing:5rpx;margin-top:20rpx;
+  font-size:larger;
+  letter-spacing:5rpx;
+  margin-top:20rpx;
   width: 600rpx;
   height: 100rpx;
+  color: #51d6ff;
+  font-weight: 700;
 }
 .MYREbtnBG{
   width:100%;height:100%;position:fixed;top:0;left:0;
@@ -47,10 +51,34 @@
   border-bottom: 3px solid #adf2ff;
   border-right: 3px solid #adf2ff;
   width: 50rpx;
+  font-size: medium;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   height: 50rpx;
+}
+.th_logo{
+  width: 40rpx;
+  height: 40rpx;
 }
 .tableTitle{
   background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/table.png");
   background-size: 100% 100%;
   border-bottom: 3px solid #adf2ff;
+}
+.leftBtn{
+  position: absolute;
+  left: 20rpx;
+  width: 20rpx;
+  height: 40rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/zuo.png");
+  background-size: 100% 100%;
+}
+.rightBtn{
+  position: absolute;
+  left: 710rpx;
+  width: 20rpx;
+  height: 40rpx;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/you.png");
+  background-size: 100% 100%;
 }

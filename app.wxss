@@ -18,6 +18,16 @@ height: 0;
 color: transparent;
 
 }
+/* 特殊背景 */
+.mainBG{
+  position:absolute;
+  width:750rpx;
+  height:583rpx;
+  bottom:130rpx;
+  left:0;
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/main_bg.png");
+  background-size:100% 100%;
+}
 .flexColumn{
   display: flex;
   flex-direction: column;

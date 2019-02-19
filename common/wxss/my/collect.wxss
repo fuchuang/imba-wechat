@@ -1,0 +1,82 @@
+.chooseBtnBG{
+  width:640rpx;
+  height:80rpx;
+  margin-top:30rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  border: 2.5px solid #ADF3FF;border-bottom-color: transparent;
+}
+.chooseBtnMessage{
+  text-align:center;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  flex:1;
+  height:100%;
+  font-size: inherit;
+  font-weight: 500;
+  color: #7c7c7c;
+}
+.chooseContainBG{
+  background:#ADF3FF;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  width:100%;
+}
+.chooseContain{
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  width: 640rpx;
+  background:white;
+  justify-content:flex-start;
+  align-content: flex-start;
+  flex-wrap:wrap;
+}
+.chooseClass{
+  background: white;
+  border: 2px solid #ADF3FF;
+
+  width: 295rpx;
+  height: 80rpx;
+  margin: 15rpx 8rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+}
+.chooseInput{
+  position:relative;
+  width:200rpx;
+  left:275rpx;
+  color:#ADF3FF;
+  font-weight:800;
+}
+/* notice */
+.noticeContainBG{
+  width: 640rpx;
+  margin-top: 20rpx;
+}
+.noticeItem{
+  width: 620rpx;
+  height: 123rpx; 
+  background: #37FABE;
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+  box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
+}
+.noticeItemContian{
+  width: 610rpx;
+  left: 50rpx;
+  height: 113rpx; 
+  background: white;
+  border-radius: 10rpx;
+}
+.noticeLogo{
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notice_logo.png");
+  background-size:100% 100%;
+  width: 44rpx;
+  height: 38rpx;
+}
+.haveRead{
+  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notive_hasRead.png");
+background-size:100% 100%;
+width: 30rpx;
+height: 30rpx;
+}

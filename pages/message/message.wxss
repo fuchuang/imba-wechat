@@ -64,13 +64,5 @@ page{
    background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_return.png");
   background-size:100% 100%;
 }
-.mainBG{
-  position:absolute;
-  width:750rpx;
-  height:583rpx;
-  bottom:130rpx;
-  left:0;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/main_bg.png");
-  background-size:100% 100%;
-}
+
 

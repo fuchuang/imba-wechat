@@ -13,6 +13,7 @@
     </view>
   </scroll-view>
 </view>
+
 <view style='top:{{gradeCardTop}}rpx;' class='gradeCardTop'/>
 
 <!--成绩详情-->

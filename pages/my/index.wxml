@@ -2,7 +2,10 @@
 <view class='container' hidden='true'>
    <include src='../../common/xml/my/index.wxml'/>
 </view>
-<view class='container' >
+<view class='container' hidden='true'>
    <include src='../../common/xml/my/recorde.wxml'/>
+</view>
+<view class='container' >
+  <include src='../../common/xml/my/collect.wxml'/>
 </view>
 <include src='../../common/xml/footer.wxml'/>

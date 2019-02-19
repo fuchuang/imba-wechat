@@ -2,55 +2,46 @@
 
 <view class='borderRadius flexColumn flexRowCenterAndAround MYREcontainBG' style='top:{{gradeCardTop+50}}rpx;  height:{{noticeHeight}}rpx;'>
   <view class='borderRadius flexColumn MYREcontain' scroll-y style='height:{{noticeHeight-10}}rpx;'>
-    <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'><text>title</text></view>
+    <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'>
+      <text>title</text>
+    </view>
     <view style='width:100rpx;height:80rpx;'></view>
     <!--表格-->
     <view class='flexCloumn table ' style='height:{{noticeHeight-280}}rpx;'>
       <view style='width:620rpx;' class='flexRow'>  
         <view class='tableTitle td' />
-        <view class='th' wx:for='{{[1,2,3,4,5,6,7,8]}}'></view>
+        <view class='th' wx:key='titleRow' wx:for='{{displayRecorderMessage}}' wx:for-item='item'>
+         <text style="color:#51d6ff;">{{item}}</text>
+        </view>
       </view>
       <scroll-view scroll-y style='flex:1;height:{{noticeHeight-330}}rpx;width:620rpx;' >
-          <view class='flexRow' wx:for='recorderMessage' style=''>
-            <view style='' class='td flexRow flexRowCenterAndAround'>123</view>
-            <view class='th' wx:for='{{[1,2,3,4,5,6,7,8]}}'></view>
+          <view class='flexRow' wx:for='{{recorderMessage}}' wx:for-item="item" wx:key='containColumn'>
+            <view style='justify-content: center;color:#707070;' class='td flexColumn fontOverFlowScroll'>
+              {{item.className}}
+            </view>
+            <view class='th' wx:for='{{item.displayRecord}}'  wx:key='containRow' wx:for-item="recrod">
+              <view 
+              wx:if='{{recrod===1}}'
+              class='th_logo'
+              style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/right.png");background-size:100% 100%;'/>
+              <view 
+              wx:if='{{recrod===2}}'
+              class='th_logo'
+              style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/warn.png");background-size:100% 100%;'/>
+            </view>
           </view>
       </scroll-view>
     </view>
-    <!--
-    <scroll-view  class="table borderRadius" scroll-y style='height:{{noticeHeight-230}}rpx;'>
-      <view class="tr ">
-        <view class="th tableTitle" />
-        <scroll-view scroll-x class="th" style='flex:1;border-left: 3px solid #adf2ff; font-size: medium;' >
-        <view class='flexRow '>          
-          <view wx:for='{{recorderMessage}}' wx:for-item='item' wx:for-index='index' wx:key='test' class='thItem flexColumn flexRowCenterAndAround'>
-          <view> {{index}}</view> 
-          </view>
-         </view>
-        </scroll-view>
-        
-      </view>
-      <block wx:for="{{listData}}" wx:key="{{code}}">
-        <view class="tr">
-          <view class="td" style='border-right: 3px solid #adf2ff;'>{{item.code}}</view>
-          <scroll-view class="td" style='flex:1;' scroll-x>
-            <view class='flexRow'>
-              <view wx:for='{{recorderMessage}}' wx:for-item='item' wx:for-index='index' wx:key='test'  class='thItem flexColumn flexRowCenterAndAround'>
-                    <view>{{index}}</view>  
-              </view>
-            </view>        
-          </scroll-view>
-        </view>
-      </block>
-    </scroll-view>-->
   </view>
 </view>
-
-    <!--按钮事件的背后-->
+  <!--左右换页-->
+  <view class='leftBtn' style="top:{{gradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='left'/>
+  <view class='rightBtn' style="top:{{gradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='right'/>
+  <!--按钮事件的背后-->
     <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
     <view style='top:{{gradeCardTop+170}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
       <view style='' wx:for='{{recordBtnMessage}}' wx:key='recordChoose' wx:for-item='item' class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
-        <view style='width:210rpx;'>{{item.text}}</view>
+        <view style='margin:0 20rpx;'>{{item.text}}</view>
         <view class='gradeAngle' hidden='{{item.angleFlag}}'/>
       </view>
     </view>
