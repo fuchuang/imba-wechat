@@ -5,8 +5,8 @@
     <view style='' 
     class='chooseBtnMessage flexRowCenterAndAround flexRow' 
     wx:for='{{myTieBtn}}' wx:for-item='item' wx:key='chooseBtn' 
-    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}' data-item='myTieBtn' data-num='3'>
-      <text style='color:{{item.color}};'>{{item.title}}</text>
+    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}' data-item='myTieBtn'  data-color='#fadb91;'>
+      <text class='textBottomLine' style='color:{{item.color}};border-color:{{item.borderColor}}'>{{item.title}}</text>
     </view>
   </view>
   <!--内容-->

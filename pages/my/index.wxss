@@ -40,3 +40,6 @@ page{
   font-weight: 700;
 }
 
+.textBottomLine{
+  border-bottom: 2px solid;
+}

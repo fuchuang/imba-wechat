@@ -1,0 +1,3 @@
+<include src='../../common/xml/head.wxml'/>
+<view class='container'></view>
+<include src='../../common/xml/footer.wxml'/>

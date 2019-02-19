@@ -58,21 +58,22 @@ Page({
       { className: '体育育育育育育育育育育育育育', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] },
       { className: '大学英语', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] }
     ],
-    // 收藏
+    // 收藏页面按钮
     collectBtn: [
-      { title: '通知'},
-      { title: '视频'},
-      { title: '公选课' }
+      { title: '通知', color: '#51d6ff;', borderColor: '#51d6ff' },
+      { title: '视频', color: '#7c7c7c;', borderColor: 'transparent' },
+      { title: '公选课', color: '#7c7c7c;', borderColor: 'transparent' }
     ],
+    // 二级页面对应的内容控制器
     collectContainControll:0,
-    chooseClass: [
+    collectChooseClass: [
       { title: '中国建筑', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑1', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑2', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑3', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑4', teacher: '王阳', zan: false, num: 123 }
     ],
-    noticeMessage: [
+    collectnoticeMessage: [
       {
         title: '教务处',
         contain: '热烈欢迎',
@@ -116,15 +117,57 @@ Page({
     ],
     // 我的帖子按钮
     myTieBtn: [
-      { title: '已发', color:'#fadb91;'},
-      { title: '已看', color: '#7c7c7c' },
-      { title: '喜欢', color: '#7c7c7c;' }
+      { title: '已发', color: '#fadb91;', borderColor: '#fadb91'},
+      { title: '已看', color: '#7c7c7c', borderColor: 'transparent' },
+      { title: '喜欢', color: '#7c7c7c;', borderColor: 'transparent' }
     ],
     // 浏览记录
     historyBtn:[
-      { title: '通知' },
-      { title: '视频' }
-    ]
+      { title: '通知', color: '#37fbbf;', borderColor:'#37fbbf'},
+      { title: '视频', color: '#7c7c7c;', borderColor: 'transparent;' }
+    ],
+    historynoticeMessage: [
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+      {
+        title: '教务处',
+        contain: '热烈欢迎',
+        hasRead: false
+      },
+    ],
   },
   onLoad: function () {
     console.log(app.globalData.statusBarHeight)
@@ -134,17 +177,26 @@ Page({
     })
   },
 
-  // 收藏按钮
+  // 二级页面的切换按钮事件
   collectBtn (e) {
     let index =e.currentTarget.dataset.index
     let item = e.currentTarget.dataset.item
-    let num = parseInt(e.currentTarget.dataset.item)
-    for(let i = 0;i<num;i++) {
-
+    let color = e.currentTarget.dataset.color
+    let data = this.data[item]
+    for (let i = 0; i < data.length;i++) {
+      if(i === index) {
+        data[i].color = color;
+        data[i].borderColor = color
+      }else {
+        data[i].color = '#7c7c7c;';
+        data[i].borderColor = 'transparent';
+      }
+    
     }
     console.log(this.data[item])
     this.setData({
-      collectContainControll:index
+      collectContainControll:index,
+      [item] :data
     }) 
   },
   // 记录按钮

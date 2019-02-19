@@ -2,11 +2,12 @@
 <view  style='top:{{gradeCardTop+50}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
   <view class='flexRow flexRowCenterAndAround chooseBtnBG'> 
     <!--按钮-->
-    <view style='' 
+    <view 
     class='chooseBtnMessage flexRowCenterAndAround flexRow' 
     wx:for='{{collectBtn}}' wx:for-item='item' wx:key='chooseBtn' 
-    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}'>
-      <text>{{item.title}}</text>
+    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}' data-item='collectBtn'  data-color='#51d6ff;' 
+    >
+      <text class='textBottomLine' style='color:{{item.color}};border-color:{{item.borderColor}}'>{{item.title}}</text>
     </view>
   </view>
   <!--内容-->
@@ -15,7 +16,7 @@
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="chooseContain">
       <!-- 公选课 -->
       <view class='flexRow chooseContain' hidden='{{collectContainControll!==2}}'>
-         <view wx:for='{{chooseClass}}' class='chooseClass flexRow' 
+         <view wx:for='{{collectChooseClass}}' class='chooseClass flexRow' 
           wx:key='chooseClass' wx:for-item='item'>
             <view style='width:75%;height:100%;' class='flexColumn'>
               <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.title}}</view>
@@ -28,8 +29,8 @@
           </view>
       </view>
       <!-- 通知 -->
-      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==1}}'>
-        <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
+        <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{collectnoticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
           <view class='noticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >

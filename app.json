@@ -1,6 +1,6 @@
 {
   "pages":[
-
+    "pages/video/index",
     "pages/my/index",
     "pages/message/message", 
     "pages/index/index"
