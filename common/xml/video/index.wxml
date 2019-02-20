@@ -1,0 +1,28 @@
+  <view class='' style='top:{{gradeCardTop}}rpx;position:absolute;width:100%;' class='flexColumn'>
+    <view style='height:80rpx;width:100%;' class='flexRow'>
+      <view wx:for='{{indexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' class='flexRow flexRowCenterAndAround video_btnTitle'>
+        <text class='' style='color:{{item.color}}; border-bottom: 3px solid {{item.borderColor}};'>{{item.text}}</text>
+      </view>
+    </view>
+    <scroll-view scroll-x class='video_scrollTitle' >
+      <view class='flexRow'>
+        <view wx:for='{{scrollSearch}}' class='video_scrollTitleContain' wx:for-item='item' wx:key='scrollSearch'>
+          <text>{{item.text}}</text>
+        </view>
+      </view>
+    </scroll-view>
+    <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;'>
+      <view class='flexRow video_containDisplay'>
+        <view wx:for='{{123}}' class='video_containBG flexColumn' >
+          <view class='video_containBG1'></view>
+          <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
+            <view class='video_containTitle'>C++程序设计</view>
+            <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
+              <text style='margin-left:10rpx;'>123</text>
+              <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>

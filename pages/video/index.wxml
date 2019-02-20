@@ -1,3 +1,6 @@
+<view class='mainBG' />
 <include src='../../common/xml/head.wxml'/>
-<view class='container'></view>
+<view class='container'  hidden=''>
+   <include src='../../common/xml/video/index.wxml'/>
+</view>
 <include src='../../common/xml/footer.wxml'/>
