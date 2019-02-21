@@ -17,7 +17,7 @@ Page({
     gradeCardTop: rpxTurnIntopx * (50 + app.globalData.statusBarHeight),
     // index的btn
     indexBtn:[
-      { text: '点播', color: '#7c7c7c', borderColor: '#7c7c7c' },
+      { text: '点播', color: '#28C1F1', borderColor: '#28C1F1' },
       { text: '直播', color: '#7c7c7c', borderColor: 'transparent' },
       { text: '收录', color: '#7c7c7c', borderColor: 'transparent' }
     ],
@@ -34,9 +34,30 @@ Page({
       { text: '理学' },
       { text: '工学' },
       { text: '心理学' }
-    ]
+    ],
+    // index 内容的控制器
+    pageContainControll : 2
   },
   onLoad: function () {
 
+  },
+  indexBtn (e) {
+    let str = e.currentTarget.dataset.str
+    let index = e.currentTarget.dataset.index
+    let color = e.currentTarget.dataset.color
+    let item = this.data[str]
+    for (let i = 0; i<item.length; i++) {
+      if (i === index) {
+        item[i].color = item[i].borderColor = color
+      } else {
+        item[i].color = '#7c7c7c'
+        item[i].borderColor= 'transparent'
+      }
+    }
+    this.setData({
+      [str] :item,
+      pageContainControll : index
+    })
   }
+
 })

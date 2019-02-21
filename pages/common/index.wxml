@@ -1,0 +1,38 @@
+<include src='../../common/xml/head.wxml'/>
+<view class='mainBG' />
+<view class='container'>
+  <view style="top:{{gradeCardTop}}rpx;" class='btnTitle'> 
+    <view>班级</view>
+    <view>班级</view>
+  </view>
+
+  <!-- 讨论的内容 -->
+  <scroll-view scroll-y style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
+    <view class="flexColumn">
+     <view class="scrollItemBG" wx:for='{{[1,2,3,4]}}'>
+      <view class="scrollItemContain">
+        <view style="width:120rpx;height:100%;" class='flexRow flexRowCenterAndAround'>
+          <view style="background:url('https://campus.gbdev.cn:8443/Miniapp/imba/common/people.png');background-size:100% 100%;width:88rpx;height: 88rpx;"></view>
+        </view>
+        <view style="flex:1;color:#7c7c7c;" class="flexColumn">
+          <view style="flex:3;">Title</view>
+          <view style="flex:1;border-bottom:solid 2px wheat;"></view>
+          <view style="flex:3;font-size:small;align-items: center;" class="flexRow">Title</view>
+        </view>
+      </view>
+      <view style="flex:1;justify-content: space-around;align-items: center;" class="flexRow"><view wx:for='{{[1,2,3]}}' style="width:14rpx;height: 14rpx;background: white;border-radius: 7rpx;"/></view>
+     </view>
+    </view>
+  </scroll-view>
+  <!--按钮事件的背后-->
+  <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
+  <view style='top:{{gradeCardTop+130}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
+    <view style='' wx:for='{{recordBtnMessage}}' 
+    wx:key='recordChoose' wx:for-item='item' 
+    class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
+      <view style='margin:0 20rpx;'>{{item.text}}</view>
+      <view class='gradeAngle' hidden='{{item.angleFlag}}'/>
+    </view>
+  </view>
+</view>
+<include src='../../common/xml/footer.wxml'/>

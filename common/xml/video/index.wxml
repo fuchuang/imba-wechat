@@ -1,28 +1,103 @@
-  <view class='' style='top:{{gradeCardTop}}rpx;position:absolute;width:100%;' class='flexColumn'>
+  <view class= style='top:{{gradeCardTop}}rpx;position:absolute;width:100%;' class='flexColumn'>
     <view style='height:80rpx;width:100%;' class='flexRow'>
-      <view wx:for='{{indexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' class='flexRow flexRowCenterAndAround video_btnTitle'>
+      <view wx:for='{{indexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' 
+      wx:for-index='index' data-index='{{index}}'
+      class='flexRow flexRowCenterAndAround video_btnTitle' bindtap='indexBtn' data-str = 'indexBtn' data-color='#28C1F1'>
         <text class='' style='color:{{item.color}}; border-bottom: 3px solid {{item.borderColor}};'>{{item.text}}</text>
       </view>
     </view>
-    <scroll-view scroll-x class='video_scrollTitle' >
-      <view class='flexRow'>
-        <view wx:for='{{scrollSearch}}' class='video_scrollTitleContain' wx:for-item='item' wx:key='scrollSearch'>
-          <text>{{item.text}}</text>
+    <!-- 视频 -->
+    <view hidden='{{pageContainControll!==0}}'>
+      <scroll-view scroll-x class='video_scrollTitle' >
+        <view class='flexRow'>
+          <view wx:for='{{scrollSearch}}' class='video_scrollTitleContain' wx:for-item='item' wx:key='scrollSearch'>
+            <text>{{item.text}}</text>
+          </view>
         </view>
-      </view>
-    </scroll-view>
-    <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;'>
-      <view class='flexRow video_containDisplay'>
-        <view wx:for='{{123}}' class='video_containBG flexColumn' >
-          <view class='video_containBG1'></view>
-          <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-            <view class='video_containTitle'>C++程序设计</view>
-            <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
-              <text style='margin-left:10rpx;'>123</text>
-              <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+      </scroll-view>
+      <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;' >
+        <view class='flexRow video_containDisplay'>
+          <view wx:for='{{123}}' class='video_containBG flexColumn' >
+            <view class='video_containBG1'></view>
+            <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
+              <view class='video_containTitle'>C++程序设计</view>
+              <view style='font-size:smaller;  justify-content: space-between;' class='flexRow'>
+                <text style='margin-left:10rpx;'>123</text>
+                <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+              </view>
             </view>
           </view>
         </view>
+      </scroll-view>
+    </view>
+    <!-- 直播 -->
+    <view hidden='{{pageContainControll!==1}}'>
+       <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;' >
+        <view class='flexRow video_containDisplay'>
+          <view wx:for='{{123}}' class='video_containBG flexColumn' >
+            <view class='video_containBG1'></view>
+            <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
+              <view class='video_containTitle'>C++程序设计</view>
+              <view style='font-size:smaller;  justify-content: space-between;' class='flexRow'>
+                <text style='margin-left:10rpx;'>123</text>
+                <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view> 
+      <view class='videoRECBtn flexColumn'>
+        <view>我要</view>
+        <view>直播</view>
       </view>
-    </scroll-view>
+    </view>
+    <!-- 收录 -->
+    <view hidden='{{pageContainControll!==2}}'>
+      <view class="videoCollectTitleBG flexRow">
+        <view class="videoCollectTitleBGLeft flexColumn">
+          <view style="width:100%;height: 180rpx;font-size: xx-large;" class="flexRow flexRowCenterAndAround">55</view>
+          <view style="width:100%;height: 100rpx;font-size:larger;" class="flexRow flexRowCenterAndAround">打开天数</view>
+        </view>
+        <view style="flex:1;justify-content:center;align-items:flex-start;font-size: small;" class="flexColumn">
+          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />已学习<text style="color:#41C2FB;">123</text>门课程</view>
+          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />击败全国<text style="color:#41C2FB;">123</text>大学生</view>
+        </view>
+      </view>
+      <!-- 正在学习 -->
+      <view class='videoContainRow flexColumn'>
+          <view style="width:100%;height:50rpx;">收藏课程</view>
+          <scroll-view scroll-x style="width:100%;height:230rpx;background: white;">
+            <view class="flexRow" style="">
+              <view wx:for='{{[1,2,3,4,5]}}' class="videoContainRowItem">
+                <view style="height:120rpx;width:200rpx;background:#41C2FB;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;"></view>
+                <view style='height:60rpx;width:200rpx;font-size: smaller ;border-bottom-left-radius: 20rpx;border-bottom-right-radius: 20rpx; ' class="flexColumn">
+                  <view >123456</view>
+                  <view  class="flexRow" style="justify-content:space-between;align-items:flex-start;">
+                    <view>123</view>
+                    <view>123</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+      </view>
+      <!-- 收藏 -->
+      <view class='videoContainRow flexColumn'>
+          <view style="width:100%;height:50rpx;">收藏课程</view>
+          <scroll-view scroll-x style="width:100%;height:230rpx;background: white;">
+            <view class="flexRow" style="">
+              <view wx:for='{{[1,2,3,4,5]}}' class="videoContainRowItem">
+                <view style="height:120rpx;width:200rpx;background:#41C2FB;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;"></view>
+                <view style='height:60rpx;width:200rpx;font-size: smaller ;border-bottom-left-radius: 20rpx;border-bottom-right-radius: 20rpx; ' class="flexColumn">
+                  <view >123456</view>
+                  <view  class="flexRow" style="justify-content:space-between;align-items:flex-start;">
+                    <view>123</view>
+                    <view>123</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </view>
+    </view>
   </view>

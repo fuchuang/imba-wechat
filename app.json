@@ -1,5 +1,7 @@
 {
   "pages":[
+ 
+    "pages/common/index",
     "pages/video/index",
     "pages/my/index",
     "pages/message/message", 

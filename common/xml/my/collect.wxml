@@ -49,7 +49,19 @@
           </view>
         </view>
       </view>
-     
+     <!-- 视频 -->
+     <view class='flexRow video_containDisplay' hidden='{{collectContainControll!==1}}'>
+        <view wx:for='{{123}}' class='video_containBG flexColumn ' >
+          <view class='video_containBG1'></view>
+          <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
+            <view class='video_containTitle'>C++程序设计</view>
+            <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
+              <text style='margin-left:10rpx;'>123</text>
+              <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+            </view>
+          </view>
+        </view>
+      </view>
     </scroll-view>
   </view>
   <view style='width:100%;height:130rpx;' />
