@@ -2,7 +2,7 @@ const app = getApp()
 const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
 const rpxTurnIntopx = 750 / app.globalData.windowWidth
-
+const util= require('../../common/js/util.js')
 Page({
   data: {
     headTitle: app.globalData.statusBarHeight + 10,
@@ -42,7 +42,8 @@ Page({
 
   },
   indexBtn (e) {
-    let str = e.currentTarget.dataset.str
+    util.indexBtn(e,this)
+/*     let str = e.currentTarget.dataset.str
     let index = e.currentTarget.dataset.index
     let color = e.currentTarget.dataset.color
     let item = this.data[str]
@@ -57,7 +58,7 @@ Page({
     this.setData({
       [str] :item,
       pageContainControll : index
-    })
+    }) */
   }
 
 })

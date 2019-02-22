@@ -1,0 +1,14 @@
+<view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #51d6ff;'
+  hidden='{{pageClassSecond.calssDetail}}'
+>
+    <view 
+    style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' 
+    class='flexRow flexRowCenterAndAround'><view>className</view></view>
+    <scroll-view class='moreMessageContain' 
+    style='height:{{noticeHeight-50}}rpx;' scroll-y>
+      <view class="flexColumn " style="justify-content: center;">
+        <view style="width:100%;height:50rpx;background:white;"></view>
+      </view>
+    </scroll-view>
+  </view>
+  <view style='width:39rpx;height:59rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>

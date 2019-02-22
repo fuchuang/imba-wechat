@@ -1,0 +1,84 @@
+/* 班群内容 */
+.moreMessage{
+  width:  650rpx;
+  background: #37FABE;
+  border-radius: 20rpx;
+  position: absolute;
+  left: 50rpx;
+  height: auto;
+}
+.moreMessageContain{
+  width:  650rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  background: white;
+}
+.treeBtn{
+  width: 68rpx;
+  height: 68rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/treebtn.png') no-repeat;
+  background-size: 100% 100%;
+  margin-left: 20rpx;
+}
+/* 按钮的上面的按钮 */
+.messageLogo{
+  width: 68rpx;
+  height: 68rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageLogo.png') no-repeat;
+  background-size: 100% 100%;
+  margin-right: 20rpx;
+}
+.messageLogoNums{
+  width: 48rpx;
+  height: 48rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageNum.png') no-repeat;
+  background-size: 100% 100%;
+  color:white;
+  position: relative;
+  left:-24rpx;
+  top:-24rpx;
+  font-size: x-small;
+}
+/* 签到按钮 */
+.singinBtn{
+  position: relative;
+  left: 150rpx;
+  width: 350rpx;
+  height: 350rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/signin.png') no-repeat;
+  background-size: 100% 100%;
+}
+.singinMessageBG{
+  width:450rpx;
+  height: 400rpx;
+  margin-left: 100rpx;
+  background: white;
+  border:solid 1px #37FABE;
+  border-radius: 20rpx;
+  display: flex;
+  justify-items: space-around;
+  flex-direction: row;
+}
+.singinMessageRadius{
+  width: 20rpx;height:20rpx;
+  border-radius: 10rpx;
+ background: #37FABE; 
+}
+.singinMessageContain{
+  width: 340rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+.singinMessageContainNums{
+  width:auto;text-align:center;font-weight:700;font-size: inherit;color: #5DD8FE;
+}
+.singinMessageContainBtn{
+  margin-top: 50rpx;
+  width: 300rpx;
+  height: 58rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/downloadLogo.png') no-repeat;
+  background-size: 100% 100%;
+}

@@ -37,11 +37,27 @@ function dateLater(dates, later) {
   dateObj.week = show_day[day];
   return dateObj;
 }
-function getNowData(later){
-  
+const indexBtn= function (e,that) {
+  let str = e.currentTarget.dataset.str
+  let index = e.currentTarget.dataset.index
+  let color = e.currentTarget.dataset.color
+  let item = that.data[str]
+  for (let i = 0; i<item.length; i++) {
+    if (i === index) {
+      item[i].color = item[i].borderColor = color
+    } else {
+      item[i].color = '#7c7c7c'
+      item[i].borderColor= 'transparent'
+    }
+  }
+  that.setData({
+    [str] :item,
+    pageContainControll : index
+  })
 }
 module.exports = {
   formatTime: formatTime,
   getDates: getDates,
+  indexBtn:indexBtn
 
 }

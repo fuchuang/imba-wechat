@@ -1,0 +1,26 @@
+.itemContainBG{
+  width: 600rpx;
+  height: 180rpx;
+  margin: 40rpx 0 0rpx 0rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #dbdbdb;
+}
+.itemContainImage{
+  height: 130rpx;
+  width: 106rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/document1.png') no-repeat;
+  background-size: 100% 100%;
+
+}
+.inManyLineDownload{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  align-items:center;
+  justify-content: center;
+  height: 100rpx;
+}

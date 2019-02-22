@@ -1,0 +1,112 @@
+/* index btn */
+.btnTitle{
+  position: absolute;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: large;
+  color: #7c7c7c;
+  background: white;
+}
+.MYREbtnBG{
+  width:100%;height:100%;position:fixed;top:0;left:0;
+}
+.MYREbtnPos{
+  width:260rpx;border:solid 2px #51d6ff;position:absolute;left:254rpx;background: white;
+}
+.MYREbtnItem{
+  width:260rpx;height:50rpx;align-items:center;font-size:medium;color:#51d6ff;
+
+}
+/* 内容的css */
+.scrollItemBG{
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  margin:20rpx 0;
+  width: 640rpx;
+  display: flex;
+  flex-direction: row;
+  height: 250rpx;
+}
+.scrollItemContain{
+  background: white;
+  border-top-right-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  margin:15rpx 5rpx;
+  width: 550rpx;
+  display: flex;
+  flex-direction: row;
+  height: 220rpx;
+
+}
+/* 社区 */
+.searchTitleBG{
+  width: 500rpx;
+  height: 70rpx;
+  background:#57D7FF;
+  margin-left: 50rpx;
+  border-radius: 20rpx;
+  justify-content: center;
+  align-items: center;
+}
+.searchTitle{
+  width: 425rpx;
+  border-radius: 15rpx;
+  height: 60rpx;
+  padding-right: 65rpx;
+  background:white;
+  color:#7c7c7c;
+
+}
+.searchLogo{
+  height: 50rpx;
+  position: relative;
+  top: -55rpx;
+  left: 425rpx;
+  width: 50rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/searchLogo.png') no-repeat;
+  background-size: 100% 100%;
+}
+.questionBtn{
+  font-size: medium;
+  width: 150rpx;
+  height: 70rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/questionLogo.png') no-repeat;
+  background-size: 100% 100%;
+  margin-left: 10rpx;
+}
+/* 社区内容 帖子*/
+.commonScrollItem{
+  width: 650rpx;
+  height: 180rpx;
+  background: #5DD8FE;
+  margin: 20rpx 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20rpx;
+}
+.commonScrollItemBG{
+  background:white;width: 645rpx;height: 170rpx;margin-top: 2rpx;
+  display: flex;
+  flex-direction: column;
+}
+.commonWhatLogo{
+  margin: 10rpx 10rpx;
+  width:37rpx;
+  height: 52rpx;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/what.png') no-repeat;
+  background-size: 100% 100%;
+}
+.inManyLineCommon{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp:2;
+  color:#DE4139;
+}

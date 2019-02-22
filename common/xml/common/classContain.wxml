@@ -1,0 +1,53 @@
+<view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #37FABE;'
+ hidden='{{pageClassSecond.classIndex}}'>
+  <view 
+  style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' 
+  class='flexRow flexRowCenterAndAround'><view>className</view></view>
+  <scroll-view class='moreMessageContain' 
+  style='height:{{noticeHeight-50}}rpx;' scroll-y>
+    <view style='width:100%;height:50rpx;' ></view>
+    <!-- 顶部的按钮 -->
+    <view class="flexRow" style="justify-content: space-between;width:100%;">
+      <view class='treeBtn'/>
+      <view class='messageLogo'>
+        <view class="messageLogoNums flexRow flexRowCenterAndAround">
+          1
+        </view>
+      </view>
+    </view>
+    <!-- 签到按钮 -->
+    <view class="singinBtn">
+
+    </view>
+    <!-- 签到信息 -->
+    <view class='singinMessageBG'>
+      <view class="flexColumn" style="width:50rpx;justify-content: space-around;align-items: center;"><view class="singinMessageRadius" wx:for='{{[1,2,3,4,5,6,7]}}' wx:key='test' /></view>
+      <view class="flexColumn" style="width:400rpx;height:100%;font-size: initial;align-items: center;">
+        <view class='singinMessageContain'>
+          <text style='color:#7c7c7c;width:150rpx;'>总课时:</text>
+          <text class="singinMessageContainNums">60</text>
+        </view>
+        <view class='singinMessageContain'>
+            <text style='color:#7c7c7c;width:150rpx;'>已缺:</text>
+            <text class="singinMessageContainNums">60</text>
+        </view>
+        <view class='singinMessageContain'>
+            <text style='color:#7c7c7c;width:150rpx;'>已迟:</text>
+            <text class="singinMessageContainNums">60</text>
+        </view>
+        <!-- 附件按钮 -->
+        <view class="singinMessageContainBtn" bindtap='classBtn' 
+          data-page='pageClassSecond'
+          data-str='download'
+        /> 
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view>
+  <include src='download.wxml'></include>
+</view>
+<view>
+    <include src='classDetail.wxml'></include>
+</view>
+<view style='width:39rpx;height:59rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
