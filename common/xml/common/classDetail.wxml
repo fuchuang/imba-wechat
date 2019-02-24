@@ -1,3 +1,5 @@
+ <!-- 修改迟到的按钮 -->
+<view class='DetailContain_edit' style="top:{{gradeCardTop+280}}rpx;"/> 
 <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #51d6ff;'
   hidden='{{pageClassSecond.calssDetail}}'
 >
@@ -7,8 +9,56 @@
     <scroll-view class='moreMessageContain' 
     style='height:{{noticeHeight-50}}rpx;' scroll-y>
       <view class="flexColumn " style="justify-content: center;">
-        <view style="width:100%;height:50rpx;background:white;"></view>
+        <view style="width:100%;height:50rpx;background:white;">
+          <!-- titleBtn -->
+          <view class='flexRow' 
+          style="justify-content: flex-end;align-items: center; width:100%;height:60rpx;">
+            <view class='Detail_messageBtn'/>
+            <view class='Detail_managementBtn'/>
+          </view>
+          <!-- title -->
+          <view class="flexRow" 
+            style="justify-content: center;align-items: center;color: #5DD8FE;hieght:70rpx;width: 100%;">
+            <view class="Detail_TitleTxt"></view>
+            <text>考勤表</text>
+          </view>
+          <!-- 滚动 详情人员 -->
+          <scroll-view  scroll-y class='flexColumn DetailContain_scroll_view'
+          style="height:{{noticeHeight-50-140}}rpx;">
+            <view style='width:100%;height: 20rpx;'></view>
+            <view class="flexRow flexRowCenterAndAround" 
+            style="width:600rpx;height: 70rpx;color:#7c7c7c;font-size: small;">
+              <view class="DetailContain_circle" />
+              <!-- 文字部分 -->
+              <view style="flex:1;height:100%;align-items: center;border-bottom: 1px solid #d1d1d1;" class="flexRow">
+                <view style="flex:1;align-items: center;" class="flexRow">
+                  <view style="margin-right:20rpx;">名字</view>
+                  <!-- 设置管理员 -->
+                  <view class="DetailContain_setManage" />
+                  
+                </view>
+                <view style="flex:1;" class="flexRow">
+                  <view style="margin-right:20rpx;">状态</view>
+                  <!-- 修改状态 -->
+                  <view style="color:green;">
+                    已到
+                  </view>
+                  <view class="Detail_editSmall">
+                    <!-- 选项 -->
+                    <view class="flexColumn flexRowCenterAndAround Detail_chooseBG" >
+                      <view class="Detail_choose" wx:for='{{[1,2,3,4]}}' wx:key='test'>已到</view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+   
+        </view>
       </view>
     </scroll-view>
+
   </view>
+ <!-- 弹框 -->
+ <include src='alert'/>
   <view style='width:39rpx;height:59rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>

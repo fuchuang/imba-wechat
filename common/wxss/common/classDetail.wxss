@@ -1,0 +1,66 @@
+.Detail_messageBtn{
+  width: 41rpx;
+  height: 41rpx;
+  background:url('https://campus.gbdev.cn:8443/Miniapp/imba/common/Detail_messageBtn.png');
+  background-size: 100% 100%;
+  margin: 0 20rpx;
+}
+.Detail_managementBtn{
+  width: 41rpx;
+  height: 41rpx;
+  background:url('https://campus.gbdev.cn:8443/Miniapp/imba/common/Detail_managementBtn.png');
+  background-size: 100% 100%;
+  margin: 0 20rpx;
+}
+.Detail_TitleTxt{
+  background:url('https://campus.gbdev.cn:8443/Miniapp/imba/common/Detail_titleLogo.png');
+  background-size: 100% 100%;
+  width: 41rpx;
+  height: 41rpx;
+}
+.DetailContain_scroll_view{
+  margin-left:20rpx;width:600rpx;
+  border-radius: 20rpx;
+  border:solid 1px #51d6ff; 
+}
+.DetailContain_circle{
+  width: 10rpx;
+  height: 10rpx;
+  margin: 0 20rpx;
+  border:solid 1px #51d6ff; 
+  border-radius: 5rpx;
+  background: white;
+}
+.DetailContain_setManage{
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/setManager.png');
+  background-size: 100% 100%;
+  color:white;
+  height: 39rpx;
+  width: 138rpx;
+}
+.DetailContain_edit{
+  position: absolute;
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/Detail_edit.png');
+  background-size: 100% 100%;
+  width: 35rpx;
+  height: 35rpx;
+  left: 620rpx;
+}
+.Detail_editSmall{
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/Detail_editSmall.png');
+  background-size: 100% 100%;
+  width: 32rpx;
+  height: 29rpx;
+  margin: 0 20rpx
+}
+.Detail_chooseBG{
+  width: 70rpx;
+  border-radius: 20rpx;
+  border: 2px solid  #51d6ff; 
+  background: white;
+  position: relative;
+  left: 40rpx;
+}
+.Detail_choose{
+  margin: 4rpx 4rpx;
+}
