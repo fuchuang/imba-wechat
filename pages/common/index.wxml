@@ -3,8 +3,12 @@
 <view class='container' hidden='{{pageSecond.commonIndex}}'>
     <include src='../../common/xml/common/index.wxml' />
 </view>
+<!-- 班级详情 -->
 <view class='container' hidden='{{pageSecond.classMessage}}'>
-  <include src='../../common/xml/common/classContain.wxml' />
+    <include src='../../common/xml/common/classContain.wxml' />
 </view>
-
+<!-- 帖子详情 -->
+<view class='container' hidden='{{pageSecond.commonDetailw}}'>
+    <include src='../../common/xml/common/tieContain.wxml' />
+</view>
 <include src='../../common/xml/footer.wxml'/>

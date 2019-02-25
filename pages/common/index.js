@@ -32,13 +32,15 @@ Page({
     pageContainControll:0,
     pageSecond:{
       commonIndex:true,
-      classMessage:false,
+      classMessage:true,
+      commonDetail:false
     },
     pageClassSecond:{
-      classIndex:true,
+      classIndex:false,
       download:true,
-      calssDetail:false
+      calssDetail:true
     },
+
     /* 班群信息 */
     classMessage:[
       {title:'线性代数',teacher:'李玉',nums:'67',bgColor:'#38FBBF'},

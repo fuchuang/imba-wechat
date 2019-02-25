@@ -1,0 +1,34 @@
+<view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;'
+ hidden='{{false}}'>
+  <view class='moreMessageContain' 
+  style='height:{{noticeHeight}}rpx;border-radius: 20rpx;'>
+    <view class="flexRow tieContainTitle">
+      <!-- 帖子头部标题 -->
+      <view style="width:540rpx;height:100%;padding-left: 20rpx;" class="flexColumn">
+        <view style="font-size:larger;width: 100%;margin: 10rpx 0;height: 60rpx;" class="fontOverFlowScroll">英语四级怎么考？</view>
+        <scroll-view scroll-y style="font-size:small;height:180rpx;">
+          英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？英语四级怎么考？</scroll-view>
+        <view style="font-size:xx-small;color:#57D7FF;height: 60rpx;align-items: center;" class='flexRow'>
+          1-17 18：03
+          <scroll-view scroll-x style="margin-left:20rpx;width: 350rpx;">
+            <view  class="flexRow">
+              <view class="tips flexRow flexRowCenterAndAround" wx:for='{{[1,2,3,4,5,6]}}'>标签</view>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view style="width:80rpx;height:300rpx;align-items: center;justify-content: space-between;"  class="flexColumn">
+        <view class="tieCillect"></view>
+        <view style='font-size: xx-small;color:#57D7FF;font-weight: 700;margin-bottom: 10rpx;'>名字</view>
+      </view>
+    </view>
+    <!-- 用户评论 -->
+    <scroll-view scroll-y style="width:640rpx;height:{{noticeHeight-320}}rpx;background:blue;">
+      <view class="flexColumn">
+        <!-- 用户的样式 -->
+        <view class="flexRow"></view>
+      </view>
+    </scroll-view>
+      
+  </view>
+</view>

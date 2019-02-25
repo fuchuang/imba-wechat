@@ -3,6 +3,7 @@
 @import "../../common/wxss/common/classMessage.wxss";
 @import "../../common/wxss/common/classDetail.wxss";
 @import "../../common/wxss/common/download.wxss";
+@import "../../common/wxss/common/tieContain.wxss";
 page{
   width: 100%;
   top:0;

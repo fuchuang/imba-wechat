@@ -1,0 +1,21 @@
+.tieContainTitle{
+  width:640rpx;height:300rpx;
+  border-bottom: solid 2px #C4F5FF;
+  border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;
+  color:#7c7c7c;
+}
+.tips{
+  padding: 2rpx 10rpx;
+  background: #57D7FF;
+  border-radius: 15rpx;
+  color:white;
+  margin-right:20rpx; 
+  white-space: nowrap;
+}
+.tieCillect{
+  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/collectoff.png') no-repeat;
+  background-size: 100% 100%;
+  width: 38rpx;
+  height: 38rpx;
+  margin-top: 20rpx;
+}

@@ -22,15 +22,15 @@
 }
 /* 按钮的上面的按钮 */
 .messageLogo{
-  width: 68rpx;
-  height: 68rpx;
+  width: 48rpx;
+  height: 48rpx;
   background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageLogo.png') no-repeat;
   background-size: 100% 100%;
   margin-right: 20rpx;
 }
 .messageLogoNums{
-  width: 48rpx;
-  height: 48rpx;
+  width: 38rpx;
+  height: 38rpx;
   background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageNum.png') no-repeat;
   background-size: 100% 100%;
   color:white;
