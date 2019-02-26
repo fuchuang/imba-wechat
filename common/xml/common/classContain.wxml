@@ -55,3 +55,7 @@
 <view >
   <include src='classSecond/classDetail.wxml' />
 </view>
+<!-- 树 -->
+<view >
+  <include src='classSecond/classDetail.wxml' />
+</view>

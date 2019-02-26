@@ -1,5 +1,5 @@
 <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;'
- hidden='{{false}}'>
+ hidden='{{pageCommonSecond.commonindex}}'>
   <view class='moreMessageContain' 
   style='height:{{noticeHeight}}rpx;border-radius: 20rpx;'>
     <view class="flexRow tieContainTitle">
@@ -23,12 +23,29 @@
       </view>
     </view>
     <!-- 用户评论 -->
-    <scroll-view scroll-y style="width:640rpx;height:{{noticeHeight-320}}rpx;background:blue;">
+    <scroll-view scroll-y style="width:640rpx;height:{{noticeHeight-390}}rpx;">
       <view class="flexColumn">
         <!-- 用户的样式 -->
-        <view class="flexRow"></view>
+        <view class="flexRow" style='width:640rpx;height:200rpx;margin:20rpx 0;' wx:for='{{[1,2,3,4]}}'>
+          <view style='width:200rpx;height:100%;' class='flexRow flexRowCenterAndAround'>
+            <view style='width:102rpx;height:102rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/common/peopleCircle.png");background-size:100% 100%;'></view>
+          </view>
+          <!-- 帖子评论 -->
+        <view style='width:440rpx;height:100%;color:#7c7c7c;border-bottom: solid 1px #C4F5FF;' class='flexColumn'>
+          <view style='font-size:large;'>名字</view>
+          <scroll-view style='font-size:small;height:110rpx;'>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</scroll-view>
+          <view  style='font-size:xx-small;height:30rpx;'>名字</view>
+        </view>
+        </view>
       </view>
     </scroll-view>
-      
+    <!-- 评论按钮 -->
+    <view class='flexRow commonbtn'>
+      写评论<view class='commonbtnLogo'></view>
+    </view>
   </view>
+</view>
+<!-- 评论页面 -->
+<view  hidden='{{pageCommonSecond.commonSend}}'>
+  <include src='tieSecond/common.wxml' />
 </view>

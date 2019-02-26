@@ -32,13 +32,18 @@ Page({
     pageContainControll:0,
     pageSecond:{
       commonIndex:true,
-      classMessage:true,
-      commonDetail:false
+      classMessage:false,
+      commonDetail:true
     },
     pageClassSecond:{
-      classIndex:false,
+      classIndex:true,
       download:true,
-      calssDetail:true
+      calssDetail:true,
+      tree:false
+    },
+    pageCommonSecond:{
+      commonindex:true,
+      commonSend:true
     },
 
     /* 班群信息 */

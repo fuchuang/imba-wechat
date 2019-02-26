@@ -4,6 +4,7 @@
 @import "../../common/wxss/common/classDetail.wxss";
 @import "../../common/wxss/common/download.wxss";
 @import "../../common/wxss/common/tieContain.wxss";
+@import "../../common/wxss/common/tieSecondCommon.wxss";
 page{
   width: 100%;
   top:0;

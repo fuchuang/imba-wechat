@@ -19,3 +19,14 @@
   height: 38rpx;
   margin-top: 20rpx;
 }
+.commonbtn{
+  color: white;
+  width:100%; align-items: center;justify-content: center;height:100rpx;background:#51d6ff;
+}
+.commonbtnLogo{
+  width: 50rpx;
+  height: 38rpx;
+  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/common/edit.png");
+  background-size: 100% 100%;
+  margin-left: 20rpx;
+}
