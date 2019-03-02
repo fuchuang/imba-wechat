@@ -315,5 +315,22 @@ Page({
     let str = e.currentTarget.dataset.message
     let index = e.currentTarget.dataset.kind
     mes.turnInSecond(str, this, index)
-  }
+  },
+    // 底部导航
+    navigatorFooter : function (e) {
+      let str= '../' + e.currentTarget.dataset.str + '/index'
+      console.log(e.currentTarget.dataset.str)
+      wx.redirectTo({
+        url: str,
+        success: function(res){
+          // success
+        },
+        fail: function() {
+          // fail
+        },
+        complete: function() {
+          // complete
+        }
+      })
+    }
 })

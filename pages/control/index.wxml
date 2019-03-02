@@ -1,0 +1,5 @@
+<include src='../../common/xml/head.wxml'/>
+<include src='../index/index.wxml' />
+
+<include src='../../common/xml/footer.wxml'/>
+<include src='../../common/xml/alert.wxml'/>

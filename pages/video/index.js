@@ -41,6 +41,23 @@ Page({
   onLoad: function () {
 
   },
+    // 底部导航
+  navigatorFooter : function (e) {
+    let str= '../' + e.currentTarget.dataset.str + '/index'
+    console.log(e.currentTarget.dataset.str)
+    wx.redirectTo({
+      url: str,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
   indexBtn (e) {
     util.indexBtn(e,this)
 /*     let str = e.currentTarget.dataset.str

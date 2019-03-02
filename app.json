@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/video/index",
+    "pages/control/index",
     "pages/index/index",
     "pages/message/index",
     "pages/common/index",
+    "pages/video/index",
     "pages/my/index"
   ],
   "window":{

@@ -1,3 +1,4 @@
+
 const app = getApp()
 const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
@@ -5,6 +6,7 @@ const util = require('../../common/js/util.js');
 const alertEvent = require('../../common/js/alertEvent.js');
 let getWeekAndData = function (that) {
   let time = util.formatTime(new Date());
+
   let data = util.getDates(7, time);
   let classAboutSevenM = []
   //周次和日期
@@ -19,11 +21,12 @@ let getWeekAndData = function (that) {
     }
   }
   //当前 周几
-  let nowdata = new Date(time).getDay() - 1;
+  let nowdata = (new Date(time).getDay() + 6) % 7 ;
+  let lastdata = ((nowdata-1) + 7 ) % 7 ;
+  let nextdata = ((nowdata+1) + 7 ) % 7 ;
   let str1 ='nowData[' + nowdata +'].nowData',
-    str2 = 'nowData[' + (nowdata-1) + '].lastData',
-    str3 = 'nowData[' + (nowdata + 1) + '].nextData'
-  console.log(str1)
+  str2 = 'nowData[' + lastdata + '].lastData',
+  str3 = 'nowData[' + nextdata + '].nextData'
   that.setData({
     classAboutSevenM: classAboutSevenM,
     [str1] :false,
@@ -208,18 +211,6 @@ Page({
   // 底部导航
   navigatorFooter : function (e) {
     let str= '../' + e.currentTarget.dataset.str + '/index'
-    console.log(e.currentTarget.dataset.str)
-    wx.redirectTo({
-      url: str,
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
+    
   }
 })
