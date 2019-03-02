@@ -21,7 +21,7 @@ Page({
     //  页面切换
     path: '../../common/xml/message/messageTeacher.wxml',
     pageControll: {
-      messageIndex: true,
+      messageIndex: false,
       messageGrade: true,
       messageNotice: true,
       messageTeacher: true,
@@ -35,7 +35,7 @@ Page({
       messageTeacher: true,
       messageChoose: true,
       messageAdd1: true,
-      messageAdd2: false
+      messageAdd2: true
 
     },
     // 成绩信息

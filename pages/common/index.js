@@ -31,15 +31,15 @@ Page({
     /* 首页按钮的内容 */
     pageContainControll:0,
     pageSecond:{
-      commonIndex:true,
-      classMessage:false,
+      commonIndex:false,
+      classMessage:true,
       commonDetail:true
     },
     pageClassSecond:{
       classIndex:true,
       download:true,
       calssDetail:true,
-      tree:false
+      tree:true
     },
     pageCommonSecond:{
       commonindex:true,

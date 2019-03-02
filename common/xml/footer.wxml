@@ -1,11 +1,15 @@
 <view class='footer'>
-  <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/massage_off.png") no-repeat;background-size: 100% 100%;' wx:if='{{fooMassage}}'/>
+  <view bindtap='navigatorFooter' data-str='message' 
+  class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/massage_off.png") no-repeat;background-size: 100% 100%;' wx:if='{{fooMassage}}'/>
   <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/massage_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
-  <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/video_off.png") no-repeat;background-size: 100% 100%;'wx:if='{{fooVideo}}'/>
+  <view bindtap='navigatorFooter' data-str='video' 
+  class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/video_off.png") no-repeat;background-size: 100% 100%;'wx:if='{{fooVideo}}'/>
   <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/video_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
-  <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/common_off.png") no-repeat;background-size: 100% 100%;' wx:if='{{fooCommon}}'/>
+  <view bindtap='navigatorFooter' data-str='common' 
+  class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/common_off.png") no-repeat;background-size: 100% 100%;' wx:if='{{fooCommon}}'/>
   <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/common_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
-  <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_off.png") no-repeat;background-size: 100% 100%;'wx:if='{{fooMy}}'/>
-    <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
+  <view bindtap='navigatorFooter' data-str='my' 
+  class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_off.png") no-repeat;background-size: 100% 100%;'wx:if='{{fooMy}}'/>
+  <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
 </view>
 <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/foo_class.png") no-repeat;background-size: 100% 100%;width:100rpx;height:100rpx;position:fixed;bottom:70rpx;left:{{classPosition}}rpx;'></view>

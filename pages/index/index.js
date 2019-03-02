@@ -204,5 +204,22 @@ Page({
     this.setData({
       isClass: isClass
     })
+  },
+  // 底部导航
+  navigatorFooter : function (e) {
+    let str= '../' + e.currentTarget.dataset.str + '/index'
+    console.log(e.currentTarget.dataset.str)
+    wx.redirectTo({
+      url: str,
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   }
 })
