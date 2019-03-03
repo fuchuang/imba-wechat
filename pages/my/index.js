@@ -3,20 +3,8 @@ const my = require('../../common/js/my.js')
 const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const windowWidth = app.globalData.windowWidth
 const windowHeight = app.globalData.windowHeight
-Page({
-  data: {
-    // 公共属性
-    headTitle: app.globalData.statusBarHeight + 10,
-    headHeight: app.globalData.statusBarHeight + 50,
-    classPosition: (750 - 100) / 2,
-    fooMassage: true,
-    fooVideo: true,
-    fooCommon: true,
-    fooMy: true,
-    title: 'IMBA课程表',
-    noticeHeight: 0,
-    gradeCardTop: rpxTurnIntopx * (50 + app.globalData.statusBarHeight),
-
+let message = {
+  
     // 按钮信息
     btnMessage: [
       { logoUrl: 'recordlogo', text: '考勤记录', btnEvent: 'pagerecord' },
@@ -168,17 +156,10 @@ Page({
         hasRead: false
       },
     ],
-  },
-  onLoad: function () {
-    console.log(app.globalData.statusBarHeight)
-    let noticeHeight = rpxTurnIntopx * (windowHeight - 50 - app.globalData.statusBarHeight) - 250
-    this.setData({
-      noticeHeight: noticeHeight
-    })
-  },
+}
 
   // 二级页面的切换按钮事件
-  collectBtn (e) {
+  let collectBtn = function(e) {
     let index =e.currentTarget.dataset.index
     let item = e.currentTarget.dataset.item
     let color = e.currentTarget.dataset.color
@@ -200,7 +181,7 @@ Page({
     }) 
   },
   // 记录按钮
-  choseClose (e) {
+  choseClose = function(e) {
     let recordBtnMessage = this.data.recordBtnMessage
     let recorderBtnFlag = this.data.recorderBtnFlag
     if (recorderBtnFlag) {
@@ -214,7 +195,7 @@ Page({
     }
   },
   // 打开选择年级
-  recordChoose (e) {
+  recordChoose = function(e) {
     console.log(e.currentTarget.dataset.index)
     let recordBtnMessage = this.data.recordBtnMessage
     let recorderBtnFlag = this.data.recorderBtnFlag
@@ -227,7 +208,7 @@ Page({
       my.displayAllBtn(this, recordBtnMessage)
     }
   },
-  recordBtn (e) {
+  recordBtn = function(e) {
     let rotation = e.currentTarget.dataset.rotation
     if (rotation === 'right') {
       // 进行转换
@@ -238,34 +219,29 @@ Page({
     }
   },
   // 下一个页面的时间
-  turnToNext (e) {
+  turnToNext = function(e) {
     let btnEvent = e.currentTarget.dataset.btnevent
     my.changePage(this, btnEvent)
   },
   // 返回
-  returnIndex (e) {
+  returnIndex = function(e) {
     let str = 'pageindex'
     my.changePage(this,str)
     // 初始化 页面内容显示的页面
     this.setData({
       collectContainControll: 0
     }) 
-  },
-    // 底部导航
-    navigatorFooter : function (e) {
-      let str= '../' + e.currentTarget.dataset.str + '/index'
-      console.log(e.currentTarget.dataset.str)
-      wx.redirectTo({
-        url: str,
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
-    }
-})
+  }
+  let fuc = {
+    returnIndex :returnIndex,
+    turnToNext : turnToNext,
+    recordBtn :recordBtn,
+    recordChoose :recordChoose,
+    choseClose:choseClose,
+    collectBtn:collectBtn
+  }
+
+module.exports={
+  message :message,
+  fuc :fuc
+}

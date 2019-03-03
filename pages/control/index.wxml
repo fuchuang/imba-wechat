@@ -3,11 +3,11 @@
   <include  src='../index/index.wxml' />
 </view>
 
-<view hidden='{{false}}'>
+<view hidden='{{true}}'>
   <include src='../common/index.wxml' />
 </view>
 
-<view hidden='true'>
+<view hidden='{{false}}'>
   <include src='../my/index.wxml' />
 </view>
 
@@ -15,7 +15,7 @@
   <include src='../video/index.wxml' />
 </view>
 
-<view hidden='true'>
+<view hidden='{{true}}'>
   <include src='../message/index.wxml' />
 </view>
 

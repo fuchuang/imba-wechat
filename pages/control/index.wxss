@@ -1,2 +1,4 @@
 @import "../index/index.wxss";
 @import "../common/index.wxss";
+@import "../message/index.wxss";
+@import "../my/index.wxss";

@@ -1,6 +1,8 @@
 const app = getApp()
 const index = require('../index/index.js');
 const common = require('../common/index.js');
+const message = require('../message/index.js');
+const my = require('../my/index.js');
 Page({
   data: {
  
@@ -13,6 +15,8 @@ Page({
     fooCommon: true,
     fooMy: true,
     title: 'IMBA课程表',
+    gradeCardTop: common.message.gradeCardTop,
+    noticeHeight : my.message.noticeHeight,
     //内容定位
     weekAndDataPosTop: index.message.weekAndDataPosTop,
     containPosTop: index.message.containPosTop,
@@ -43,9 +47,9 @@ Page({
     // common data
     noticeHeight : common.message.noticeHeight,
     chooseHeight : common.message.chooseHeight,
-    gradeCardTop: common.message.gradeCardTop,
+  
     recordBtnMessage: common.message.recordBtnMessage,
-
+    cardTop : message.message.cardTop,
     /* titlebtn 信息 */
     indexBtn:common.message.indexBtn,
     /* 首页按钮的内容 */
@@ -58,6 +62,45 @@ Page({
     classMessage:common.message.classMessage,
     /* 下载附件的信息 */
     downloadMessage:common.message.downloadMessage,
+    // message  data
+    path:message.message.path,
+    pageControll:message.message.pageControll,
+    secondPagse:message.message.secondPagse,
+    secondPageControll:message.message.secondPageControll,
+    gradeMessage:message.message.gradeMessage,
+    detailGrade:message.message.detailGrade,
+
+    gradeBtnOpen:message.message.gradeBtnOpen,
+    gradeBtnMessage:message.message.gradeBtnMessage,
+    teacherMessage:message.message.teacherMessage,
+    examMessage:message.message.examMessage,
+
+    btnMessage:message.message.btnMessage,
+    noticeHeight:message.message.noticeHeight,
+    noticeMessage:message.message.noticeMessage,
+    windowHeight:message.message.windowHeight,
+    
+    chooseHeight:message.message.chooseHeight,
+    chooseBGColor:message.message.chooseBGColor,
+    chooseBtn:message.message.chooseBtn,
+    chooseClass:message.message.chooseClass,
+
+    // my data 
+    btnMessage: my.message.btnMessage,
+    secondPageTextColor: my.message.secondPageTextColor,
+    pageSecond: my.message.pageSecond,
+    recorderBtnFlag: my.message.recorderBtnFlag,
+    recordBtnMessage: my.message.recordBtnMessage,
+    listData: my.message.listData,
+    displayRecorderMessage: my.message.displayRecorderMessage,
+    recorderMessage: my.message.recorderMessage,
+    collectBtn: my.message.collectBtn,
+    collectContainControll: my.message.collectContainControll,
+    collectChooseClass: my.message.collectChooseClass,
+    collectnoticeMessage: my.message.collectnoticeMessage,
+    myTieBtn: my.message.myTieBtn,
+    historyBtn: my.message.historyBtn,
+    historynoticeMessage: my.message.historynoticeMessage,
   },
   onLoad: function () {
     //获取周次选择文字宽度
@@ -89,4 +132,23 @@ Page({
   recordChoose : common.fuc.recordChoose,
   indexBtn : common.fuc.indexBtn,
   classBtn : common.fuc.classBtn,
+
+  // message 事件
+  addEvent :message.fuc.addEvent,
+  chooseBtn :message.fuc.chooseBtn,
+  chooseEvent :message.fuc.chooseEvent,
+  noticeEvent :message.fuc.noticeEvent,
+  returnIndex :message.fuc.returnIndex,
+  choseClose :message.fuc.choseClose, 
+  choseGradeData: message.fuc.choseGradeData,
+  btnEvent :message.fuc.btnEvent,
+
+
+  // my事件
+  returnIndex :my.fuc.returnIndex,
+  turnToNext : my.fuc.turnToNext,
+  recordBtn :my.fuc.recordBtn,
+  recordChoose :my.fuc.recordChoose,
+  choseClose:my.fuc.choseClose,
+  collectBtn:my.fuc.collectBtn
 })

@@ -3,21 +3,10 @@ const mes = require('../../common/js/message.js')
 const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const windowWidth = app.globalData.windowWidth
 const windowHeight = app.globalData.windowHeight
-Page({
-  data: {
-    // 公共属性
-    headTitle: app.globalData.statusBarHeight + 10,
-    headHeight: app.globalData.statusBarHeight + 50,
-    classPosition: (750 - 100) / 2,
-    fooMassage: true,
-    fooVideo: true,
-    fooCommon: true,
-    fooMy: true,
-    title: 'IMBA课程表',
-    // 信息定位
+let message = {
+// 信息定位
     // 绩点定位
     cardTop: rpxTurnIntopx * (70 + app.globalData.statusBarHeight) + 220,
-    gradeCardTop: rpxTurnIntopx * (50 + app.globalData.statusBarHeight),
     //  页面切换
     path: '../../common/xml/message/messageTeacher.wxml',
     pageControll: {
@@ -36,7 +25,6 @@ Page({
       messageChoose: true,
       messageAdd1: true,
       messageAdd2: true
-
     },
     // 成绩信息
     gradeMessage: [
@@ -212,24 +200,16 @@ Page({
       { title: '中国建筑3', teacher: '王阳', zan: false, num: 123 },
       { title: '中国建筑4', teacher: '王阳', zan: false, num: 123 }
     ]
-  },
-  onLoad: function () {
-    // 高度
-    let noticeHeight = rpxTurnIntopx * (windowHeight - 50 - app.globalData.statusBarHeight) - 250
-    let chooseHeight = noticeHeight - rpxTurnIntopx * 65
-    this.setData({
-      noticeHeight: noticeHeight,
-      chooseHeight: chooseHeight
-    })
-    console.log(noticeHeight)
-  },
+}
+
+    
   // 首页窗口
-  btnEvent: function (e) {
+  let btnEvent= function (e) {
     let str = e.currentTarget.dataset.message
     mes.turnInOther(str, this)
   },
   // 选择 成绩对应的日期
-  choseGradeData: function (e) {
+  choseGradeData= function (e) {
     let flag = this.data.gradeBtnOpen
     let gradeBtnMessage = this.data.gradeBtnMessage
     if (!flag) {
@@ -256,7 +236,7 @@ Page({
     })
   },
   // 关闭成绩选择窗口
-  choseClose (e) {
+  choseClose = function (e) {
     let flag = this.data.gradeBtnOpen
     let gradeBtnMessage = this.data.gradeBtnMessage
     for (var i = 0; i < gradeBtnMessage.length; i++) {
@@ -268,7 +248,7 @@ Page({
     })
   },
   //  返回键
-  returnIndex (e) {
+  returnIndex = function (e) {
     let secondPagse = this.data.secondPagse
     let secondPageControll = this.data.secondPageControll
     let str = 'messageIndex'
@@ -293,44 +273,40 @@ Page({
     }
   },
   // 教务通知事件
-  noticeEvent (e) {
+  noticeEvent = function (e) {
     let str = e.currentTarget.dataset.message
 
     mes.turnInSecond(str, this)
   },
   // 选课宝典时间
-  chooseEvent (e) {
+  chooseEvent =function (e) {
     let str = e.currentTarget.dataset.message
     mes.turnInSecond(str, this)
   },
   // 宝典内部按钮
-  chooseBtn (e) {
+  chooseBtn = function(e) {
     let color = e.currentTarget.dataset.color
     this.setData({
       chooseBGColor: color
     })
   },
   // 比赛信息事件
-  addEvent: function (e) {
+  addEvent= function (e) {
     let str = e.currentTarget.dataset.message
     let index = e.currentTarget.dataset.kind
     mes.turnInSecond(str, this, index)
-  },
-    // 底部导航
-    navigatorFooter : function (e) {
-      let str= '../' + e.currentTarget.dataset.str + '/index'
-      console.log(e.currentTarget.dataset.str)
-      wx.redirectTo({
-        url: str,
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
-    }
-})
+  }
+  let fuc = {
+    addEvent :addEvent,
+    chooseBtn :chooseBtn,
+    chooseEvent :chooseEvent,
+    noticeEvent :noticeEvent,
+    returnIndex :returnIndex,
+    choseClose :choseClose, 
+    choseGradeData: choseGradeData,
+    btnEvent :btnEvent
+  }
+  module.exports = {
+    fuc :fuc,
+    message : message
+  }
