@@ -16,7 +16,9 @@ Page({
     fooMy: true,
     title: 'IMBA课程表',
     gradeCardTop: common.message.gradeCardTop,
-    noticeHeight : my.message.noticeHeight,
+    mygradeCardTop : my.message.gradeCardTop,
+    noticeHeight : common.message.noticeHeight,
+    chooseHeight : common.message.chooseHeight,
     //内容定位
     weekAndDataPosTop: index.message.weekAndDataPosTop,
     containPosTop: index.message.containPosTop,
@@ -45,9 +47,6 @@ Page({
 
 
     // common data
-    noticeHeight : common.message.noticeHeight,
-    chooseHeight : common.message.chooseHeight,
-  
     recordBtnMessage: common.message.recordBtnMessage,
     cardTop : message.message.cardTop,
     /* titlebtn 信息 */
@@ -86,9 +85,9 @@ Page({
     chooseClass:message.message.chooseClass,
 
     // my data 
-    btnMessage: my.message.btnMessage,
+    mybtnMessage: my.message.btnMessage,
     secondPageTextColor: my.message.secondPageTextColor,
-    pageSecond: my.message.pageSecond,
+    mypageSecond: my.message.pageSecond,
     recorderBtnFlag: my.message.recorderBtnFlag,
     recordBtnMessage: my.message.recordBtnMessage,
     listData: my.message.listData,
@@ -105,6 +104,7 @@ Page({
   onLoad: function () {
     //获取周次选择文字宽度
     index.fuc.getWeekAndData(this)
+    console.log (this.data.mygradeCardTop)
 
   },
   // 选择周次

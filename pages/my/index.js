@@ -4,7 +4,7 @@ const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const windowWidth = app.globalData.windowWidth
 const windowHeight = app.globalData.windowHeight
 let message = {
-  
+    noticeHeight : rpxTurnIntopx * (windowHeight - 50 - app.globalData.statusBarHeight) - 250,
     // 按钮信息
     btnMessage: [
       { logoUrl: 'recordlogo', text: '考勤记录', btnEvent: 'pagerecord' },

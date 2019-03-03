@@ -1,4 +1,4 @@
-<view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #51d6ff;'>
+<view class='moreMessage' style='top:{{mygradeCardTop+50}}rpx;background: #51d6ff;'>
   <view style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' class='flexRow flexRowCenterAndAround'><view>接受附件</view></view>
   <scroll-view class='moreMessageContain' style='height:{{noticeHeight-50}}rpx;' scroll-y>
     <view style='width:640rpx;flex-wrap:wrap;justify-content: flex-start;align-items:flex-start;' class='flexRow'>

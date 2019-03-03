@@ -1,5 +1,5 @@
 <view class='mainBG' />
-<view  style='top:{{gradeCardTop+10}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
+<view  style='top:{{mygradeCardTop+10}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
   <view class='flexRow flexRowCenterAndAround chooseBtnBG' style='border-color:#fadb91;'> 
     <!--按钮-->
     <view style='' 

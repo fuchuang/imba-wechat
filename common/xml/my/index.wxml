@@ -1,4 +1,4 @@
-  <view class='' style='top:{{gradeCardTop+50}}rpx;height:{{noticeHeight}}rpx;' class='flexRow flexRowCenterAndAround borderRadius containBg'>
+  <view class='' style='top:{{mygradeCardTop+50}}rpx;height:{{noticeHeight}}rpx;' class='flexRow flexRowCenterAndAround borderRadius containBg'>
     <view style='height:{{noticeHeight-10}}rpx;background:white;width:640rpx;align-items: center;' class='borderRadius flexColumn box-shadow'>
       <view class='flexRow titleBG' style='margin:10rpx 0;'>
         <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/people.png");background-size:100% 100%;' class='box-shadow peopleSize'/>
@@ -25,7 +25,7 @@
       </view>
       <!--按钮-->
       <view style='width:600rpx;border:solid 1px #51d6ff; ' class='borderRadius'>
-        <view style='width:600rpx;' class='flexColumn' wx:for='{{btnMessage}}' wx:key='myBtn' wx:for-item='item' bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
+        <view style='width:600rpx;' class='flexColumn' wx:for='{{mybtnMessage}}' wx:key='myBtn' wx:for-item='item' bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
           <view class='flexRow btnBg' style=''>
            <view class='btnLogo' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/{{item.logoUrl}}.png") no-repeat;background-size:100% 100%;'></view>
             <view style='width:450rpx;'>{{item.text}}</view>

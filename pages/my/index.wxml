@@ -1,22 +1,22 @@
 <include src='../../common/xml/head.wxml'/>
 <view class='mainBG' />
-<view class='container'  hidden='{{pageSecond.pageindex}}'>
+<view class='container'  hidden='{{mypageSecond.pageindex}}'>
    <include src='../../common/xml/my/index.wxml'/>
 </view>
-<view class='container' hidden='{{pageSecond.pagerecord}}'>
+<view class='container' hidden='{{mypageSecond.pagerecord}}'>
    <include src='../../common/xml/my/recorde.wxml'/>
 </view>
-<view class='container'  hidden='{{pageSecond.pagecollect}}'>
+<view class='container'  hidden='{{mypageSecond.pagecollect}}'>
   <include src='../../common/xml/my/collect.wxml'/>
 </view>
-<view class='container'  hidden='{{pageSecond.pagehistory}}'>
+<view class='container'  hidden='{{mypageSecond.pagehistory}}'>
   <include src='../../common/xml/my/history.wxml'/>
 </view>
-<view class='container' hidden='{{pageSecond.pagetie}}'>
+<view class='container' hidden='{{mypageSecond.pagetie}}'>
   <include src='../../common/xml/my/tiezi.wxml'/>
 </view>
-<view class='container' hidden='{{pageSecond.pagesave}}'>
+<view class='container' hidden='{{mypageSecond.pagesave}}'>
   <include src='../../common/xml/my/save.wxml'/>
 </view>
-<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!pageSecond.pageindex}}'/>
+<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>
 <include src='../../common/xml/footer.wxml'/>

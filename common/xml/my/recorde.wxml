@@ -1,6 +1,6 @@
 
 
-<view class='borderRadius flexColumn flexRowCenterAndAround MYREcontainBG' style='top:{{gradeCardTop+50}}rpx;  height:{{noticeHeight}}rpx;'>
+<view class='borderRadius flexColumn flexRowCenterAndAround MYREcontainBG' style='top:{{mygradeCardTop+50}}rpx;  height:{{noticeHeight}}rpx;'>
   <view class='borderRadius flexColumn MYREcontain' scroll-y style='height:{{noticeHeight-10}}rpx;'>
     <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'>
       <text>title</text>
@@ -35,11 +35,11 @@
   </view>
 </view>
   <!--左右换页-->
-  <view class='leftBtn' style="top:{{gradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='left'/>
-  <view class='rightBtn' style="top:{{gradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='right'/>
+  <view class='leftBtn' style="top:{{mygradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='left'/>
+  <view class='rightBtn' style="top:{{mygradeCardTop+320}}rpx;" bindtap='recordBtn' data-rotation='right'/>
   <!--按钮事件的背后-->
     <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
-    <view style='top:{{gradeCardTop+170}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
+    <view style='top:{{mygradeCardTop+170}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
       <view style='' wx:for='{{recordBtnMessage}}' wx:key='recordChoose' wx:for-item='item' class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
         <view style='margin:0 20rpx;'>{{item.text}}</view>
         <view class='gradeAngle' hidden='{{item.angleFlag}}'/>
