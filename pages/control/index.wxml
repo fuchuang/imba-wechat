@@ -1,5 +1,23 @@
 <include src='../../common/xml/head.wxml'/>
-<include src='../index/index.wxml' />
+<view hidden='true'>
+  <include  src='../index/index.wxml' />
+</view>
+
+<view hidden='{{false}}'>
+  <include src='../common/index.wxml' />
+</view>
+
+<view hidden='true'>
+  <include src='../my/index.wxml' />
+</view>
+
+<view hidden='true'>
+  <include src='../video/index.wxml' />
+</view>
+
+<view hidden='true'>
+  <include src='../message/index.wxml' />
+</view>
 
 <include src='../../common/xml/footer.wxml'/>
 <include src='../../common/xml/alert.wxml'/>
