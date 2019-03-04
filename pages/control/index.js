@@ -2,6 +2,7 @@ const app = getApp()
 const index = require('../index/index.js');
 const common = require('../common/index.js');
 const message = require('../message/index.js');
+const video = require('../video/index.js');
 const my = require('../my/index.js');
 Page({
   data: {
@@ -44,13 +45,14 @@ Page({
     gradeNums: index.message.gradeNums,
     menuNums: index.message.menuNums,
     classAboutSevenM:index.message.classAboutSevenM,
-
+    // foot导航
+    footPage: index.message.footPage,
 
     // common data
     recordBtnMessage: common.message.recordBtnMessage,
     cardTop : message.message.cardTop,
     /* titlebtn 信息 */
-    indexBtn:common.message.indexBtn,
+    CommonindexBtn:common.message.indexBtn,
     /* 首页按钮的内容 */
     pageContainControll:0,
     pageSecond:common.message.pageSecond,
@@ -75,10 +77,8 @@ Page({
     examMessage:message.message.examMessage,
 
     btnMessage:message.message.btnMessage,
-    noticeHeight:message.message.noticeHeight,
     noticeMessage:message.message.noticeMessage,
     windowHeight:message.message.windowHeight,
-    
     chooseHeight:message.message.chooseHeight,
     chooseBGColor:message.message.chooseBGColor,
     chooseBtn:message.message.chooseBtn,
@@ -100,6 +100,11 @@ Page({
     myTieBtn: my.message.myTieBtn,
     historyBtn: my.message.historyBtn,
     historynoticeMessage: my.message.historynoticeMessage,
+
+    // video data
+    indexBtn : video.message.indexBtn,
+    scrollSearch : video.message.scrollSearch,
+    pageContainControll : video.message.pageContainControll,
   },
   onLoad: function () {
     //获取周次选择文字宽度

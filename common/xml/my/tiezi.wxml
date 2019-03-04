@@ -1,9 +1,9 @@
 <view class='mainBG' />
 <view  style='top:{{mygradeCardTop+10}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
-  <view class='flexRow flexRowCenterAndAround chooseBtnBG' style='border-color:#fadb91;'> 
+  <view class='flexRow flexRowCenterAndAround MychooseBtnBG' style='border-color:#fadb91;'> 
     <!--按钮-->
     <view style='' 
-    class='chooseBtnMessage flexRowCenterAndAround flexRow' 
+    class='MychooseBtnMessage flexRowCenterAndAround flexRow' 
     wx:for='{{myTieBtn}}' wx:for-item='item' wx:key='chooseBtn' 
     bindtap='collectBtn' wx:for-index='index' data-index='{{index}}' data-item='myTieBtn'  data-color='#fadb91;'>
       <text class='textBottomLine' style='color:{{item.color}};border-color:{{item.borderColor}}'>{{item.title}}</text>
@@ -11,15 +11,15 @@
   </view>
   <!--内容-->
   <view style='height:{{noticeHeight-100}}rpx;' 
-  class=' flexRow flexRowCenterAndAround chooseContainBG' style='background:#fadb91;'>
-    <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="chooseContain">
+  class=' flexRow flexRowCenterAndAround MychooseContainBG' style='background:#fadb91;'>
+    <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 通知 -->
-      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='true'>
-        <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
-          <view class='noticeItemContian flexRow flexRowCenterAndAround' >
+      <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='true'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+          <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
-                <view class='noticeLogo' />
+                <view class='MynoticeLogo' />
                 <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
                 <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
                 <view style='width:15%;'/>

@@ -3,18 +3,7 @@ const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
 const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const util= require('../../common/js/util.js')
-Page({
-  data: {
-    headTitle: app.globalData.statusBarHeight + 10,
-    headHeight: app.globalData.statusBarHeight + 50,
-    classPosition: (750 - 100) / 2,
-    fooMassage: true,
-    fooVideo: true,
-    fooCommon: true,
-    fooMy: true,
-    title: 'IMBA课程表',
-    noticeHeight: rpxTurnIntopx * (windowHeight - 50 - app.globalData.statusBarHeight) - 250,
-    gradeCardTop: rpxTurnIntopx * (50 + app.globalData.statusBarHeight),
+let message = {
     // index的btn
     indexBtn:[
       { text: '点播', color: '#28C1F1', borderColor: '#28C1F1' },
@@ -37,12 +26,10 @@ Page({
     ],
     // index 内容的控制器
     pageContainControll : 2
-  },
-  onLoad: function () {
+}
 
-  },
     // 底部导航
-  navigatorFooter : function (e) {
+  let navigatorFooter = function (e) {
     let str= '../' + e.currentTarget.dataset.str + '/index'
     console.log(e.currentTarget.dataset.str)
     wx.redirectTo({
@@ -58,7 +45,7 @@ Page({
       }
     })
   },
-  indexBtn (e) {
+  indexBtn = function (e) {
     util.indexBtn(e,this)
 /*     let str = e.currentTarget.dataset.str
     let index = e.currentTarget.dataset.index
@@ -77,5 +64,11 @@ Page({
       pageContainControll : index
     }) */
   }
-
-})
+  let fuc = {
+    indexBtn : indexBtn,
+    navigatorFooter :navigatorFooter
+  }
+module.exports = {
+  message :message,
+  fuc :fuc
+}

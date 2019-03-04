@@ -1,5 +1,5 @@
 <view style="top:{{gradeCardTop}}rpx;" class='btnTitle'> 
-  <view wx:for='{{indexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' 
+  <view wx:for='{{CommonindexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' 
     wx:for-index='index' data-index='{{index}}'
     class='flexRow flexRowCenterAndAround video_btnTitle' bindtap='indexBtn' data-str = 'indexBtn' data-color='#28C1F1'>
       <text class='' style='color:{{item.color}}; border-bottom: 3px solid {{item.borderColor}};'>{{item.text}}</text>

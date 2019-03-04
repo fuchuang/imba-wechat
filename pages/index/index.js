@@ -117,20 +117,18 @@ changeClassStyle = function (e) {
 },
 // 底部导航
 navigatorFooter = function (e) {
-  let str= '../' + e.currentTarget.dataset.str + '/index'
-    console.log(e.currentTarget.dataset.str)
-    wx.redirectTo({
-      url: str,
-      success: function(res){
-        // success
-      },
-      fail: function() {
-        // fail
-      },
-      complete: function() {
-        // complete
-      }
-    })
+  let str=  e.currentTarget.dataset.str 
+  let footPage = this.data.footPage
+  for (let i in footPage) {
+    if (footPage[i] === false) {
+      footPage[i] = true;
+      break;
+    }
+  }
+  footPage[str] = false;
+  this.setData({
+    footPage :footPage
+  })
 }
 let fuc = {
   clooseOpenMenuAndWC :clooseOpenMenuAndWC,
@@ -145,6 +143,14 @@ let fuc = {
   navigatorFooter:navigatorFooter
 }
 let message = {
+  // footer 导航
+  footPage :{
+    index:false,
+    message:true,
+    video:true,
+    common:true,
+    my:true,
+  },
   //x选择周次
   chooseWeek:true,
   testNum:1,

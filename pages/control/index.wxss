@@ -2,3 +2,4 @@
 @import "../common/index.wxss";
 @import "../message/index.wxss";
 @import "../my/index.wxss";
+@import "../video/index.wxss";

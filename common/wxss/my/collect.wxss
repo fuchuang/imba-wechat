@@ -1,4 +1,4 @@
-.chooseBtnBG{
+.MychooseBtnBG{
   width:640rpx;
   height:80rpx;
   margin-top:30rpx;
@@ -6,7 +6,7 @@
   border-top-right-radius: 10rpx;
   border: 2.5px solid #ADF3FF;border-bottom-color: transparent;
 }
-.chooseBtnMessage{
+.MychooseBtnMessage{
   text-align:center;
   border-top-left-radius: 10rpx;
   border-top-right-radius: 10rpx;
@@ -16,13 +16,13 @@
   font-weight: 500;
   color: #7c7c7c;
 }
-.chooseContainBG{
+.MychooseContainBG{
   background:#ADF3FF;
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
   width:100%;
 }
-.chooseContain{
+.MychooseContain{
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
   width: 640rpx;
@@ -31,7 +31,7 @@
   align-content: flex-start;
   flex-wrap:wrap;
 }
-.chooseClass{
+.MychooseClass{
   background: white;
   border: 2px solid #ADF3FF;
 
@@ -41,7 +41,7 @@
   border-bottom-left-radius: 20rpx;
   border-bottom-right-radius: 20rpx;
 }
-.chooseInput{
+.MychooseInput{
   position:relative;
   width:200rpx;
   left:275rpx;
@@ -49,11 +49,11 @@
   font-weight:800;
 }
 /* notice */
-.noticeContainBG{
+.MynoticeContainBG{
   width: 640rpx;
   margin-top: 20rpx;
 }
-.noticeItem{
+.MynoticeItem{
   width: 620rpx;
   height: 123rpx; 
   background: #37FABE;
@@ -61,14 +61,14 @@
   margin-bottom: 20rpx;
   box-shadow:0 15rpx 50rpx 5rpx rgb(200, 200, 200);
 }
-.noticeItemContian{
+.MynoticeItemContian{
   width: 610rpx;
   left: 50rpx;
   height: 113rpx; 
   background: white;
   border-radius: 10rpx;
 }
-.noticeLogo{
+.MynoticeLogo{
   background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notice_logo.png");
   background-size:100% 100%;
   width: 44rpx;

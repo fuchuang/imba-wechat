@@ -170,7 +170,7 @@ let message = {
       ]
     ],
     // 教务通知信息
-    noticeHeight: 0,
+
     noticeMessage: [
       {
         title: '教务处',

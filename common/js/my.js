@@ -41,12 +41,12 @@ const displayAllBtn = function (that, recordBtnMessage) {
 }
 // 切换页面
 const changePage = function (that,str) {
-  let pageSecond = that.data.pageSecond
+  let pageSecond = that.data.mypageSecond
   for (let i in pageSecond) {
     str === i ? pageSecond[i] = false : pageSecond[i] = true;
   }
   that.setData({
-    pageSecond: pageSecond
+    mypageSecond: pageSecond
   })
 }
 module.exports = {

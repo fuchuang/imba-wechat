@@ -1,9 +1,9 @@
 <view class='mainBG' />
 <view  style='top:{{mygradeCardTop+50}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
-  <view class='flexRow flexRowCenterAndAround chooseBtnBG' style='border-color:#5BFFCD;'> 
+  <view class='flexRow flexRowCenterAndAround MychooseBtnBG' style='border-color:#5BFFCD;'> 
     <!--按钮-->
     <view style='color:{{item.color}}'
-    class='chooseBtnMessage flexRowCenterAndAround flexRow' 
+    class='MychooseBtnMessage flexRowCenterAndAround flexRow' 
     wx:for='{{historyBtn}}' wx:for-item='item' wx:key='chooseBtn' 
    bindtap='collectBtn' wx:for-index='index' data-index='{{index}}' data-item='historyBtn'  data-color='#37fbbf;' 
    >
@@ -12,15 +12,15 @@
   </view>
   <!--内容-->
   <view style='height:{{noticeHeight-100}}rpx;' 
-  class=' flexRow flexRowCenterAndAround chooseContainBG' style='background:#5BFFCD;'>
-    <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="chooseContain">
+  class=' flexRow flexRowCenterAndAround MychooseContainBG' style='background:#5BFFCD;'>
+    <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 通知 -->
-      <view class="noticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
-        <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{historynoticeMessage}}' wx:key='historynoticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
-          <view class='noticeItemContian flexRow flexRowCenterAndAround' >
+      <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{historynoticeMessage}}' wx:key='historynoticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+          <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
-                <view class='noticeLogo' />
+                <view class='MynoticeLogo' />
                 <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
                 <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
                 <view style='width:15%;'/>
@@ -36,11 +36,11 @@
         </view>
       </view>
      <!-- 视频 -->
-     <view class='flexRow video_containDisplay' hidden='{{collectContainControll!==1}}'>
-        <view wx:for='{{123}}' class='video_containBG flexColumn ' >
-          <view class='video_containBG1'></view>
+     <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
+        <view wx:for='{{123}}' class='MycontainBG flexColumn ' >
+          <view class='MycontainBG1'></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-            <view class='video_containTitle'>C++程序设计</view>
+            <view class='MycontainTitle'>C++程序设计</view>
             <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
               <text style='margin-left:10rpx;'>123</text>
               <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>

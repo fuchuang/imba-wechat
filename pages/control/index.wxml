@@ -1,21 +1,21 @@
 <include src='../../common/xml/head.wxml'/>
-<view hidden='true'>
+<view hidden='{{footPage.index}}'>
   <include  src='../index/index.wxml' />
 </view>
 
-<view hidden='{{true}}'>
+<view hidden='{{footPage.common}}'>
   <include src='../common/index.wxml' />
 </view>
 
-<view hidden='{{false}}' style="width:100%;">
+<view hidden='{{footPage.my}}'>
   <include src='../my/index.wxml' />
 </view>
 
-<view hidden='true'>
+<view hidden='{{footPage.video}}'>
   <include src='../video/index.wxml' />
 </view>
 
-<view hidden='{{true}}'>
+<view hidden='{{footPage.message}}'>
   <include src='../message/index.wxml' />
 </view>
 
