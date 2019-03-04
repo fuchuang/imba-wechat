@@ -38,6 +38,6 @@
   </view>
 </view>
 <!--返回-->
-<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!pageControll.messageIndex}}'/>
+<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='message_returnIndex' hidden='{{!pageControll.messageIndex}}'/>
 <include src='../../common/xml/head.wxml'/>
 <include src='../../common/xml/footer.wxml'/>

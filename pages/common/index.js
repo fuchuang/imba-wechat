@@ -82,7 +82,22 @@ recordChoose = function (e) {
 },
 /* btnTitle */
 indexBtn = function (e) {
-  util.indexBtn(e,this)
+  let str = e.currentTarget.dataset.str
+  let index = e.currentTarget.dataset.index
+  let color = e.currentTarget.dataset.color
+  let item = this.data[str]
+  for (let i = 0; i<item.length; i++) {
+    if (i === index) {
+      item[i].color = item[i].borderColor = color
+    } else {
+      item[i].color = '#7c7c7c'
+      item[i].borderColor= 'transparent'
+    }
+  }
+  this.setData({
+    [str] :item,
+    CommonpageContainControll : index
+  })
 },
 /* 班群里面的按钮 */
 classBtn = function (e) {

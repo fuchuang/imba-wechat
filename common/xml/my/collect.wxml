@@ -51,7 +51,7 @@
       </view>
      <!-- 视频 -->
      <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
-        <view wx:for='{{123}}' class='MycontainBG flexColumn ' >
+        <view wx:for='{{123}}' class='MycontainBG flexColumn ' wx:key='my2'>
           <view class='MycontainBG1'></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
             <view class='MycontainTitle'>C++程序设计</view>

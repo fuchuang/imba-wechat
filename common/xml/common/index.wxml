@@ -1,13 +1,13 @@
 <view style="top:{{gradeCardTop}}rpx;" class='btnTitle'> 
-  <view wx:for='{{CommonindexBtn}}' wx:for-item='item' wx:key='indexBtn' style='background:white;' 
+  <view wx:for='{{CommonindexBtn}}' wx:for-item='item' wx:key='CommonindexBtn' style='background:white;' 
     wx:for-index='index' data-index='{{index}}'
-    class='flexRow flexRowCenterAndAround video_btnTitle' bindtap='indexBtn' data-str = 'indexBtn' data-color='#28C1F1'>
+    class='flexRow flexRowCenterAndAround video_btnTitle' bindtap='CommonindexBtn' data-str = 'CommonindexBtn' data-color='#28C1F1'>
       <text class='' style='color:{{item.color}}; border-bottom: 3px solid {{item.borderColor}};'>{{item.text}}</text>
   </view>
 </view>
 
 <!-- 讨论的内容 -->
-<scroll-view scroll-y hidden='{{pageContainControll!==0}}' 
+<scroll-view scroll-y hidden='{{CommonpageContainControll!==0}}' 
 style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
   <view class="flexColumn">
     <!-- 不同班群 -->
@@ -28,14 +28,14 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
         </view>
       </view>
     </view>
-    <view style="flex:1;justify-content: space-around;align-items: center;" class="flexRow"><view wx:for='{{[1,2,3]}}' style="width:14rpx;height: 14rpx;background: white;border-radius: 7rpx;"/></view>
+    <view style="flex:1;justify-content: space-around;align-items: center;" class="flexRow"><view wx:for='{{[1,2,3]}}' wx:key='common5' style="width:14rpx;height: 14rpx;background: white;border-radius: 7rpx;"/></view>
     </view>
   </view><!-- 滚动最下面的垫子 -->
   <view style="width:100%;height:50rpx;"/>
 </scroll-view>
 <!--按钮事件的背后-->
 <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
-<view style='top:{{gradeCardTop+130}}rpx;' hidden='{{pageContainControll!==0}}'  class='MYREbtnPos flexColumn borderRadius' >
+<view style='top:{{gradeCardTop+130}}rpx;' hidden='{{CommonpageContainControll!==0}}'  class='MYREbtnPos flexColumn borderRadius' >
   <view style='' wx:for='{{recordBtnMessage}}' 
   wx:key='recordChoose' wx:for-item='item' 
   class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
@@ -44,7 +44,7 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
   </view>
 </view>
 <!-- 社区 -->
-<view style="top:{{gradeCardTop+130}}rpx;position:absolute;" class="flexColumn" hidden='{{pageContainControll!==1}}' >
+<view style="top:{{gradeCardTop+130}}rpx;position:absolute;" class="flexColumn" hidden='{{CommonpageContainControll!==1}}' >
   <view class="flexRow"><!-- 搜索框 -->
     <view class="searchTitleBG flexRow " >
       <input class="searchTitle">
@@ -58,10 +58,10 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
 </view>
   <!-- 社区帖子 -->
   <!-- 讨论的内容 -->
-<scroll-view scroll-y hidden='{{pageContainControll!==1}}' style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
+<scroll-view scroll-y hidden='{{CommonpageContainControll!==1}}' style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
   <view class="flexColumn">
       <!-- 不同帖子 -->
-    <view class="commonScrollItem" wx:for='{{[1,2,3,4]}}'>
+    <view class="commonScrollItem" wx:for='{{[1,2,3,4]}}' wx:key='common2'>
         <view class="commonScrollItemBG">
           <view style="flex:1;border-bottom:solid 1px #5DD8FE;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;" class="flexRow">
             <view class="commonWhatLogo"/>

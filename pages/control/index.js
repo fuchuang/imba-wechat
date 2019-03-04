@@ -54,7 +54,7 @@ Page({
     /* titlebtn 信息 */
     CommonindexBtn:common.message.indexBtn,
     /* 首页按钮的内容 */
-    pageContainControll:0,
+    CommonpageContainControll:0,
     pageSecond:common.message.pageSecond,
     pageClassSecond:common.message.pageClassSecond,
     pageCommonSecond:common.message.pageCommonSecond,
@@ -79,7 +79,7 @@ Page({
     btnMessage:message.message.btnMessage,
     noticeMessage:message.message.noticeMessage,
     windowHeight:message.message.windowHeight,
-    chooseHeight:message.message.chooseHeight,
+  
     chooseBGColor:message.message.chooseBGColor,
     chooseBtn:message.message.chooseBtn,
     chooseClass:message.message.chooseClass,
@@ -89,7 +89,7 @@ Page({
     secondPageTextColor: my.message.secondPageTextColor,
     mypageSecond: my.message.pageSecond,
     recorderBtnFlag: my.message.recorderBtnFlag,
-    recordBtnMessage: my.message.recordBtnMessage,
+    MyrecordBtnMessage: my.message.recordBtnMessage,
     listData: my.message.listData,
     displayRecorderMessage: my.message.displayRecorderMessage,
     recorderMessage: my.message.recorderMessage,
@@ -102,9 +102,9 @@ Page({
     historynoticeMessage: my.message.historynoticeMessage,
 
     // video data
-    indexBtn : video.message.indexBtn,
+    Video_indexBtn : video.message.indexBtn,
     scrollSearch : video.message.scrollSearch,
-    pageContainControll : video.message.pageContainControll,
+    Video_pageContainControll : video.message.pageContainControll,
   },
   onLoad: function () {
     //获取周次选择文字宽度
@@ -135,15 +135,16 @@ Page({
   // common 的事件
   choseClose : common.fuc.choseClose,
   recordChoose : common.fuc.recordChoose,
-  indexBtn : common.fuc.indexBtn,
+  CommonindexBtn : common.fuc.indexBtn,
   classBtn : common.fuc.classBtn,
-
+  //video 事件
+  Video_indexBtn : video.fuc.indexBtn,
   // message 事件
   addEvent :message.fuc.addEvent,
   chooseBtn :message.fuc.chooseBtn,
   chooseEvent :message.fuc.chooseEvent,
   noticeEvent :message.fuc.noticeEvent,
-  returnIndex :message.fuc.returnIndex,
+  message_returnIndex :message.fuc.returnIndex,
   choseClose :message.fuc.choseClose, 
   choseGradeData: message.fuc.choseGradeData,
   btnEvent :message.fuc.btnEvent,

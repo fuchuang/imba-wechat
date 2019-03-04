@@ -40,7 +40,7 @@
   <!--按钮事件的背后-->
     <view style='' class='MYREbtnBG' bindtap='choseClose' hidden='{{!recorderBtnFlag}}' />
     <view style='top:{{mygradeCardTop+170}}rpx;' class='MYREbtnPos flexColumn borderRadius' >
-      <view style='' wx:for='{{recordBtnMessage}}' wx:key='recordChoose' wx:for-item='item' class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
+      <view style='' wx:for='{{ MyrecordBtnMessage}}' wx:key='recordChoose' wx:for-item='item' class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
         <view style='margin:0 20rpx;'>{{item.text}}</view>
         <view class='gradeAngle' hidden='{{item.angleFlag}}'/>
       </view>

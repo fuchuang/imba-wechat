@@ -22,7 +22,8 @@
     </input>
     <!-- tag放的地方 -->
     <view class='flexRow Tsc_tagContain'>
-      <view style='border-radius:10rpx;margin:10rpx 10rpx;background: #57D7FF;color:white;justify-content:center; align-items:center;' class='flexRow' wx:for='{{[1,2,3,4]}}'>
+      <view style='border-radius:10rpx;margin:10rpx 10rpx;background: #57D7FF;color:white;justify-content:center; align-items:center;' class='flexRow' 
+      wx:for='{{[1,2,3,4]}}' wx:key='common3'>
         <text style='margin:2rpx 5rpx;'>tag</text>
         <view class='Tsc_tagContainClose'/>
       </view>

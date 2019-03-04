@@ -25,7 +25,7 @@ let message = {
       { text: '心理学' }
     ],
     // index 内容的控制器
-    pageContainControll : 2
+    pageContainControll : 0
 }
 
     // 底部导航
@@ -46,8 +46,8 @@ let message = {
     })
   },
   indexBtn = function (e) {
-    util.indexBtn(e,this)
-/*     let str = e.currentTarget.dataset.str
+    let str = e.currentTarget.dataset.str 
+    console.log(str)
     let index = e.currentTarget.dataset.index
     let color = e.currentTarget.dataset.color
     let item = this.data[str]
@@ -61,8 +61,8 @@ let message = {
     }
     this.setData({
       [str] :item,
-      pageContainControll : index
-    }) */
+      Video_pageContainControll : index
+    })
   }
   let fuc = {
     indexBtn : indexBtn,

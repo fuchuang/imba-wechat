@@ -1,11 +1,7 @@
 {
   "pages":[
-    "pages/control/index",
-    "pages/index/index",
-    "pages/message/index",
-    "pages/common/index",
-    "pages/video/index",
-    "pages/my/index"
+    "pages/control/index"
+
   ],
   "window":{
     "navigationStyle":"custom"
