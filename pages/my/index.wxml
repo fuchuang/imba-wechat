@@ -1,4 +1,4 @@
-<include src='../../common/xml/head.wxml'/>
+
 <view class='mainBG' />
 <view class='container'  hidden='{{mypageSecond.pageindex}}'>
    <include src='../../common/xml/my/index.wxml'/>
@@ -19,4 +19,3 @@
   <include src='../../common/xml/my/save.wxml'/>
 </view>
 <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>
-<include src='../../common/xml/footer.wxml'/>

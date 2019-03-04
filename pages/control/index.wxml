@@ -7,7 +7,7 @@
   <include src='../common/index.wxml' />
 </view>
 
-<view hidden='{{false}}'>
+<view hidden='{{false}}' style="width:100%;">
   <include src='../my/index.wxml' />
 </view>
 
