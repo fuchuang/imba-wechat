@@ -12,4 +12,5 @@
   class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_off.png") no-repeat;background-size: 100% 100%;'wx:if='{{footPage.my}}'/>
   <view class='footItem' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my_on.png") no-repeat;background-size: 100% 100%;' wx:else/>
 </view>
-<view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/foo_class.png") no-repeat;background-size: 100% 100%;width:100rpx;height:100rpx;position:fixed;bottom:70rpx;left:{{classPosition}}rpx;'></view>
+<view bindtap='navigatorFooter' data-str='index' 
+ style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/foo_class.png") no-repeat;background-size: 100% 100%;width:100rpx;height:100rpx;position:fixed;bottom:70rpx;left:{{classPosition}}rpx;'></view>

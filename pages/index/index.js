@@ -114,21 +114,6 @@ changeClassStyle = function (e) {
   this.setData({
     isClass: isClass
   })
-},
-// 底部导航
-navigatorFooter = function (e) {
-  let str=  e.currentTarget.dataset.str 
-  let footPage = this.data.footPage
-  for (let i in footPage) {
-    if (footPage[i] === false) {
-      footPage[i] = true;
-      break;
-    }
-  }
-  footPage[str] = false;
-  this.setData({
-    footPage :footPage
-  })
 }
 let fuc = {
   clooseOpenMenuAndWC :clooseOpenMenuAndWC,
@@ -139,8 +124,7 @@ let fuc = {
   changeFirstClass : changeFirstClass,
   changeClassStyle : changeClassStyle,
   getWeekAndData : getWeekAndData,
-  chooseWeekEvent :chooseWeekEvent,
-  navigatorFooter:navigatorFooter
+  chooseWeekEvent :chooseWeekEvent
 }
 let message = {
   // footer 导航

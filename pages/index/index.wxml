@@ -27,7 +27,7 @@
   <view style='width:100%;height:1000px;position:absolute;left:0;' hidden='{{chooseWeek}}' bindtap='clooseOpenMenuAndWC'/>
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>
     <view> 
-      <view bindtap='chooseWeekEvent' style=''>
+      <view bindtap='chooseWeekEvent' >
         <p>{{weekNums[setNowWeek.index]}}</p>
         <p style='position:fixed;'>
           <view class='triangleLeft' style='position:relative;top:18rpx;left:10rpx;'></view>
