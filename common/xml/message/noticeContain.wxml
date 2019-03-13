@@ -14,7 +14,7 @@
             <view>2018.12.22</view>
           </view>
           <view class='flexRow'>
-          <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/noticeContainDowanload.png");background-size:100% 100%;width:42rpx;height:42rpx;'/>
+          <view style='background:url("https://www.gdutrex.xyz/imba/noticeContainDowanload.png");background-size:100% 100%;width:42rpx;height:42rpx;'/>
           <text>下载附件</text>
           </view>
        </view>
@@ -22,4 +22,4 @@
     </scroll-view>
   </view>
 </view>
-<view class='noticeContainStar' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/noticeContainStarOff.png");background-size:100% 100%;top:{{gradeCardTop+100}}rpx;'/>
+<view class='noticeContainStar' style='background:url("https://www.gdutrex.xyz/imba/noticeContainStarOff.png");background-size:100% 100%;top:{{gradeCardTop+100}}rpx;'/>

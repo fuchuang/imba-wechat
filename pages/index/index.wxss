@@ -10,7 +10,7 @@ page{
 			border-right:12rpx solid transparent;
 			border-top: 15rpx solid #28c2f2;
 			border-bottom: 15rpx solid transparent;
-
+  
 }
 .triangleDown{
   width: 0;

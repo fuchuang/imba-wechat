@@ -28,7 +28,7 @@
             <view style='font-size:small;color:#A1A1A1;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.teacher}}</view>
           </view>
           <view style='width:25%;height:100%;color:#FF4040;' class='flexRow flexRowCenterAndAround'>
-            <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/chooseLoveLogo.png");background-size:100% 100%;width:32rpx;height:32rpx;'></view><text style='font-size:xx-small;'>{{item.num}}</text>
+            <view style='background:url("https://www.gdutrex.xyz/imba/chooseLoveLogo.png");background-size:100% 100%;width:32rpx;height:32rpx;'></view><text style='font-size:xx-small;'>{{item.num}}</text>
           </view>
         
         </view>

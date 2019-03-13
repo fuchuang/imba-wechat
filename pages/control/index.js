@@ -4,9 +4,16 @@ const common = require('../common/index.js');
 const message = require('../message/index.js');
 const video = require('../video/index.js');
 const my = require('../my/index.js');
+const classContainJS = require('../../common/js/classContain.js');
+
 Page({
   data: {
- 
+    // 内容 用户账号密码
+    userName:'',
+    password:'',
+    classInfo:'',
+    info:'',
+    type:'',
     //公用属性
     headTitle: app.globalData.statusBarHeight+10,
     headHeight: app.globalData.statusBarHeight+50,
@@ -44,7 +51,7 @@ Page({
     weekNums: index.message.weekNums,
     gradeNums: index.message.gradeNums,
     menuNums: index.message.menuNums,
-    classAboutSevenM:index.message.classAboutSevenM,
+    classContain:index.message.classContain,
     // foot导航
     footPage: index.message.footPage,
 
@@ -106,11 +113,24 @@ Page({
     scrollSearch : video.message.scrollSearch,
     Video_pageContainControll : video.message.pageContainControll,
   },
-  onLoad: function () {
-    //获取周次选择文字宽度
-    index.fuc.getWeekAndData(this)
-    console.log (this.data.mygradeCardTop)
+  onLoad: function (option) {
+  
+    let classContain =   JSON.parse(option.classContain)//
+    classContain = classContainJS.fcu.get24WeekClassContain(this, classContain)
 
+    // 判断是否发生 跳转
+    this.setData({
+      userName : option.userName,
+      password: option.password,
+      classInfo : option.classInfo,
+      info : option.info,
+      type : option.type,
+      classContain:classContain// 课程表
+    })
+{      //获取周次选择文字宽度
+    index.fuc.onload(this)}
+    console.log(classContain);
+   
   },
   // 选择周次
   chooseWeekEvent: index.fuc.chooseWeekEvent,
@@ -156,5 +176,7 @@ Page({
   recordBtn :my.fuc.recordBtn,
   recordChoose :my.fuc.recordChoose,
   choseClose:my.fuc.choseClose,
-  collectBtn:my.fuc.collectBtn
+  collectBtn:my.fuc.collectBtn,
+
+
 })

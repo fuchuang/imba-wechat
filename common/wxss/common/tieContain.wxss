@@ -13,7 +13,7 @@
   white-space: nowrap;
 }
 .tieCillect{
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/collectoff.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/collectoff.png') no-repeat;
   background-size: 100% 100%;
   width: 38rpx;
   height: 38rpx;
@@ -26,7 +26,7 @@
 .commonbtnLogo{
   width: 50rpx;
   height: 38rpx;
-  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/common/edit.png");
+  background: url("https://www.gdutrex.xyz/imba/common/edit.png");
   background-size: 100% 100%;
   margin-left: 20rpx;
 }

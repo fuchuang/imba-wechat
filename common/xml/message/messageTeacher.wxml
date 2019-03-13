@@ -5,7 +5,7 @@
     for-index='index'
     wx:key = 'teacherMessage'
     class='teacherBG flexColumn'
-    style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/teacherBG{{index%3+1}}.png") no-repeat;background-size:100% 100%;' 
+    style='background:url("https://www.gdutrex.xyz/imba/teacherBG{{index%3+1}}.png") no-repeat;background-size:100% 100%;' 
   >
     <view class='teacherContain flexRow' >
         <view style='width:30%;height:100%;' class='flexRow flexRowCenterAndAround'> 

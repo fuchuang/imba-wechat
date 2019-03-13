@@ -1,39 +1,42 @@
   <view class='' style='top:{{mygradeCardTop+50}}rpx;height:{{noticeHeight}}rpx;' class='flexRow flexRowCenterAndAround borderRadius containBg'>
-    <view style='height:{{noticeHeight-10}}rpx;background:white;width:640rpx;align-items: center;' class='borderRadius flexColumn box-shadow'>
-      <view class='flexRow titleBG' style='margin:10rpx 0;'>
-        <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/people.png");background-size:100% 100%;' class='box-shadow peopleSize'/>
-        <view class='box-shadow flexRow borderRadius flexRowCenterAndAround titleTextBG'>
-          <view style='' class='borderRadius titleTextContain'>
-            <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
-              <text style='color:#35c6f3;'>id</text>
-              <text style='color:#707070;'>XXX</text>
-              <text style='color:#35c6f3;'>性别</text>
-              <text style='color:#707070;'>XXX</text>
-            </view>
-            <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
-              <text style='color:#35c6f3;'>班级</text>
-              <text style='color:#707070;'>XXX</text>
-            </view>
-            <view class='flexRow' style='margin:0 0 0 20rpx;justify-content: flex-start;'>
-              <text style='color:#35c6f3;width:170rpx;'>个性签名</text>
-              <scroll-view style='width:170rpx;height:100rpx;' scroll-y>
-                <text style='word-wrap:break-word;color:#707070;'>XXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX</text>
-              </scroll-view>
+    <view style='justify-content:space-around;height:{{noticeHeight-10}}rpx;background:white;width:640rpx;align-items: center;' class='borderRadius flexColumn box-shadow'>
+      <view>
+        <view class='flexRow titleBG' style='margin:10rpx 0;'>
+            <view style='background:url("https://www.gdutrex.xyz/imba/my/people.png");background-size:100% 100%;' class='box-shadow peopleSize'/>
+            <view class='box-shadow flexRow borderRadius flexRowCenterAndAround titleTextBG'>
+              <view style='' class='borderRadius titleTextContain'>
+                <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
+                  <text style='color:#35c6f3;'>id</text>
+                  <text style='color:#707070;'>XXX</text>
+                  <text style='color:#35c6f3;'>性别</text>
+                  <text style='color:#707070;'>XXX</text>
+                </view>
+                <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
+                  <text style='color:#35c6f3;'>班级</text>
+                  <text style='color:#707070;'>XXX</text>
+                </view>
+                <view class='flexRow' style='margin:0 0 0 20rpx;justify-content: flex-start;'>
+                  <text style='color:#35c6f3;width:170rpx;'>个性签名</text>
+                  <scroll-view style='width:170rpx;height:100rpx;' scroll-y>
+                    <text style='word-wrap:break-word;color:#707070;'>XXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX</text>
+                  </scroll-view>
+                </view>
+              </view>
             </view>
           </view>
-        </view>
-      </view>
-      <!--按钮-->
-      <view style='width:600rpx;border:solid 1px #51d6ff; ' class='borderRadius'>
-        <view style='width:600rpx;' class='flexColumn' wx:for='{{mybtnMessage}}' wx:key='myBtn' wx:for-item='item' bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
-          <view class='flexRow btnBg' style=''>
-           <view class='btnLogo' style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/{{item.logoUrl}}.png") no-repeat;background-size:100% 100%;'></view>
-            <view style='width:450rpx;'>{{item.text}}</view>
-            <view style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/return.png") no-repeat;background-size:100% 100%;width:20rpx;height:38rpx;'/>
+          <!--按钮-->
+          <view style='width:600rpx;border:solid 1px #51d6ff; ' class='borderRadius'>
+            <view style='width:600rpx;' class='flexColumn' wx:for='{{mybtnMessage}}' wx:key='myBtn' wx:for-item='item' bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
+              <view class='flexRow btnBg' style=''>
+                <view class='btnLogo' style='background:url("https://www.gdutrex.xyz/imba/my/{{item.logoUrl}}.png") no-repeat;background-size:100% 100%;'></view>
+                <view style='width:450rpx;'>{{item.text}}</view>
+                <view style='background:url("https://www.gdutrex.xyz/imba/my/return.png") no-repeat;background-size:100% 100%;width:20rpx;height:38rpx;'/>
+              </view>
+              <view class='containTextLine'></view>
+            </view>
           </view>
-          <view class='containTextLine'></view>
-        </view>
       </view>
+      
       <!--推出登陆-->
       <view style='background: #51d6ff;width:400rpx;height:60rpx;color:white;font-weight:700;letter-spacing:10rpx;margin-top:30rpx;' class='flexRow flexRowCenterAndAround borderRadius'>
         <text>退出登陆</text>

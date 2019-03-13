@@ -23,11 +23,11 @@
               <view 
               wx:if='{{recrod===1}}'
               class='th_logo'
-              style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/right.png");background-size:100% 100%;'/>
+              style='background:url("https://www.gdutrex.xyz/imba/my/right.png");background-size:100% 100%;'/>
               <view 
               wx:if='{{recrod===2}}'
               class='th_logo'
-              style='background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/warn.png");background-size:100% 100%;'/>
+              style='background:url("https://www.gdutrex.xyz/imba/my/warn.png");background-size:100% 100%;'/>
             </view>
           </view>
       </scroll-view>

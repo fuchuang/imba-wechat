@@ -9,7 +9,7 @@
 .itemContainImage{
   height: 130rpx;
   width: 106rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/document1.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/document1.png') no-repeat;
   background-size: 100% 100%;
 
 }

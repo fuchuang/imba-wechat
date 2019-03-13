@@ -18,7 +18,7 @@
   position:absolute;
   width:176rpx;
   height:110rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_card_top.png") no-repeat;
+  background:url("https://www.gdutrex.xyz/imba/message_card_top.png") no-repeat;
   background-size:100% 100%;
   left:287rpx;
 }
@@ -52,7 +52,7 @@
 .gradeAngle{
   width:28rpx;
   height: 28rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_grade_scroll_tri.png") no-repeat;
+  background:url("https://www.gdutrex.xyz/imba/message_grade_scroll_tri.png") no-repeat;
   background-size:100% 100%;
 }
 .detailBG{

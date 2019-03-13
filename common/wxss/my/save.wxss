@@ -13,7 +13,7 @@
   height: auto;
 }
 .documentLogo1{
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/my/documentLogo1.png');
+  background: url('https://www.gdutrex.xyz/imba/my/documentLogo1.png');
   background-size: 100% 100%;
   width: 106rpx;
   height: 130rpx;

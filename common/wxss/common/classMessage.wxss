@@ -16,7 +16,7 @@
 .treeBtn{
   width: 68rpx;
   height: 68rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/treebtn.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/treebtn.png') no-repeat;
   background-size: 100% 100%;
   margin-left: 20rpx;
 }
@@ -24,14 +24,14 @@
 .messageLogo{
   width: 48rpx;
   height: 48rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageLogo.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/messageLogo.png') no-repeat;
   background-size: 100% 100%;
   margin-right: 20rpx;
 }
 .messageLogoNums{
   width: 38rpx;
   height: 38rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/messageNum.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/messageNum.png') no-repeat;
   background-size: 100% 100%;
   color:white;
   position: relative;
@@ -45,7 +45,7 @@
   left: 150rpx;
   width: 350rpx;
   height: 350rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/signin.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/signin.png') no-repeat;
   background-size: 100% 100%;
 }
 .singinMessageBG{
@@ -79,6 +79,6 @@
   margin-top: 50rpx;
   width: 300rpx;
   height: 58rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/downloadLogo.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/downloadLogo.png') no-repeat;
   background-size: 100% 100%;
 }

@@ -19,7 +19,7 @@
 .Tsc_TagBtn{
   height: 34rpx;
   width: 21rpx;
-  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/common/tag.png") no-repeat;
+  background: url("https://www.gdutrex.xyz/imba/common/tag.png") no-repeat;
   background-size: 100% 100%;
 }
 .Tsc_tagContain{
@@ -27,7 +27,7 @@
   flex-wrap: wrap;
 }
 .Tsc_tagContainClose{
-  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/common/close.png") no-repeat;
+  background: url("https://www.gdutrex.xyz/imba/common/close.png") no-repeat;
   background-size: 100% 100%;
   width: 25rpx;
   height: 25rpx;

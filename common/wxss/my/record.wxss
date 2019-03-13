@@ -62,7 +62,7 @@
   height: 40rpx;
 }
 .tableTitle{
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/table.png");
+  background:url("https://www.gdutrex.xyz/imba/my/table.png");
   background-size: 100% 100%;
   border-bottom: 3px solid #adf2ff;
 }
@@ -71,7 +71,7 @@
   left: 20rpx;
   width: 20rpx;
   height: 40rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/zuo.png");
+  background:url("https://www.gdutrex.xyz/imba/my/zuo.png");
   background-size: 100% 100%;
 }
 .rightBtn{
@@ -79,6 +79,6 @@
   left: 710rpx;
   width: 20rpx;
   height: 40rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/my/you.png");
+  background:url("https://www.gdutrex.xyz/imba/my/you.png");
   background-size: 100% 100%;
 }

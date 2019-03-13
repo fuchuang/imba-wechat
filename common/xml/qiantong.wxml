@@ -1,21 +1,21 @@
-<view style='position:absolute;width:750rpx;height:583rpx;bottom:130rpx;left:0;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/main_bg.png");background-size:100% 100%;' hidden='{{!isClass}}'></view>
+<view style='position:absolute;width:750rpx;height:583rpx;bottom:130rpx;left:0;background:url("https://www.gdutrex.xyz/imba/main_bg.png");background-size:100% 100%;' hidden='{{!isClass}}'></view>
 <view style='width:100%;height:{{qianTongHeight}}px;position:absolute;top:{{headHeight}}px;' hidden='{{!isClass}}' class='flexRow flexRowCenterAndAround'>
   <view style='height:100%;width:80%;'>
-    <view style='position:fixed;width:80%;height:400rpx;bottom:40rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qiantongBefore.png");background-size:100% 100%;'></view>
+    <view style='position:fixed;width:80%;height:400rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qiantongBefore.png");background-size:100% 100%;'></view>
     
-    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(10deg);background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qianfinal.png");background-size:100% 100%;left:345rpx;bottom:260rpx;' class='flexColumn'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:345rpx;bottom:260rpx;' class='flexColumn'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:small;' class='flexRow flexRowCenterAndAround'>
         <text wx:for='{{nowData}}' hidden='{{item.nextData}}' wx:for-item='item' wx:key='nextData'>{{item.data}}</text>
       </view>
     </view>
-    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(-10deg);background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qianfinal.png");background-size:100% 100%;left:205rpx;bottom:260rpx;'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(-10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:205rpx;bottom:260rpx;'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:small;' class='flexRow flexRowCenterAndAround'>
         <text wx:for='{{nowData}}' hidden='{{item.lastData}}' wx:for-item='item' wx:key='lastData'>{{item.data}}</text>
       </view>
     </view>
-    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qianfinal.png");font-size:small;background-size:100% 100%;left:275rpx;bottom:280rpx;align-items: center;' class='flexColumn'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qianfinal.png");font-size:small;background-size:100% 100%;left:275rpx;bottom:280rpx;align-items: center;' class='flexColumn'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:smaller;' class='flexRow flexRowCenterAndAround'>
        <text wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData'>{{item.data}}</text>
@@ -35,7 +35,7 @@
         <view style='width:50%;height:35%;' class='inManyLine'>数字媒体技术基础</view>
       </view>
     </view>
-    <view style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qiantongFront.png");background-size:100% 100%;'></view>
+    <view style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://www.gdutrex.xyz/imba/qiantongFront.png");background-size:100% 100%;'></view>
   </view>
 </view>
-<view style='position:absolute;width:120rpx;height:60rpx;top:{{headHeight+20}}px;left:600rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/btn_class.png");background-size:100% 100%;' bindtap='changeClassStyle' hidden='{{!isClass}}'></view>
+<view style='position:absolute;width:120rpx;height:60rpx;top:{{headHeight+20}}px;left:600rpx;background:url("https://www.gdutrex.xyz/imba/btn_class.png");background-size:100% 100%;' bindtap='changeClassStyle' hidden='{{!isClass}}'></view>

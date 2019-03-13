@@ -28,7 +28,7 @@
         <!-- 用户的样式 -->
         <view class="flexRow" style='width:640rpx;height:200rpx;margin:20rpx 0;' wx:for='{{[1,2,3,4]}}' wx:key='common2'>
           <view style='width:200rpx;height:100%;' class='flexRow flexRowCenterAndAround'>
-            <view style='width:102rpx;height:102rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/common/peopleCircle.png");background-size:100% 100%;'></view>
+            <view style='width:102rpx;height:102rpx;background:url("https://www.gdutrex.xyz/imba/common/peopleCircle.png");background-size:100% 100%;'></view>
           </view>
           <!-- 帖子评论 -->
         <view style='width:440rpx;height:100%;color:#7c7c7c;border-bottom: solid 1px #C4F5FF;' class='flexColumn'>

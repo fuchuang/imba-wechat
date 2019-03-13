@@ -17,7 +17,7 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
     >
     <view class="scrollItemContain">
       <view style="width:120rpx;height:100%;" class='flexRow flexRowCenterAndAround'>
-        <view style="background:url('https://campus.gbdev.cn:8443/Miniapp/imba/common/people{{(index)%3}}.png');background-size:100% 100%;width:88rpx;height: 88rpx;"></view>
+        <view style="background:url('https://www.gdutrex.xyz/imba/common/people{{(index)%3}}.png');background-size:100% 100%;width:88rpx;height: 88rpx;"></view>
       </view>
       <view style="flex:1;color:#7c7c7c;" class="flexColumn">
         <view style="flex:3;align-items: center;" class="flexRow">{{item.title}}</view>

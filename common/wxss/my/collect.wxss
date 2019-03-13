@@ -69,13 +69,13 @@
   border-radius: 10rpx;
 }
 .MynoticeLogo{
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notice_logo.png");
+  background:url("https://www.gdutrex.xyz/imba/notice_logo.png");
   background-size:100% 100%;
   width: 44rpx;
   height: 38rpx;
 }
 .haveRead{
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/notive_hasRead.png");
+  background:url("https://www.gdutrex.xyz/imba/notive_hasRead.png");
 background-size:100% 100%;
 width: 30rpx;
 height: 30rpx;

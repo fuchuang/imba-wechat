@@ -10,7 +10,7 @@
           <view wx:for='{{downloadMessage}}' wx:for-item='item' wx:key='downloadMessage' class='itemContainBG'>
             <!-- 图标 -->
             <view style="height:100%;width:150rpx;justify-content: center;" class="flexRow ">
-              <view class="itemContainImage" style="background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/document{{item.fileType}}.png') no-repeat; background-size: 100% 100%;"></view>
+              <view class="itemContainImage" style="background: url('https://www.gdutrex.xyz/imba/common/document{{item.fileType}}.png') no-repeat; background-size: 100% 100%;"></view>
             </view>
             <!-- 文件内容 -->
             <view style="flex:1" class="flexColummn">
@@ -28,5 +28,5 @@
         </view>
       </scroll-view>
     </view>
-    <view style='width:39rpx;height:59rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
+    <view style='width:39rpx;height:59rpx;background:url("https://www.gdutrex.xyz/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
 </view>

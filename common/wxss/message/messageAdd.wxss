@@ -2,13 +2,13 @@
 .addBG1{
   width:300rpx;
   height:189rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/add_BG1.png") no-repeat;     background-size:100% 100%;
+  background:url("https://www.gdutrex.xyz/imba/add_BG1.png") no-repeat;     background-size:100% 100%;
   margin:20rpx 10rpx;
 }
 .addBG2{
   width:300rpx;
   height:189rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/add_BG2.png") no-repeat;     background-size:100% 100%;
+  background:url("https://www.gdutrex.xyz/imba/add_BG2.png") no-repeat;     background-size:100% 100%;
   margin:20rpx 10rpx;
 }
 .addBorderBottom{

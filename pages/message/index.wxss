@@ -15,7 +15,7 @@ page{
   width: 674rpx;
   position: absolute;
   height: 362rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/message_chart.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/message_chart.png') no-repeat;
   background-size: 100% 100%;
   left: 38rpx;
   box-shadow:0 15rpx 50rpx 15rpx rgb(200, 200, 200);
@@ -24,7 +24,7 @@ page{
   width: 250rpx;
   position: absolute;
   height: 269rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/message_card.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/message_card.png') no-repeat;
   background-size: 100% 100%;
   left: 250rpx;
   box-shadow:0rpx 15rpx 50rpx 5rpx rgb(200, 200, 200);
@@ -35,14 +35,14 @@ page{
   position:absolute;
   width:124rpx;
   height:74rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_card_top.png") no-repeat;
+  background:url("https://www.gdutrex.xyz/imba/message_card_top.png") no-repeat;
   background-size:100% 100%;
   left:313rpx;
 }
 .btn_bg{
   width:327rpx;
   height:150rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_btn_bg.png") no-repeat;
+  background:url("https://www.gdutrex.xyz/imba/message_btn_bg.png") no-repeat;
   background-size:100% 100%;left:313rpx;
   align-items:center;
 }

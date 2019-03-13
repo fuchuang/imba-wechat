@@ -93,7 +93,7 @@ let message = {
     teacherMessage: [
       {
         bindtap: '张',
-        photoUrl: 'https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png',
+        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
         message: [
           { title: '姓名', contain: '张' },
           { title: '任教科目', contain: '数学' },
@@ -104,7 +104,7 @@ let message = {
       },
       {
         bindtap: '张',
-        photoUrl: 'https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png',
+        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
         message: [
           { title: '姓名', contain: '张' },
           { title: '任教科目', contain: '数学' },
@@ -115,7 +115,7 @@ let message = {
       },
       {
         bindtap: '张',
-        photoUrl: 'https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png',
+        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
         message: [
           { title: '姓名', contain: '张' },
           { title: '任教科目', contain: '数学' },
@@ -126,7 +126,7 @@ let message = {
       },
       {
         bindtap: '张',
-        photoUrl: 'https://campus.gbdev.cn:8443/Miniapp/imba/teacherCircle.png',
+        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
         message: [
           { title: '姓名', contain: '张' },
           { title: '任教科目', contain: '数学' },

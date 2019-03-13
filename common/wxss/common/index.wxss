@@ -67,14 +67,14 @@
   top: -55rpx;
   left: 425rpx;
   width: 50rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/searchLogo.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/searchLogo.png') no-repeat;
   background-size: 100% 100%;
 }
 .questionBtn{
   font-size: medium;
   width: 150rpx;
   height: 70rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/questionLogo.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/questionLogo.png') no-repeat;
   background-size: 100% 100%;
   margin-left: 10rpx;
 }
@@ -98,7 +98,7 @@
   margin: 10rpx 10rpx;
   width:37rpx;
   height: 52rpx;
-  background: url('https://campus.gbdev.cn:8443/Miniapp/imba/common/what.png') no-repeat;
+  background: url('https://www.gdutrex.xyz/imba/common/what.png') no-repeat;
   background-size: 100% 100%;
 }
 .inManyLineCommon{

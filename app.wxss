@@ -23,7 +23,7 @@ color: transparent;
   height: 56rpx;
   position: fixed;
   left: 15rpx;
-   background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_return.png");
+   background:url("https://www.gdutrex.xyz/imba/message_return.png");
   background-size:100% 100%;
 }
 /* 特殊背景 */
@@ -33,7 +33,7 @@ color: transparent;
   height:583rpx;
   bottom:130rpx;
   left:0;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/main_bg.png");
+  background:url("https://www.gdutrex.xyz/imba/main_bg.png");
   background-size:100% 100%;
 }
 .flexColumn{
@@ -126,6 +126,6 @@ color: transparent;
 .gradeAngle{
   width:28rpx;
   height: 28rpx;
-  background:url("https://campus.gbdev.cn:8443/Miniapp/imba/message_grade_scroll_tri.png") no-repeat;
+  background:url("https://www.gdutrex.xyz/imba/message_grade_scroll_tri.png") no-repeat;
   background-size:100% 100%;
 }

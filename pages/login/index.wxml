@@ -1,0 +1,44 @@
+<view hidden='{{onloadStatus}}'>
+  <include src='../../common/xml/head.wxml'/>
+  <view class='mainBG' style="bottom:0;height:{{chooseHeight+380}}rpx;background:url('https://www.gdutrex.xyz/imba/login2.png') no-repeat;background-size: 100% 100%;"/>
+  <view class='flexColumn flexRowCenterAndAround' style="justify-content: center;position:absolute;width:100%;height:{{chooseHeight}}rpx;top:{{gradeCardTop}}rpx;">
+    <!-- LOGO -->
+    <view style="width:171rpx;height: 171rpx;border-radius: 85.5rpx;background: #51d6ff;"></view>
+    <view style="color:#51d6ff;font-weight:600;margin-top:20rpx;">IMAB课程表</view>
+    <!--登陆界面 -->
+    <view class='flexColumn'  style="margin-top:30rpx;width:584rpx;height:384rpx;background:white;border-radius:20rpx;border:solid 3px #51d6ff;"> 
+      <view style="width:100%;height:30rpx;align-items: center;justify-content: space-between;" class="flexRow">
+        <view style="background:#51d6ff;width:18rpx;height:18rpx;border-radius:9rpx;margin-left: 10rpx;"></view>
+        <view style="background:#51d6ff;width:18rpx;height:18rpx;border-radius:9rpx;margin-right: 10rpx;"></view>
+      </view>
+      <view style="width:100%;height:20rpx;"></view>
+      <!-- 输入内容 -->
+      <view style="width:100%;height:80rpx;align-items: center;" class="flexRow">
+        <view style="margin:0 20rpx;width:45rpx;height:54rpx;background:url('https://www.gdutrex.xyz/imba/userlogo.png');background-size: 100% 100%;"></view>
+        <input confirm-type='next' hidden='{{!alertContainFlag}}' bindinput='inputValue' data-name='userName' type="text" placeholder='请输入用户名' style="padding-left:10rpx;width:450rpx;border:#51d6ff solid 2px;border-radius: 20rpx;" />
+      </view>
+      <view style="width:100%;height:80rpx;align-items: center;margin-top:10rpx;" class="flexRow">
+          <view style="margin:0 20rpx;width:45rpx;height:54rpx;background:url('https://www.gdutrex.xyz/imba/screatlogo.png');background-size: 100% 100%;"></view>
+          <input confirm-type='done' hidden='{{!alertContainFlag}}' bindinput='inputValue' data-name='password' type="password" placeholder='请输入密码' style="padding-left:10rpx; width:450rpx;border:#51d6ff solid 2px;border-radius: 20rpx;" />
+        </view>
+          <!-- 按钮 -->
+      <view style="width:100%;height:61rpx;justify-content: center;align-items: center;margin-top: 50rpx;" class="flexRow">
+        <view style="color:white;background:#51d6ff;margin-right:10rpx;width:220rpx;height:61rpx;text-align: center;border-radius:20rpx;border:solid 3px #51d6ff;">注册</view>
+        <view style="color:white;background:#51d6ff;margin-left:10rpx;width:220rpx;height:61rpx;text-align: center;border-radius:20rpx;border:solid 3px #51d6ff;" bindtap='login'>登陆</view>
+      </view>
+    </view>
+  </view>
+  <!-- 弹框 -->
+  <view hidden='{{alertContainFlag}}'>
+    <view style="bottom:0;height:{{chooseHeight+380}}rpx;width:100%;opacity: 0.5;background:black;position: absolute;"></view>
+    <view class='flexColumn' style="border-radius:20rpx;width:600rpx;height:400rpx;position:absolute;background:white;left:75rpx;top:{{chooseHeight/2+190}}rpx;">
+      <view style="width:100%;height:50rpx;background:#51d6ff;border-top-left-radius:20rpx; border-top-right-radius: 20rpx; "></view>
+      <view style="width:100%;height:280rpx;" class="flexRow flexRowCenterAndAround">
+        {{alertContain}}
+      </view>
+      <view style="flex:1;border-top:#51d6ff solid 1px;" class="flexRow flexRowCenterAndAround" bindtap='closeAlert'>
+          确定
+      </view>
+    </view>
+  </view>
+</view>

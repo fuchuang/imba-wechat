@@ -4,21 +4,27 @@ const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
 const util = require('../../common/js/util.js');
 const alertEvent = require('../../common/js/alertEvent.js');
-
+const classContainJS = require('../../common/js/classContain.js');
 let getWeekAndData = function (that) {
   let time = util.formatTime(new Date());
 
   let data = util.getDates(7, time);
   let classAboutSevenM = []
+  // 月份
+  let nowMonth = parseInt(data[0].time.substring(5, 7)) + '月'
   //周次和日期
   for (var i = 0; i < 7; i++) {
     let time = data[i].time.substring(8)
     if (time == '01') {
       time = parseInt(data[i].time.substring(5, 7)) + '月'
     }
+    let class7Days = classContainJS.fcu.get7DaysClass(i, that.data.setNowWeek.index, that.data.classContain);
     classAboutSevenM[i] = {
       week: data[i].week,
-      time: time
+      time: time,
+      class: class7Days
+        // 对应天数的课程内容
+        
     }
   }
   //当前 周几
@@ -29,6 +35,7 @@ let getWeekAndData = function (that) {
   str2 = 'nowData[' + lastdata + '].lastData',
   str3 = 'nowData[' + nextdata + '].nextData'
   that.setData({
+    nowMonth:nowMonth,
     classAboutSevenM: classAboutSevenM,
     [str1] :false,
     [str2]:false,
@@ -129,6 +136,9 @@ navigatorFooter = function (e) {
   this.setData({
     footPage :footPage
   })
+},
+onload = function (that) {
+  getWeekAndData(that)
 }
 let fuc = {
   clooseOpenMenuAndWC :clooseOpenMenuAndWC,
@@ -140,11 +150,13 @@ let fuc = {
   changeClassStyle : changeClassStyle,
   getWeekAndData : getWeekAndData,
   chooseWeekEvent :chooseWeekEvent,
-  navigatorFooter:navigatorFooter
+  navigatorFooter:navigatorFooter,
+  onload:onload
 }
 let message = {
   // footer 导航
   footPage :{
+    // login:false,
     index:false,
     message:true,
     video:true,
@@ -166,7 +178,7 @@ let message = {
     alertHeight: 300, 
     alertTop: windowHeight / 2 - windowWidth / 750 * 150,
     value: ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周', '第9周', '第10周', '第11周', '第12周', '第13周', '第14周', '第15周', '第16周', '第17周', '第18周', '第19周', '第20周', '第21周', '第22周', '第23周', '第24周'],
-    index:0,
+    index:2,
     lastIndex:0,
     hidden:true
     },
@@ -180,7 +192,8 @@ let message = {
     week: ['周一', '周二', '周三', '周四', '周五', '周六', '周七'],
     firstClass:[1,2,3,4,5,6,7,8,9,10,11,12,13],
     secondClass: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    value: [0, 0, 1]
+    value: [0, 0, 1],
+
   },
   shareClass:{
     alertWidth: 600,
@@ -189,7 +202,7 @@ let message = {
     alertTop: windowHeight / 2 - windowWidth / 750 * 350,
     index: 0,
     hidden: true,
-    scanUrl:'https://campus.gbdev.cn:8443/Miniapp/imba/scan.png'
+    scanUrl:'https://www.gdutrex.xyz/imba/scan.png'
   },
   sendDanMu:{
     alertWidth: 500,
@@ -224,8 +237,11 @@ let message = {
     { name: '扫一扫', type: 'havaAScan' },
     { name: '弹幕   ', type: 'danMu' },
     ],
+    //当前月份
+  nowMonth:12,
+  classContain:{}
 
-  classAboutSevenM:{}
+  
 }
 
 module.exports = {

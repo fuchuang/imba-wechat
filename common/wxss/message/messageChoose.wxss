@@ -18,7 +18,7 @@
 .serchLogo{
   width: 40rpx;
   height: 40rpx;
-  background: url("https://campus.gbdev.cn:8443/Miniapp/imba/searchLogo.png") no-repeat;
+  background: url("https://www.gdutrex.xyz/imba/searchLogo.png") no-repeat;
   background-size: 100% 100%;
 }
 .chooseBtnMessage{

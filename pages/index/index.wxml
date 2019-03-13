@@ -7,49 +7,59 @@
     <view wx:for='{{[1,2,3,4,5,6,7,8,9,10,11,12,13]}}' wx:key='nums' wx:for-item='item' wx:index='index' style='border: 4rpx solid #6ad3f3;border-left: transparent;border-top: transparent;width:100%;height:100rpx;font-size:small;' class='flexColumn flexRowCenterAndAround'><text>{{item}}</text></view>
     
     </view>
-  <view class='' style='width:13%;height:95%;border: 2rpx solid transparent;' wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround'></view>
+    <view class='' style='width:13%;height:95%;border: 2rpx solid transparent;' 
+    wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' 
+    wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround'>
+      <view wx:for='{{item.class}}' wx:for-item='classItem' wx:key='classContain'
+        style="text-align: center;color:white;font-size:small;width: 100%;height:{{classItem.classLength*104}}rpx;background: {{classItem.color}};border-radius: 10rpx;justify-content:space-between;" class="flexColumn"
+      >
+        <text >{{classItem.name}}</text>
+        <text style="">{{classItem.position}}</text>
+      </view>
+    </view>
   </view>
 </scroll-view>
 
 
 <!--课程表周日期-->
 <view class='flexRow'  style='width:100%;height:70rpx;position:fixed;top:{{weekAndDataPosTop}}px;background:#f6f6f6;color:#6ad3f3;font-size:small;' hidden='{{isClass}}'>
-  <view class='' style='width:9%;height:95%;font-weight:700;' class='flexColumn flexRowCenterAndAround classBorder'><text>12月</text></view>
+  <view class='' style='width:9%;height:95%;font-weight:700;' class='flexColumn flexRowCenterAndAround classBorder'><text>{{nowMonth}}</text></view>
   <view class='' style='width:13%;height:95%;' wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround classBorder'><view style='font-weight:700;'>{{item.week}}</view><view>{{item.time}}</view></view>
 
 </view>
 
 
 <view style='width:100%;height:120rpx;position:fixed;background:#f6f6f6;top:{{headHeight}}px;' hidden='{{isClass}}'>
- <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;' bindtap='menuBindEvent' data-type ='sendDanMu'/>
-  <view style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
+ <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://www.gdutrex.xyz/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;' bindtap='menuBindEvent' data-type ='sendDanMu'/>
+  <view style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://www.gdutrex.xyz/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
   <!--选择周数-->
   <view style='width:100%;height:1000px;position:absolute;left:0;' hidden='{{chooseWeek}}' bindtap='clooseOpenMenuAndWC'/>
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>
     <view> 
       <view bindtap='chooseWeekEvent' >
-        <p>{{weekNums[setNowWeek.index]}}</p>
+        <p>第{{setNowWeek.index+1}}周</p>
         <p style='position:fixed;'>
           <view class='triangleLeft' style='position:relative;top:18rpx;left:10rpx;'></view>
         </p>
       </view> 
       <scroll-view scroll-y class='flexColumn' style='width:200rpx;height:200px;position:fixed;left:275rpx;background: #f6f6f6;' hidden='{{chooseWeek}}'>
-        <view style='height:100rpx;width:100%;' class='flexColumn flexRowCenterAndAround' wx:for='{{weekNums}}' wx:key='weekNums' wx:for-item='i'>
-          <text>{{i}}</text>
+        <view style='height:100rpx;width:100%;' class='flexColumn flexRowCenterAndAround' 
+        wx:for='{{weekNums}}' wx:key='weekNums'  wx:for-index='index'>
+          <text>第{{index+1}}周</text>
         </view>
       </scroll-view>
     </view>
     <view style='font-size:x-small;'>{{gradeNums[0]}}</view>
   </view>
    <!--菜单-->
-  <view style='width:60rpx;;height:35rpx;left:650rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/menu.png") no-repeat;background-size: 100% 100%;position:absolute;top:40rpx;z-index:1;' bindtap='chooseMenuEvent' />
+  <view style='width:60rpx;;height:35rpx;left:650rpx;background:url("https://www.gdutrex.xyz/imba/menu.png") no-repeat;background-size: 100% 100%;position:absolute;top:40rpx;z-index:1;' bindtap='chooseMenuEvent' />
 
   <view style='width:100%;height:1000px;position:absolute;left:0;z-index:2' hidden='{{chooseMenu}}' bindtap='clooseOpenMenuAndWC'/>
-  <view style='width:280rpx;;height:642rpx;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/select.png") no-repeat;background-size: 100% 100%;position:absolute;left:440rpx;top:80rpx;z-index:100;justify-content:flex-end;align-items:center;' class='flexColumn' hidden='{{chooseMenu}}'>
+  <view style='width:280rpx;;height:642rpx;background:url("https://www.gdutrex.xyz/imba/select.png") no-repeat;background-size: 100% 100%;position:absolute;left:440rpx;top:80rpx;z-index:100;justify-content:flex-end;align-items:center;' class='flexColumn' hidden='{{chooseMenu}}'>
    
     <view style='width:96%;height:105rpx;align-items:center;justify-content:space-between;' wx:for='{{menuNums}}' wx:for-item='i' wx:index='index' wx:key='chooseMenu' class='flexRow' bindtap='menuBindEvent' data-index='{{index}}' data-type='{{i.type}}'>
       <view style='width:70%;color:white;'>{{i.name}}</view>
-      <view style='width:20%;height:30%;background:url("https://campus.gbdev.cn:8443/Miniapp/imba/leftA.png") no-repeat;background-size: 30% 100%;'hidden='{{index==5?true:false}}'></view>
+      <view style='width:20%;height:30%;background:url("https://www.gdutrex.xyz/imba/leftA.png") no-repeat;background-size: 30% 100%;'hidden='{{index==5?true:false}}'></view>
       <view hidden='{{index==5?false:true}}' class='{{classDanmu[1]}}'>
         <view class='{{classDanmu[2]}}'></view>
       </view>
