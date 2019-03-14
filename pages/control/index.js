@@ -41,6 +41,7 @@ Page({
     addClassMes:index.message.addClassMes,
     shareClass:index.message.shareClass,
     sendDanMu:index.message.sendDanMu,
+    classContainDetail:index.message.classContainDetail,
     // 当前日期
     nowData:index.message.nowData,
     //课程表和签筒切换
@@ -114,7 +115,7 @@ Page({
     Video_pageContainControll : video.message.pageContainControll,
   },
   onLoad: function (option) {
-  
+    // 判断缓存有没有setWeek
     let classContain =   JSON.parse(option.classContain)//
     classContain = classContainJS.fcu.get24WeekClassContain(this, classContain)
 
@@ -127,9 +128,9 @@ Page({
       type : option.type,
       classContain:classContain// 课程表
     })
-{      //获取周次选择文字宽度
-    index.fuc.onload(this)}
-    console.log(classContain);
+    //获取周次选择文字宽度
+    index.fuc.onload(this)
+    // console.log(classContain);
    
   },
   // 选择周次
@@ -144,14 +145,17 @@ Page({
   closeTan:index.fuc.closeTan,
   // 确定设置周次
   changeValue:index.fuc.changeValue,
+  //课程详情点击
+  classContainDetail:index.fuc.classContainDetail,
   // 添加课程 滚动第一节课 改变第二节的上限
   changeFirstClass:index.fuc.changeFirstClass,
   // 改变课程表显示模式
   changeClassStyle: index.fuc.changeClassStyle,
   // 底部导航
   navigatorFooter : index.fuc.navigatorFooter,
-
-
+  // 切换周次
+  selectWeek : index.fuc.selectWeek,
+  determineTan : index.fuc.determineTan,
   // common 的事件
   choseClose : common.fuc.choseClose,
   recordChoose : common.fuc.recordChoose,

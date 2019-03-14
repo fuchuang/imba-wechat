@@ -10,8 +10,12 @@
     <view class='' style='width:13%;height:95%;border: 2rpx solid transparent;' 
     wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' 
     wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround'>
-      <view wx:for='{{item.class}}' wx:for-item='classItem' wx:key='classContain'
-        style="text-align: center;color:white;font-size:small;width: 100%;height:{{classItem.classLength*104}}rpx;background: {{classItem.color}};border-radius: 10rpx;justify-content:space-between;" class="flexColumn"
+      <view wx:for='{{item.class}}' 
+      wx:for-item='classItem' 
+      wx:key='classContain'
+      data-message = '{{classItem}}'
+      bindtap='classContainDetail'
+      style="text-align: center;color:white;font-size:small;width: 100%;height:{{classItem.classLength*104}}rpx;background: {{classItem.color}};border-radius: 10rpx;justify-content:space-between;" class="flexColumn"
       >
         <text >{{classItem.name}}</text>
         <text style="">{{classItem.position}}</text>
@@ -24,7 +28,8 @@
 <!--课程表周日期-->
 <view class='flexRow'  style='width:100%;height:70rpx;position:fixed;top:{{weekAndDataPosTop}}px;background:#f6f6f6;color:#6ad3f3;font-size:small;' hidden='{{isClass}}'>
   <view class='' style='width:9%;height:95%;font-weight:700;' class='flexColumn flexRowCenterAndAround classBorder'><text>{{nowMonth}}</text></view>
-  <view class='' style='width:13%;height:95%;' wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround classBorder'><view style='font-weight:700;'>{{item.week}}</view><view>{{item.time}}</view></view>
+  <view class='' style='width:13%;height:95%;' wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround classBorder'><view style='font-weight:700;'>
+    {{item.week}}</view><view>{{item.time}}</view></view>
 
 </view>
 
@@ -37,15 +42,22 @@
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>
     <view> 
       <view bindtap='chooseWeekEvent' >
-        <p>第{{setNowWeek.index+1}}周</p>
+        <p>第{{setNowWeek.lastIndex+1}}周</p>
         <p style='position:fixed;'>
           <view class='triangleLeft' style='position:relative;top:18rpx;left:10rpx;'></view>
         </p>
       </view> 
-      <scroll-view scroll-y class='flexColumn' style='width:200rpx;height:200px;position:fixed;left:275rpx;background: #f6f6f6;' hidden='{{chooseWeek}}'>
-        <view style='height:100rpx;width:100%;' class='flexColumn flexRowCenterAndAround' 
-        wx:for='{{weekNums}}' wx:key='weekNums'  wx:for-index='index'>
-          <text>第{{index+1}}周</text>
+      <scroll-view scroll-y 
+      class='flexColumn' 
+      style='width:200rpx;height:200px;position:fixed;left:275rpx;background: #f6f6f6;' 
+      hidden='{{chooseWeek}}'
+      scroll-into-view='{{"weekNums5"}}' 
+      scroll-top='500rpx'
+      >
+        <view id = 'weekNums{{index}}' style='height:100rpx;width:100%;' class='{{setNowWeek.lastIndex!==index}} flexColumn flexRowCenterAndAround' 
+        wx:for='{{weekNums}}' wx:key='weekNums' data-index='{{index}}'  wx:for-index='index' bindtap='selectWeek'>
+          <text  wx:if='{{setNowWeek.index===index}}' >第{{index+1}}周<text style='font-size: xx-small;'>(本周)</text></text>
+          <text style="color:darkgrey;" wx:else>第{{index+1}}周</text>
         </view>
       </scroll-view>
     </view>

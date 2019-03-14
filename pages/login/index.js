@@ -91,39 +91,7 @@ Page({
         openAlert('网络不稳定 请重新登录' ,this)
       })
     }
-    /*
-    // 判断是否为空
-    if (this.data.userName === ''||this.data.password === ''){
-      openAlert('请输入密码' ,this)
-    }else{
-      wx.request({
-        url: 'https://campus.gbdev.cn:8080/IMBA/user/CheckLogin',
-        data: {
-          stuId:this.data.userName,
-          password:this.data.password
-        },
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
-        success: (e)=>{
-          // success
-          let url =   '../control/index?userName='+ this.data.userName +'&password='+this.data.password 
-          if(e.data.msg === '成功跳转index') {
-            wx.setStorageSync('userName', this.data.userName)
-            wx.setStorageSync('password', this.data.password)
-            wx.redirectTo({
-              url: url,
-            })
-          } else {
-            openAlert('账号密码错误' ,this)
-          }
-        },
-        fail: function() {
-          // fail
-          openAlert('请重新登录' ,this)
-        }
-      })
-    }
-    */
+
   },
   inputValue(e) {
     //console.log(e)

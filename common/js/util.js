@@ -1,6 +1,6 @@
 const formatTime = date => {
   const year = date.getFullYear()
-  const month = date.getMonth() + 1
+  const month = date.getMonth() +1
   const day = date.getDate()
   return [year, month, day].map(formatNumber).join('-')
 }
@@ -15,8 +15,10 @@ function getDates(days, todate) {
   var dateArry = [];
   let oneDay = 24 * 60 * 60 * 1000;
   let getSunday = new Date(todate).getDay()
+  // console.log(new Date(todate));
+  
   if (getSunday!=0) {
-    todate = formatTime(new Date((new Date).getTime() - getSunday * oneDay))
+    todate = formatTime(new Date(new Date(todate).getTime() - getSunday * oneDay))
   }
   for (var i = 0; i < days; i++) {
     var dateObj = dateLater(todate, i);
@@ -55,9 +57,14 @@ const indexBtn= function (e,that) {
     pageContainControll : index
   })
 }
+function minTurnHour (e) {
+  let h = parseInt(e/60)
+  let min = parseInt(e%60)
+  return h + ':' + min
+}
 module.exports = {
   formatTime: formatTime,
   getDates: getDates,
-  indexBtn:indexBtn
-
+  indexBtn:indexBtn,
+  minTurnHour:minTurnHour
 }

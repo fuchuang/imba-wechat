@@ -18,9 +18,18 @@ const alertAndCloseMenu = function (str, that) {
   })
 }
 const closeAlert = function (str, that){
-  that.setData({
-    [str]: true,
-  })
+  if (str === 'setNowWeek') {
+    // 设置周次
+    that.setData({
+      [str]: true,
+      // setNowWeek : 0
+    })
+  } else {
+    that.setData({
+      [str]: true,
+    })
+  }
+
 }
 
 module.exports = {

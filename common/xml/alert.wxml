@@ -8,8 +8,9 @@
             indicator-style="border:transparent;"
             style="width: 100%; height: 80%;background:#f6f6f6;"
             class=''f6f6f6
-            value="{{setNowWeek.index}}"
-            bindchange='changeFirstClass'
+            value="{{[setNowWeek.index]}}"
+            bindchange='changeValue'
+  
           >
             <view style="line-height: 50px">当前周次</view>
             <picker-view-column style='left:50rpx;'>
@@ -19,7 +20,7 @@
       </view>
       <view style='width:100%;height:30%;justify-content:space-around;' class='flexRow flexRowCenterAndAround'>
         <view style='width:25%;background:#51d6ff;height:60rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'  bindtap='closeTan' data-type ='setNowWeek'><text>取消</text></view>
-        <view style='width:25%;background:#51d6ff;height:60rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'><text>确定</text></view>
+        <view style='width:25%;background:#51d6ff;height:60rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround' bindtap='determineTan' data-type ='setNowWeek'><text>确定</text></view>
       </view>
   </view>
 </view>
@@ -106,3 +107,20 @@
     </view>
   </view>
 </view>
+
+<!--课程详情-->
+
+<view class='marsk' style='top:0px;' hidden='{{classContainDetail.hidden}}'></view>
+<view class='alert flexColumn' style='left:{{classContainDetail.alertLeft}}px;top:{{classContainDetail.alertTop}}px;height:auto!important;height:{{classContainDetail.alertHeight}}rpx;min-height:{{classContainDetail.alertHeight}}rpx;width:{{classContainDetail.alertWidth}}rpx' hidden='{{classContainDetail.hidden}}'>
+  <view style='background:#51d6ff;width:100%;height:70rpx;color:white;box-shadow:0 20rpx 50rpx 0rpx rgb(230, 230, 230);' class='flexRow flexRowCenterAndAround'  ><text style='width:88%;text-align:center;'>{{classContainDetail.message.class}}</text><view style='background:url("https://www.gdutrex.xyz/imba/close.png") no-repeat;background-size: 100% 100%;width:40rpx;height:40rpx;position:relative;' bindtap='closeTan' data-type ='classContainDetail'></view><view style='width:2%;'></view></view>
+  <view style='flex:1;' class='flexColumn flexRowCenterAndAround'>
+    <view style='font-size:medium;flex:5;background:white;width:100%;' class='flexColumn flexRowCenterAndAround'>
+        <view style="display:flex;justify-content: space-between;"><text style="color:#707070;width: 200rpx;">上课地点：</text><text style="width: 200rpx;color:#51d6ff;">{{classContainDetail.message.position}}</text></view>
+        <view style="display:flex;justify-content: space-between;"><text style="color:#707070;width: 200rpx;">授课老师：</text><text style="width: 200rpx;color:#51d6ff;">{{classContainDetail.message.teacher}}</text></view>
+        <view style="display:flex;justify-content: space-between;"><text style="color:#707070;width: 200rpx;">上课时间：</text><text style="width: 200rpx;color:#51d6ff;">{{classContainDetail.message.time}}</text></view>
+        <view style="display:flex;justify-content: space-between;"><text style="color:#707070;width: 200rpx;">教学班级：</text><text style="width: 200rpx;color:#51d6ff;">{{classContainDetail.message.className}}</text></view>
+    </view>
+  </view>
+</view>
+
+

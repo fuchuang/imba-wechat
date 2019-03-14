@@ -5,28 +5,45 @@ const windowHeight = app.globalData.windowHeight;
 const util = require('../../common/js/util.js');
 const alertEvent = require('../../common/js/alertEvent.js');
 const classContainJS = require('../../common/js/classContain.js');
-let getWeekAndData = function (that) {
-  let time = util.formatTime(new Date());
-
-  let data = util.getDates(7, time);
-  let classAboutSevenM = []
-  // 月份
-  let nowMonth = parseInt(data[0].time.substring(5, 7)) + '月'
-  //周次和日期
-  for (var i = 0; i < 7; i++) {
-    let time = data[i].time.substring(8)
-    if (time == '01') {
-      time = parseInt(data[i].time.substring(5, 7)) + '月'
-    }
-    let class7Days = classContainJS.fcu.get7DaysClass(i, that.data.setNowWeek.index, that.data.classContain);
-    classAboutSevenM[i] = {
-      week: data[i].week,
-      time: time,
-      class: class7Days
-        // 对应天数的课程内容
-        
-    }
+let getWeekAndData = function (that,index) {
+  let classAboutSevenM =  wx.getStorageSync('classAboutSevenM')
+  let nowMonth,time;
+  console.log(typeof classAboutSevenM);
+  
+  // 缓存没保存
+  if (typeof classAboutSevenM !== 'Object') {
+    let oneWeek = 24 * 60 * 60 * 1000 * 7;
+    // 获取选择当前周次的日期
+   let detail = index - that.data.setNowWeek.index
+   time = new Date((new Date).getTime() + detail * oneWeek);
+   classAboutSevenM = []
+   let data = util.getDates(7, time);
+   
+   // 月份
+   nowMonth = parseInt(data[0].time.substring(5, 7)) + '月'
+   //周次和日期
+   // console.log(time,data)
+   for (var i = 0; i < 7; i++) {
+     let time = data[i].time.substring(8)
+     if (time == '01') {
+       time = parseInt(data[i].time.substring(5, 7)) + '月'
+     }
+     let class7Days = classContainJS.fcu.get7DaysClass(i, index, that.data.classContain);
+     classAboutSevenM[i] = {
+       week: data[i].week,
+       time: time,
+       class: class7Days
+         // 对应天数的课程内容  
+     }
+   }
+  //保存缓存
+   if (index !== that.data.setNowWeek.index)// 只保存当周
+    wx.setStorageSync('classAboutSevenM', classAboutSevenM)
   }
+
+  //保存缓存
+  // wx.setStorageSync('classAboutSevenM', classAboutSevenM)
+
   //当前 周几
   let nowdata = (new Date(time).getDay() + 6) % 7 ;
   let lastdata = ((nowdata-1) + 7 ) % 7 ;
@@ -34,6 +51,8 @@ let getWeekAndData = function (that) {
   let str1 ='nowData[' + nowdata +'].nowData',
   str2 = 'nowData[' + lastdata + '].lastData',
   str3 = 'nowData[' + nextdata + '].nextData'
+  // console.log(classAboutSevenM);
+  
   that.setData({
     nowMonth:nowMonth,
     classAboutSevenM: classAboutSevenM,
@@ -48,11 +67,23 @@ chooseWeekEvent = function(e){
   this.setData({
     chooseWeek: flag
   })
-  console.log('open')
+  // console.log('open')
+},
+// 选择周次事件
+selectWeek = function (e) {
+  // console.log(e.currentTarget.dataset.index)
+  let index = e.currentTarget.dataset.index
+  // 点击之后设置显示的对应课程内容
+  getWeekAndData(this, index)
+  let str = 'setNowWeek.lastIndex'
+  this.setData({
+    chooseWeek: true,
+    chooseMenu: true,
+    [str] : index
+  })
 },
 //关闭菜单
 clooseOpenMenuAndWC = function (e) {
-
   this.setData({
      chooseWeek: true,
      chooseMenu: true
@@ -94,16 +125,41 @@ menuBindEvent = function(e){
 closeTan = function(e){
   let type = e.currentTarget.dataset.type,
   str = type + '.hidden'
+  if (type === 'setNowWeek') {
+    let index = this.data.setNowWeek.index
+    this.setData({
+      ['setNowWeek.lastIndex']:index
+      // [str1]:true
+    })
+  }
   alertEvent.closeAlert(str, this)
   
+},// 确定按钮
+determineTan = function (e) {
+  let type = e.currentTarget.dataset.type,
+  str = type + '.hidden'
+  if (type === 'setNowWeek') {
+   
+    let index = this.data.setNowWeek.lastIndex
+    // 切换对应的课程表
+    this.setData({
+      ['setNowWeek.index']:index
+      // [str1]:true
+    })
+    let setNowWeek = this.data.setNowWeek
+    console.log(setNowWeek);
+    
+    wx.setStorageSync('setNowWeek', setNowWeek)
+    getWeekAndData(this, index)
+  }
+  alertEvent.closeAlert(str, this)
 },
 // 确定设置周次
 changeValue=function(e){
-  console.log(e)
-  let str = 'setNowWeek.index', str1 = 'setNowWeek.hidden'
+  console.log(e.detail.value[0])
+  let str = 'setNowWeek.lastIndex', str1 = 'setNowWeek.hidden'
   this.setData({
-    [str]: e.detail.value,
-    [str1]:true
+    [str]: e.detail.value[0]
   })
 
 },
@@ -137,10 +193,50 @@ navigatorFooter = function (e) {
     footPage :footPage
   })
 },
+
 onload = function (that) {
-  getWeekAndData(that)
+  // 判断是否有缓存setNowWeek
+  let setNowWeek = wx.getStorageSync('setNowWeek')
+  console.log(setNowWeek)
+  if (typeof setNowWeek === 'object') {
+    // 有的话 触发setData
+    setNowWeek.hidden = true
+    that.setData({
+      setNowWeek :setNowWeek
+    })
+  }
+  getWeekAndData(that,that.data.setNowWeek.index)
+},
+// 课程详情的点击事件
+classContainDetail = function(e) {
+  let message = e.currentTarget.dataset.message
+  console.log(message)
+  let str = 'classContainDetail.hidden',str2='classContainDetail.message'
+  // 设置课程信息
+  let startTime = 480;
+  let time = (message.start-1)*50 ; //开始时间
+  if(message.start>2) time+= (message.start-2)*10//课间时间
+  startTime += time
+  let endTime = startTime + message.classLength*60-10
+  //start转计时器
+  startTime=util.minTurnHour(startTime)
+  endTime=util.minTurnHour(endTime)
+  console.log(startTime);
+  
+  let classContainDetailMess = {
+      'class':message.name,
+      'position':message.position,
+      'teacher':message.teacher,
+      'time':startTime+'-'+endTime,
+      'className':''
+  }
+  this.setData({
+    [str]:false,
+    [str2]:classContainDetailMess
+  })
 }
 let fuc = {
+  classContainDetail:classContainDetail,
   clooseOpenMenuAndWC :clooseOpenMenuAndWC,
   chooseMenuEvent :chooseMenuEvent,
   menuBindEvent :menuBindEvent,
@@ -151,7 +247,9 @@ let fuc = {
   getWeekAndData : getWeekAndData,
   chooseWeekEvent :chooseWeekEvent,
   navigatorFooter:navigatorFooter,
-  onload:onload
+  onload:onload,
+  selectWeek:selectWeek,
+  determineTan :determineTan
 }
 let message = {
   // footer 导航
@@ -178,7 +276,7 @@ let message = {
     alertHeight: 300, 
     alertTop: windowHeight / 2 - windowWidth / 750 * 150,
     value: ['第1周', '第2周', '第3周', '第4周', '第5周', '第6周', '第7周', '第8周', '第9周', '第10周', '第11周', '第12周', '第13周', '第14周', '第15周', '第16周', '第17周', '第18周', '第19周', '第20周', '第21周', '第22周', '第23周', '第24周'],
-    index:2,
+    index:0,
     lastIndex:0,
     hidden:true
     },
@@ -211,6 +309,21 @@ let message = {
     alertTop: windowHeight / 2 - windowWidth / 750 * 250,
     hidden: true
 
+  },
+  //课程详情
+  classContainDetail:{
+    alertWidth: 500,
+    alertLeft: windowWidth / 2 - windowWidth / 750 * 250,
+    alertHeight: 500,
+    alertTop: windowHeight / 2 - windowWidth / 750 * 250,
+    hidden:true,
+    message:{
+      'class':'马克思',
+      'position':'',
+      'teacher':'',
+      'time':'',
+      'className':''
+    }
   },
   // 当前日期
   nowData: [
