@@ -7,6 +7,7 @@ const alertEvent = require('../../common/js/alertEvent.js');
 const classContainJS = require('../../common/js/classContain.js');
 
 let getWeekAndData = function (that,index) {
+
   let classAboutSevenM //=  wx.getStorageSync('classAboutSevenM')
   let nowMonth,time;
   // console.log(typeof classAboutSevenM);

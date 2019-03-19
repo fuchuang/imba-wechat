@@ -204,8 +204,32 @@ let message = {
 
     
   // 首页窗口
-  let btnEvent= function (e, that) {
-    mes.turnInOther(e, that)
+  let btnEvent= function (str, that, URL) {
+    // 请求
+    if(str === 'messageGrade') {
+      var URL = URL+ '/scoreInquiry'
+      console.log(URL);
+      wx.request({
+        url: 'https://campus.gbdev.cn:8080/IMBA/scoreInquiry',
+        data: {
+          stuId:1,
+          year:"year"
+        },
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        // header: {}, // 设置请求的 header
+        success: function(res){
+          // success
+        },
+        fail: function() {
+          // fail
+        },
+        complete: function() {
+          // complete
+        }
+      })
+    }
+
+    mes.turnInOther(str, that)
     
   },
   // 选择 成绩对应的日期

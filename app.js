@@ -10,6 +10,7 @@ App({
   globalData: {
     statusBarHeight: wx.getSystemInfoSync()['statusBarHeight'],
     windowWidth: wx.getSystemInfoSync().windowWidth,
-    windowHeight: wx.getSystemInfoSync().windowHeight
+    windowHeight: wx.getSystemInfoSync().windowHeight,
+    requestURL:'https://campus.gbdev.cn:8080/IMBA'
   }
 })

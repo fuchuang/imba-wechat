@@ -189,12 +189,13 @@ Page({
   choseClose :message.fuc.choseClose, 
   choseGradeData: message.fuc.choseGradeData,
   btnEvent : function(e) {
-    console.log(1);
+    let str = e.currentTarget.dataset.message
+    /*console.log(1);
     
     let query = new wx.BaaS.Query()
     let that =this
     // 触发对应的按钮
-    let str = e.currentTarget.dataset.message
+    
     if (str === 'messageGrade') {
       // 成绩请求
       let userName = this.data.userName
@@ -208,12 +209,15 @@ Page({
      Product.find().then(res => {
       console.log(res)
       // 跳转
-      message.fuc.btnEvent(str, that)
+      
+      wx.hideLoading()
+
     }, err => {
       // err
     })
-    }
-    
+    }*/
+    let Url = app.globalData.requestURL
+    message.fuc.btnEvent(str, this, Url)
 
   },
 

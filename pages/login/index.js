@@ -60,6 +60,10 @@ Page({
     }
   }, 
   login : function (e){
+    let url = app.globalData.requestURL.concat('IMBA/user/CheckLogin')
+    console.log(url);
+    
+
     let userName = this.data.userName,password=this.data.password
     let query = new wx.BaaS.Query()
     let tableId = 'userInfo'
@@ -72,7 +76,6 @@ Page({
         // success
         //console.log(res)
         res = res.data
-        
         if (res.objects.length=== 1 && res.objects[0].password===password) {
           // success
         let url =   '../control/index?userName='+ this.data.userName +'&password='+this.data.password +'&type=' + res.objects[0].type + '&info='+res.objects[0].info + '&classInfo=' + res.objects[0].classInfo +'&classContain=' + res.objects[0].classContain +'&flag=' + 'false'
