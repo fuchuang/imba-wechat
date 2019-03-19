@@ -32,18 +32,29 @@
   <view style='background:#51d6ff;width:100%;height:25%;color:white;font-size:small;justify-content:space-around;box-shadow:0 50rpx 50rpx 0rpx rgb(230, 230, 230);' class='flexColumn flexRowCenterAndAround'>
     <view class='flexRow flexRowCenterAndAround' style='width:80%;color:#707070;'>
       <text style=''>课程名称：</text>
-      <input type='text' placeholder='请输入课程名称' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
+      <input bindinput='addClassSelectWeeksInput' data-type='className' value="{{addClassMes.className}}" type='text' placeholder='请输入课程名称' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
     </view>
     <view class='flexRow flexRowCenterAndAround' style='width:80%;color:#707070;'>
       <text style=''>课程地点：</text>
-      <input type='text' placeholder='请输入课程地点' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
+      <input bindinput='addClassSelectWeeksInput' data-type='position' value="{{addClassMes.position}}"  type='text' placeholder='请输入课程地点' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
     </view>
+    <view class='flexRow flexRowCenterAndAround' style='width:80%;color:#707070;'>
+        <text style=''>课程老师：</text>
+        <input bindinput='addClassSelectWeeksInput' data-type='classTeacher' value="{{addClassMes.classTeacher}}"  type='text' placeholder='请输入课程地点' style='width:57%;' class='inputPlaceholder' placeholder-class='inputPlaceholder'></input>
+      </view>
   </view>
   <view style='flex:1;' class='flexColumn flexRowCenterAndAround'>
     <view style='flex:5;width:100%' class='flexColumn flexRowCenterAndAround'>
       <view class='flexColumn flexRowCenterAndAround'>
-        <view wx:for='{{[1,2,3,4]}}' wx:key='row' class='flexRow flexRowCenterAndAround' wx:for-item='row'>
-          <view wx:for='{{[1,2,3,4,5,6]}}' wx:key='column'  wx:for-item='column' style='width:70rpx;height:50rpx;border:solid 1px #d8d6d6;color:#707070;'  class='flexRow flexRowCenterAndAround'> <text>{{(row-1)*6+column}}</text></view>
+        <view wx:for='{{[1,2,3,4]}}' wx:key='row'  class='flexRow flexRowCenterAndAround' wx:for-item='row'>
+          <view bindtap='addClassSelectWeeks' id='addClass{{(row-1)*6+column}}' data-index='{{(row-1)*6+column}}' wx:for='{{[1,2,3,4,5,6]}}' wx:key='column'  wx:for-item='column' style='width:70rpx;height:50rpx;border:solid 1px #d8d6d6;color:#707070;'  > 
+            <view wx:if='{{addClassMes.selectWeeks[(row-1)*6+column]}}' style="width: 100%;height:100%;" class='flexRow flexRowCenterAndAround'>
+              <text>{{(row-1)*6+column}}</text>
+            </view>
+            <view wx:else style="width: 100%;height:100%;color:white;background: #51d6ff;" class='flexRow flexRowCenterAndAround'>
+                <text>{{(row-1)*6+column}}</text>
+              </view>
+          </view>
         </view>
       </view>
     </view>
@@ -72,7 +83,7 @@
     </view>
     <view style='flex:2;width:100%;justify-content:space-around;' class='flexRow flexRowCenterAndAround'>
       <view style='width:25%;background:#51d6ff;height:70rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround' bindtap='closeTan' data-type ='addClassMes'><text>取消</text></view>
-      <view style='width:25%;background:#51d6ff;height:70rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround'><text>确定</text></view>
+      <view style='width:25%;background:#51d6ff;height:70rpx;border-radius:20rpx;color:white;' class='flexRow flexRowCenterAndAround ' data-type ='addClassMes' bindtap='determineTan'><text>确定</text></view>
     </view>
   </view>
 </view>

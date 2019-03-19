@@ -204,9 +204,9 @@ let message = {
 
     
   // 首页窗口
-  let btnEvent= function (e) {
-    let str = e.currentTarget.dataset.message
-    mes.turnInOther(str, this)
+  let btnEvent= function (e, that) {
+    mes.turnInOther(e, that)
+    
   },
   // 选择 成绩对应的日期
   choseGradeData= function (e) {

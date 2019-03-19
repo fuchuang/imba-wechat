@@ -6,7 +6,7 @@ const changeFirstClass = data => {
       first = value[1],
       second = value[2];
   if(first>=second){
-    first == 12 ? second = 12 : second = first + 1;
+    first == 12 ? second = 12 : second = first ;
   }
   return [value[0], first, second]
 }

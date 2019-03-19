@@ -5,60 +5,31 @@ const windowHeight = app.globalData.windowHeight;
 const util = require('../../common/js/util.js');
 const alertEvent = require('../../common/js/alertEvent.js');
 const classContainJS = require('../../common/js/classContain.js');
+
 let getWeekAndData = function (that,index) {
-  let classAboutSevenM =  wx.getStorageSync('classAboutSevenM')
+  let classAboutSevenM //=  wx.getStorageSync('classAboutSevenM')
   let nowMonth,time;
-  console.log(typeof classAboutSevenM);
-  
+  // console.log(typeof classAboutSevenM);
+  let oneWeek = 24 * 60 * 60 * 1000 * 7;
+  let detail = index - that.data.setNowWeek.index
+  time = new Date((new Date).getTime() + detail * oneWeek);
+  let data = util.getDates(7, time);
+  nowMonth = parseInt(data[0].time.substring(5, 7)) + '月'
   // 缓存没保存
   if (typeof classAboutSevenM !== 'Object') {
-    let oneWeek = 24 * 60 * 60 * 1000 * 7;
-    // 获取选择当前周次的日期
-   let detail = index - that.data.setNowWeek.index
-   time = new Date((new Date).getTime() + detail * oneWeek);
-   classAboutSevenM = []
-   let data = util.getDates(7, time);
-   
-   // 月份
-   nowMonth = parseInt(data[0].time.substring(5, 7)) + '月'
-   //周次和日期
-   // console.log(time,data)
-   for (var i = 0; i < 7; i++) {
-     let time = data[i].time.substring(8)
-     if (time == '01') {
-       time = parseInt(data[i].time.substring(5, 7)) + '月'
-     }
-     let class7Days = classContainJS.fcu.get7DaysClass(i, index, that.data.classContain);
-     classAboutSevenM[i] = {
-       week: data[i].week,
-       time: time,
-       class: class7Days
-         // 对应天数的课程内容  
-     }
-   }
-  //保存缓存
-   if (index !== that.data.setNowWeek.index)// 只保存当周
-    wx.setStorageSync('classAboutSevenM', classAboutSevenM)
+   classAboutSevenM = classContainJS.fcu.updateWeekAndData(that, index)
   }
-
-  //保存缓存
-  // wx.setStorageSync('classAboutSevenM', classAboutSevenM)
-
   //当前 周几
   let nowdata = (new Date(time).getDay() + 6) % 7 ;
-  let lastdata = ((nowdata-1) + 7 ) % 7 ;
-  let nextdata = ((nowdata+1) + 7 ) % 7 ;
-  let str1 ='nowData[' + nowdata +'].nowData',
-  str2 = 'nowData[' + lastdata + '].lastData',
-  str3 = 'nowData[' + nextdata + '].nextData'
-  // console.log(classAboutSevenM);
-  
+  // 处理签筒 的课程
+  nowdata = classContainJS.fcu.getQianClass(classAboutSevenM, nowdata, that)
+  // 处理签筒的课程表
+  //console.log(that.data.classContain)
+
   that.setData({
     nowMonth:nowMonth,
     classAboutSevenM: classAboutSevenM,
-    [str1] :false,
-    [str2]:false,
-    [str3]:false
+    nowData :nowdata
   })
 },
 // 选择周次
@@ -74,7 +45,7 @@ selectWeek = function (e) {
   // console.log(e.currentTarget.dataset.index)
   let index = e.currentTarget.dataset.index
   // 点击之后设置显示的对应课程内容
-  getWeekAndData(this, index)
+  classContainJS.fcu.selectUpdate(this, index)
   let str = 'setNowWeek.lastIndex'
   this.setData({
     chooseWeek: true,
@@ -126,40 +97,84 @@ closeTan = function(e){
   let type = e.currentTarget.dataset.type,
   str = type + '.hidden'
   if (type === 'setNowWeek') {
-    let index = this.data.setNowWeek.index
+    let index = this.data.setNowWeek.lastIndex
     this.setData({
-      ['setNowWeek.lastIndex']:index
+      ['setNowWeek.index']:index
       // [str1]:true
     })
+  } else if (type === 'addClassMes') {
+    // 重置selectWeeks
+    let selectWeeks =[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true]
+    let str = 'addClassMes.selectWeeks'
+    let value =  [0, 0, 1]
+    this.setData({
+      [str] : selectWeeks,
+      'addClassMes.value' :value,
+      'addClassMes.className' :'',
+      'addClassMes.position' :'',
+      'addClassMes.classTeacher' :''
+
+    })
+  } else {
+
   }
   alertEvent.closeAlert(str, this)
   
 },// 确定按钮
 determineTan = function (e) {
+  // console.log(this.data.classContain);
   let type = e.currentTarget.dataset.type,
   str = type + '.hidden'
   if (type === 'setNowWeek') {
    
-    let index = this.data.setNowWeek.lastIndex
+    let index = this.data.setNowWeek.index
     // 切换对应的课程表
     this.setData({
-      ['setNowWeek.index']:index
+      ['setNowWeek.lastIndex']:index
       // [str1]:true
     })
     let setNowWeek = this.data.setNowWeek
-    console.log(setNowWeek);
+    console.log(index);
     
     wx.setStorageSync('setNowWeek', setNowWeek)
-    getWeekAndData(this, index)
+    classContainJS.fcu.selectUpdate(this, index)
+    // 关闭弹框
+    alertEvent.closeAlert(str, this)
+  } else if (type === 'addClassMes'){
+
+    console.log('添加课程')
+    let addClassMes = this.data.addClassMes
+    let selectWeeks = addClassMes.selectWeeks,
+    teacher = addClassMes.classTeacher,
+    className = addClassMes.className,
+    classPosition = addClassMes.position,
+    start = addClassMes.value[1] +1,
+    classLength = addClassMes.value[2] - start + 2
+    console.log(classPosition,className,teacher);
+    
+    if (classPosition === '' || className === ''|| teacher === '') {
+      wx.showToast({
+        title:'存在没有填空的选项，请输入',
+      })
+    } else {
+      classContainJS.fcu.addClassContain(this,start,selectWeeks,teacher,className,classPosition,classLength)
+      alertEvent.closeAlert(str, this)
+    }
+    
+
+    
+  } else {
+    alertEvent.closeAlert(str, this)
   }
-  alertEvent.closeAlert(str, this)
+  // alertEvent.closeAlert(str, this)
 },
 // 确定设置周次
 changeValue=function(e){
-  console.log(e.detail.value[0])
-  let str = 'setNowWeek.lastIndex', str1 = 'setNowWeek.hidden'
+  let index = e.detail.value[0]
+  let str1 = 'setNowWeek.index'
+  // 更新课程表
   this.setData({
-    [str]: e.detail.value[0]
+    [str1]: index
   })
 
 },
@@ -167,9 +182,29 @@ changeValue=function(e){
 changeFirstClass = function(e){
   let value = alertEvent.changeFirstClass(e)
   let str = 'addClassMes.value'
+  console.log(value);
+  
   this.setData({
     [str]: value
   })
+},
+// 添加课程的选择周次
+addClassSelectWeeks = function (e) {
+  let index = e.currentTarget.dataset.index
+  let str = `addClassMes.selectWeeks[${index}]`
+  let flag = this.data.addClassMes.selectWeeks[index]
+  // console.log(flag);
+  this.setData({
+    [str] : !flag
+  })
+},
+addClassSelectWeeksInput= function(e) {
+  let type='addClassMes.' +e.currentTarget.dataset.type
+  console.log(type);
+  this.setData({
+    [type] : e.detail.value
+  })
+  
 },
 // 改变课程表显示模式
 changeClassStyle = function (e) {
@@ -197,7 +232,7 @@ navigatorFooter = function (e) {
 onload = function (that) {
   // 判断是否有缓存setNowWeek
   let setNowWeek = wx.getStorageSync('setNowWeek')
-  console.log(setNowWeek)
+  // console.log(setNowWeek)
   if (typeof setNowWeek === 'object') {
     // 有的话 触发setData
     setNowWeek.hidden = true
@@ -206,6 +241,8 @@ onload = function (that) {
     })
   }
   getWeekAndData(that,that.data.setNowWeek.index)
+  // console.log('这个是',that.data.classContain);
+  
 },
 // 课程详情的点击事件
 classContainDetail = function(e) {
@@ -221,7 +258,7 @@ classContainDetail = function(e) {
   //start转计时器
   startTime=util.minTurnHour(startTime)
   endTime=util.minTurnHour(endTime)
-  console.log(startTime);
+ // console.log(startTime);
   
   let classContainDetailMess = {
       'class':message.name,
@@ -242,7 +279,9 @@ let fuc = {
   menuBindEvent :menuBindEvent,
   closeTan :closeTan,
   changeValue :changeValue,
+  addClassSelectWeeks:addClassSelectWeeks,
   changeFirstClass : changeFirstClass,
+  addClassSelectWeeksInput:addClassSelectWeeksInput,
   changeClassStyle : changeClassStyle,
   getWeekAndData : getWeekAndData,
   chooseWeekEvent :chooseWeekEvent,
@@ -291,7 +330,11 @@ let message = {
     firstClass:[1,2,3,4,5,6,7,8,9,10,11,12,13],
     secondClass: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     value: [0, 0, 1],
-
+    selectWeeks:[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true],
+    className:'',
+    classStart:'',
+    position:'',
+    classTeacher:''
   },
   shareClass:{
     alertWidth: 600,
@@ -337,6 +380,7 @@ let message = {
   //课程表和签筒切换
   isClass:true,
   qianTongHeight: windowHeight - app.globalData.statusBarHeight - 50 - (windowWidth / 750 * 130) ,
+  qiantongClassContain :[],
   //弹幕样式
   classDanmu: [false, 'borderRadiuClose','borderCircleColse'],
  

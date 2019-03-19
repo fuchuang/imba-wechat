@@ -2,6 +2,8 @@
 
 const turnInOther = function(str,that){
   let pageControll = that.data.pageControll
+  console.log(pageControll);
+  
   for (var i in pageControll) {
     i === str ? pageControll[i] = false : pageControll[i] = true;
   }

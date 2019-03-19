@@ -1,4 +1,4 @@
-const app = getApp()
+const app = getApp();
 const index = require('../index/index.js');
 const common = require('../common/index.js');
 const message = require('../message/index.js');
@@ -47,6 +47,7 @@ Page({
     //课程表和签筒切换
     isClass:true,
     qianTongHeight: index.message.qianTongHeight,
+    qiantongClassContain:index.message.qiantongClassContain,
     //弹幕样式
     classDanmu: index.message.classDanmu,
     weekNums: index.message.weekNums,
@@ -116,8 +117,21 @@ Page({
   },
   onLoad: function (option) {
     // 判断缓存有没有setWeek
-    let classContain =   JSON.parse(option.classContain)//
-    classContain = classContainJS.fcu.get24WeekClassContain(this, classContain)
+    let flag = option.flag
+    // console.log(option.classContain);
+    let classContain = option.classContain;
+    
+    // classContain =   JSON.parse(option.classContain)//
+    // console.log(flag,JSON.parse(classContain));
+    
+      
+    if (flag === 'false'){
+      classContain = classContainJS.fcu.get24WeekClassContain(this, classContain)
+      wx.setStorageSync('classContain', classContain)
+    } else {
+      classContain =JSON.parse(classContain)
+    }
+
 
     // 判断是否发生 跳转
     this.setData({
@@ -133,6 +147,7 @@ Page({
     // console.log(classContain);
    
   },
+
   // 选择周次
   chooseWeekEvent: index.fuc.chooseWeekEvent,
   //关闭菜单
@@ -149,6 +164,8 @@ Page({
   classContainDetail:index.fuc.classContainDetail,
   // 添加课程 滚动第一节课 改变第二节的上限
   changeFirstClass:index.fuc.changeFirstClass,
+  addClassSelectWeeks:index.fuc.addClassSelectWeeks,
+  addClassSelectWeeksInput:index.fuc.addClassSelectWeeksInput,
   // 改变课程表显示模式
   changeClassStyle: index.fuc.changeClassStyle,
   // 底部导航
@@ -171,7 +188,34 @@ Page({
   message_returnIndex :message.fuc.returnIndex,
   choseClose :message.fuc.choseClose, 
   choseGradeData: message.fuc.choseGradeData,
-  btnEvent :message.fuc.btnEvent,
+  btnEvent : function(e) {
+    console.log(1);
+    
+    let query = new wx.BaaS.Query()
+    let that =this
+    // 触发对应的按钮
+    let str = e.currentTarget.dataset.message
+    if (str === 'messageGrade') {
+      // 成绩请求
+      let userName = this.data.userName
+     // let query = new wx.BaaS.Query()
+      let tableId = 'studentGrade'
+      let Product = new wx.BaaS.TableObject(tableId)
+     query.contains('useId', userName)
+     wx.showLoading({
+       title:'加载中'
+     })
+     Product.find().then(res => {
+      console.log(res)
+      // 跳转
+      message.fuc.btnEvent(str, that)
+    }, err => {
+      // err
+    })
+    }
+    
+
+  },
 
 
   // my事件

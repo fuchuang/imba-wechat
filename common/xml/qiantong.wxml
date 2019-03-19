@@ -18,24 +18,16 @@
     <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qianfinal.png");font-size:small;background-size:100% 100%;left:275rpx;bottom:280rpx;align-items: center;' class='flexColumn'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:smaller;' class='flexRow flexRowCenterAndAround'>
-       <text wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData'>{{item.data}}</text>
+        <text wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData'>{{item.data}}</text>
       </view>
-      <view style='width:100%;height:27.7%;' class='flexColumn flexRowCenterAndAround'>
-        <text style='width:50%;height:30%;' class='inManyLine'>大学英语</text>
-        <view style='width:50%;height:30%;' class='inManyLine'>数字媒体技术基础</view>
+      <view wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData' style='width:100%;height:105rpx;margin-bottom:10rpx;' class='flexColumn flexRowCenterAndAround'>
+        <view wx:for='{{item.class}}' style='width:50%;height:60rpx;' wx:key='classItemNowData' wx:for-item='classItem'>
+          <view style='width:100%;height:60rpx;' class='inManyLine'>{{classItem.name}}</view>
+        </view>
       </view>
-      <view style='width:100%;height:11.5%;' class='flexColumn flexRowCenterAndAround's>
-        <view style='width:50%;height:75%;' class='inManyLine'>数字媒体技术基础</view>
-      </view>
-      <view style='width:100%;height:27.9%;' class='flexColumn flexRowCenterAndAround'>
-        <text style='width:50%;height:30%;' class='inManyLine'>大学英语</text>
-        <view style='width:50%;height:30%;' class='inManyLine'>数字媒体技术基础</view>
-      </view>
-      <view style='width:100%;height:23.4%;' class='flexColumn flexRowCenterAndAround'>
-        <view style='width:50%;height:35%;' class='inManyLine'>数字媒体技术基础</view>
-      </view>
+
     </view>
-    <view style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://www.gdutrex.xyz/imba/qiantongFront.png");background-size:100% 100%;'></view>
+    <view bindtap='' style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://www.gdutrex.xyz/imba/qiantongFront.png");background-size:100% 100%;'></view>
   </view>
 </view>
 <view style='position:absolute;width:120rpx;height:60rpx;top:{{headHeight+20}}px;left:600rpx;background:url("https://www.gdutrex.xyz/imba/btn_class.png");background-size:100% 100%;' bindtap='changeClassStyle' hidden='{{!isClass}}'></view>

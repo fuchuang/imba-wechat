@@ -41,9 +41,12 @@ Page({
       let info = wx.getStorageSync('info')
       let type = wx.getStorageSync('type')
       let classContain = wx.getStorageSync('classContain')
+      // console.log(classContain);
+      classContain=JSON.stringify(classContain)
       if(userName !== ''&& password!==''&&type!==''&&info!==''&&classInfo!=='') {
         // console.log(userName,password,classInfo,info,type)
-        let url =    '../control/index?userName='+ this.data.userName +'&password='+this.data.password +'&type=' + type + '&info='+info + '&classInfo=' +classInfo + '&classContain=' +classContain
+        // classContain=JSON.parse(option.classContain)//
+        let url =    '../control/index?userName='+ this.data.userName +'&password='+this.data.password +'&type=' + type + '&info='+info + '&classInfo=' +classInfo + '&classContain=' +classContain +'&flag=' + 'true'
         wx.redirectTo({
           url: url,
         })
@@ -72,14 +75,16 @@ Page({
         
         if (res.objects.length=== 1 && res.objects[0].password===password) {
           // success
-        let url =   '../control/index?userName='+ this.data.userName +'&password='+this.data.password +'&type=' + res.objects[0].type + '&info='+res.objects[0].info + '&classInfo=' + res.objects[0].classInfo +'&classContain=' + res.objects[0].classContain
-        
+        let url =   '../control/index?userName='+ this.data.userName +'&password='+this.data.password +'&type=' + res.objects[0].type + '&info='+res.objects[0].info + '&classInfo=' + res.objects[0].classInfo +'&classContain=' + res.objects[0].classContain +'&flag=' + 'false'
+          
           wx.setStorageSync('userName', this.data.userName)
           wx.setStorageSync('password', this.data.password)
           wx.setStorageSync('classInfo', res.objects[0].classInfo)
           wx.setStorageSync('info', res.objects[0].info)
           wx.setStorageSync('type',  res.objects[0].type)
-          wx.setStorageSync('classContain',  res.objects[0].classContain)
+          //console.log(res.objects[0].classContain);
+          
+          wx.setStorageSync('classContain', res.objects[0].classContain)
           wx.redirectTo({
             url: url,
             })
