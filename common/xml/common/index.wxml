@@ -13,17 +13,17 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
     <!-- 不同班群 -->
     <view class="scrollItemBG" wx:for='{{classMessage}}' wx:key='classMessage' 
     wx:for-item='item' style="background:{{item.bgColor}};"
-    wx:for-index='index'
+    wx:for-index='index' bindtap='classMessageBtn' data-id='{{item.course_id}}'
     >
     <view class="scrollItemContain">
       <view style="width:120rpx;height:100%;" class='flexRow flexRowCenterAndAround'>
         <view style="background:url('https://www.gdutrex.xyz/imba/common/people{{(index)%3}}.png');background-size:100% 100%;width:88rpx;height: 88rpx;"></view>
       </view>
       <view style="flex:1;color:#7c7c7c;" class="flexColumn">
-        <view style="flex:3;align-items: center;" class="flexRow">{{item.title}}</view>
+        <view style="flex:3;align-items: center;" class="flexRow">{{item.course_name}}</view>
         <view style="flex:1;border-bottom:solid 2px {{item.bgColor}};"></view>
         <view style="flex:3;font-size:x-small;align-items: center;justify-content: space-between;" class="flexRow">
-          <view>授课老师：{{item.teacher}}</view>          
+          <view>授课老师：{{item.teacher_name}}</view>          
           <view style="margin-right:10rpx;">人数：{{item.nums}}</view>
         </view>
       </view>
@@ -61,20 +61,20 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
 <scroll-view scroll-y hidden='{{CommonpageContainControll!==1}}' style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
   <view class="flexColumn">
       <!-- 不同帖子 -->
-    <view class="commonScrollItem" wx:for='{{[1,2,3,4]}}' wx:key='common2'>
+    <view class="commonScrollItem" wx:for='{{tieMessage}}' wx:for-item='item' wx:key='common2'>
         <view class="commonScrollItemBG">
           <view style="flex:1;border-bottom:solid 1px #5DD8FE;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;" class="flexRow">
             <view class="commonWhatLogo"/>
             <view style="flex:1;" class="flexColumn">
               <view 
               style='color: #737373;font-size:medium;marin:20rxp 0;width: 100%;height: 50rpx;' 
-              class="fontOverFlowHidden">提问：231</view>
-              <view style='font-size: small;color:#7c7c7c;flex: 1;' class="inManyLineCommon">12</view>
+              class="fontOverFlowHidden">提问：{{item.post.postsTitle}}</view>
+              <view style='font-size: small;color:#7c7c7c;flex: 1;' class="inManyLineCommon">{{item.post.postsContent}}</view>
             </view>
           </view>
           <view style="font-size:small;height: 100%;color:#7c7c7c;height: 50rpx;justify-content: space-between;align-items: center;" class="flexRow">
-            <view>222</view>
-            <view style="color:#5DD8FE;">222</view>
+            <view>{{item.post.name}}</view>
+            <view style="color:#5DD8FE;">{{item.post.postsTime}}</view>
           </view>
         </view>
     </view>

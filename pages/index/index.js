@@ -215,9 +215,9 @@ changeClassStyle = function (e) {
   })
 },
 // 底部导航
-navigatorFooter = function (e) {
+navigatorFooter = function (e, that) {
   let str=  e.currentTarget.dataset.str 
-  let footPage = this.data.footPage
+  let footPage = that.data.footPage
   for (let i in footPage) {
     if (footPage[i] === false) {
       footPage[i] = true;
@@ -225,7 +225,7 @@ navigatorFooter = function (e) {
     }
   }
   footPage[str] = false;
-  this.setData({
+  that.setData({
     footPage :footPage
   })
 },

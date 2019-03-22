@@ -5,7 +5,8 @@ const message = require('../message/index.js');
 const video = require('../video/index.js');
 const my = require('../my/index.js');
 const classContainJS = require('../../common/js/classContain.js');
-
+const getDataBase = require('../../common/js/getDatabase')
+const URL = 'https://campus.gbdev.cn:8080/IMBA'
 Page({
   data: {
     // 内容 用户账号密码
@@ -67,9 +68,12 @@ Page({
     pageSecond:common.message.pageSecond,
     pageClassSecond:common.message.pageClassSecond,
     pageCommonSecond:common.message.pageCommonSecond,
-
+ 
     /* 班群信息 */
     classMessage:common.message.classMessage,
+    classDetialPeople:common.message.classMessagePeople,
+    tieMessage:[],
+
     /* 下载附件的信息 */
     downloadMessage:common.message.downloadMessage,
     // message  data
@@ -169,7 +173,18 @@ Page({
   // 改变课程表显示模式
   changeClassStyle: index.fuc.changeClassStyle,
   // 底部导航
-  navigatorFooter : index.fuc.navigatorFooter,
+  navigatorFooter :function(e){
+    let str=  e.currentTarget.dataset.str 
+    let url = URL.concat('/student/courselist')
+    let cookies = wx.getStorageSync('cookies')
+    console.log(url);
+    if (str === 'common') {
+      // 社区请求
+      getDataBase.fuc.getCommonClassList(this, url, cookies)
+      
+    }
+    index.fuc.navigatorFooter(e, this)
+  } ,
   // 切换周次
   selectWeek : index.fuc.selectWeek,
   determineTan : index.fuc.determineTan,
@@ -178,6 +193,12 @@ Page({
   recordChoose : common.fuc.recordChoose,
   CommonindexBtn : common.fuc.indexBtn,
   classBtn : common.fuc.classBtn,
+  classMessageBtn :common.fuc.classMessageBtn,
+  // 班群详情的按钮
+  classMessageDetailBtn:common.fuc.classMessageDetailBtn,
+  classMessageChageStatus:common.fuc.classMessageChageStatus,
+  // 关闭状态修改按钮
+  closeStatusBtn:common.fuc.closeStatusBtn,
   //video 事件
   Video_indexBtn : video.fuc.indexBtn,
   // message 事件
@@ -190,35 +211,8 @@ Page({
   choseGradeData: message.fuc.choseGradeData,
   btnEvent : function(e) {
     let str = e.currentTarget.dataset.message
-    /*console.log(1);
-    
-    let query = new wx.BaaS.Query()
-    let that =this
-    // 触发对应的按钮
-    
-    if (str === 'messageGrade') {
-      // 成绩请求
-      let userName = this.data.userName
-     // let query = new wx.BaaS.Query()
-      let tableId = 'studentGrade'
-      let Product = new wx.BaaS.TableObject(tableId)
-     query.contains('useId', userName)
-     wx.showLoading({
-       title:'加载中'
-     })
-     Product.find().then(res => {
-      console.log(res)
-      // 跳转
-      
-      wx.hideLoading()
-
-    }, err => {
-      // err
-    })
-    }*/
-    let Url = app.globalData.requestURL
-    message.fuc.btnEvent(str, this, Url)
-
+    // let Url = app.globalData.requestURL
+    message.fuc.btnEvent(str, this, URL)
   },
 
 

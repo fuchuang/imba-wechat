@@ -52,8 +52,59 @@ const returnSecond = function (str,that) {
     
   })
 }
+
+let fucBtnEvent = {
+  getGrade: function (URL, cookies, that) {
+    var URL = URL+ '/scoreInquiry'
+      // console.log(cookies);
+      wx.request({
+        url: URL,
+        data: {
+          stuId:1,
+          year:"2018年"
+        },
+        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: {
+          'content-type': 'application/json',
+          "Cookie": 'JSESSIONID='+cookies
+        }, // 设置请求的 header
+        success: function(res){
+          // success
+          let gradeData = res.data.data
+          let semesterGPA =gradeData.semesterGPA,averageGPA=gradeData.averageGPA,rank=gradeData.rank
+          // 成绩详情 的平均绩点
+          let gradeMessage = [
+            {
+              title: '绩点',
+              num: semesterGPA
+            },
+            {
+              title: '平均绩点',
+              num: averageGPA
+            },
+            {
+              title: '绩点排名',
+              num: rank
+            },
+            {
+              title: '综合测评',
+              num: 12
+            }
+          ]
+          let detailGrade = gradeData.courseScore
+          that.setData({
+            gradeMessage:gradeMessage,
+            detailGrade:detailGrade
+          })
+          console.log(res.data.data);
+
+        }
+      })
+  }
+}
 module.exports = {
   turnInOther: turnInOther,
   turnInSecond:turnInSecond,
-  returnSecond: returnSecond
+  returnSecond: returnSecond,
+  fucBtnEvent:fucBtnEvent
 }

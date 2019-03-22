@@ -48,20 +48,20 @@ let message = {
     // 具体成绩
     detailGrade: [
       {
-        title: '大学英语',
-        num: 59
+        courseName: '大学英语',
+        score: 59
       },
       {
-        title: '数字媒体技术基础',
-        num: 59
+        courseName: '数字媒体技术基础',
+        score: 59
       },
       {
-        title: '高等数学',
-        num: 59
+        courseName: '高等数学',
+        score: 59
       },
       {
-        title: '线性代数',
-        num: 58
+        courseName: '线性代数',
+        score: 58
       }
     ],
     // 成绩页面的按钮信息
@@ -206,29 +206,11 @@ let message = {
   // 首页窗口
   let btnEvent= function (str, that, URL) {
     // 请求
+    let cookies = wx.getStorageSync('cookies')
     if(str === 'messageGrade') {
-      var URL = URL+ '/scoreInquiry'
-      console.log(URL);
-      wx.request({
-        url: 'https://campus.gbdev.cn:8080/IMBA/scoreInquiry',
-        data: {
-          stuId:1,
-          year:"year"
-        },
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
-        success: function(res){
-          // success
-        },
-        fail: function() {
-          // fail
-        },
-        complete: function() {
-          // complete
-        }
-      })
+      mes.fucBtnEvent.getGrade(URL, cookies, that)
     }
-
+          
     mes.turnInOther(str, that)
     
   },
@@ -279,7 +261,7 @@ let message = {
     let flag = true
     if (!secondPagse) {
       mes.turnInOther(str, this)
-      console.log('321')
+      // console.log('321')
     } else{
       // 返回二级页面
       for (let i in secondPageControll) {
@@ -329,6 +311,7 @@ let message = {
     choseClose :choseClose, 
     choseGradeData: choseGradeData,
     btnEvent :btnEvent
+    
   }
   module.exports = {
     fuc :fuc,

@@ -22,9 +22,9 @@
   <scroll-view style='' class='detailContain' scroll-y >
     <view class='flexColumn flexRowCenterAndAround' wx:for='{{detailGrade}}' wx:key='detailGrade' wx:for-item='item'>
       <view style='' class='testLine flexRow'>
-         <view class='testLineFont'>{{item.title}}:</view>
+         <view class='testLineFont'>{{item.courseName}}:</view>
           
-         <view class='testLineFont'>{{item.num}}</view>
+         <view class='testLineFont'>{{item.score}}</view>
       </view>
     </view>
   </scroll-view>

@@ -7,6 +7,31 @@ let openAlert = function (str,that) {
     alertContain:str
   })
 }
+let getCookie = function () {
+  let url = app.globalData.requestURL.concat('/user/CheckLogin')
+  wx.request({
+    url: url,
+    data: {
+      stuId:113144,
+      password:12345
+    },
+    method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+    header: {
+      'content-type': 'application/json',
+      // "Cookie": 'JSESSIONID='+[e.cookies[0].value]
+    }, // 设置请求的 header
+    success: function(res){
+      // success
+      let cookies = res.header['Set-Cookie'].split('=')[1].split(';')[0]
+      console.log(cookies)
+      wx.setStorageSync('cookies', cookies)
+      
+    },
+    fail(e) {
+   
+    }
+  })
+}
 Page({
   data:{
     //公用属性
@@ -34,6 +59,7 @@ Page({
   },
   //判断是否缓冲
   onLoad (e) {
+    getCookie()
     try{
       let userName = wx.getStorageSync('userName')
       let password = wx.getStorageSync('password')
@@ -56,25 +82,25 @@ Page({
         })
       }
     } catch (e) {
-
+      console.log(e);
+      
     }
   }, 
   login : function (e){
-    let url = app.globalData.requestURL.concat('IMBA/user/CheckLogin')
-    console.log(url);
-    
-
     let userName = this.data.userName,password=this.data.password
     let query = new wx.BaaS.Query()
     let tableId = 'userInfo'
-    if (this.data.userName === ''||this.data.password === ''){
+    console.log(userName);
+    
+    if (userName === ''||password === ''){
+      console.log(userName,password);
       openAlert('请输入密码' ,this)
     } else {
       query.contains('userId', userName)
       let Product = new wx.BaaS.TableObject(tableId)
       Product.setQuery(query).find().then(res => {
         // success
-        //console.log(res)
+        console.log(res)
         res = res.data
         if (res.objects.length=== 1 && res.objects[0].password===password) {
           // success
@@ -104,6 +130,8 @@ Page({
   inputValue(e) {
     //console.log(e)
     let str = e.target.dataset.name
+    console.log(e.detail.value);
+    
     this.setData({
       [str]:e.detail.value
     })

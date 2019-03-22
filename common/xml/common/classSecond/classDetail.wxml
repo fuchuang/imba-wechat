@@ -2,11 +2,13 @@
   <!-- 修改迟到的按钮 -->
   <view class='DetailContain_edit' style="top:{{gradeCardTop+280}}rpx;"/> 
   <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #51d6ff;'
-    
+  bindtap='closeStatusBtn'
   >
       <view 
       style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' 
-      class='flexRow flexRowCenterAndAround'><view>className</view></view>
+      class='flexRow flexRowCenterAndAround'
+      
+      ><view>className</view></view>
       <scroll-view class='moreMessageContain' 
       style='height:{{noticeHeight-50}}rpx;' scroll-y>
         <view class="flexColumn " style="justify-content: center;">
@@ -25,15 +27,17 @@
             </view>
             <!-- 滚动 详情人员 -->
             <scroll-view  scroll-y class='flexColumn DetailContain_scroll_view'
-            style="height:{{noticeHeight-50-140}}rpx;">
-              <view style='width:100%;height: 20rpx;'></view>
+            style="height:{{noticeHeight-50-140}}rpx;"
+           
+            >
               <view class="flexRow flexRowCenterAndAround" 
-              style="width:600rpx;height: 70rpx;color:#7c7c7c;font-size: small;">
+              style="width:600rpx;height: 70rpx;color:#7c7c7c;font-size: small;margin-top:20rpx;"
+              wx:for='{{classDetialPeople}}' wx:for-item='item' wx:for-index='index'  wx:key='classDetialName'>
                 <view class="DetailContain_circle" />
                 <!-- 文字部分 -->
                 <view style="flex:1;height:100%;align-items: center;border-bottom: 1px solid #d1d1d1;" class="flexRow">
                   <view style="flex:1;align-items: center;" class="flexRow">
-                    <view style="margin-right:20rpx;">名字</view>
+                    <view style="">名字<text style="margin:0rpx 10rpx;">{{item.stu_name}}</text></view>
                     <!-- 设置管理员 -->
                     <view class="DetailContain_setManage" />
                     
@@ -41,13 +45,14 @@
                   <view style="flex:1;" class="flexRow">
                     <view style="margin-right:20rpx;">状态</view>
                     <!-- 修改状态 -->
-                    <view style="color:green;">
-                      已到
+                    <view style="color:{{item.classDetialBtn[item.status].color}};">
+                      {{item.classDetialBtn[item.status].name}}
                     </view>
-                    <view class="Detail_editSmall">
+                   
+                    <view class="Detail_editSmall" catchtap='classMessageDetailBtn'  data-index='{{index}}'>
                       <!-- 选项 -->
-                      <view class="flexColumn flexRowCenterAndAround Detail_chooseBG" >
-                        <view class="Detail_choose" wx:for='{{[1,2,3,4]}}' wx:key='test'>已到</view>
+                      <view class="flexColumn flexRowCenterAndAround Detail_chooseBG" catchtap='classMessageChageStatus' wx:for-item='item'  hidden='{{item.flag}}'>
+                        <view class="Detail_choose"  wx:for='{{item.classDetialBtn}}' wx:key='classDetialBtn' wx:for-item='color' style="color:{{color.color}}">{{color.name}}</view>
                       </view>
                     </view>
                   </view>

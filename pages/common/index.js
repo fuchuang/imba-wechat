@@ -4,6 +4,7 @@ const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const my = require('../../common/js/my.js');
 const util = require('../../common/js/util.js')
 const windowHeight = app.globalData.windowHeight;
+const getDataBase =require('../../common/js/getDatabase.js')
 let message = {
     noticeHeight : rpxTurnIntopx * (windowHeight - 50 - app.globalData.statusBarHeight) - 250,
     chooseHeight : rpxTurnIntopx * (windowHeight -115 - app.globalData.statusBarHeight) - 250,
@@ -22,14 +23,14 @@ let message = {
     /* 首页按钮的内容 */
     pageContainControll:0,
     pageSecond:{
-      commonIndex:false,
-      classMessage:true,
+      commonIndex:true,
+      classMessage:false,
       commonDetail:true
     },
     pageClassSecond:{
       classIndex:true,
       download:true,
-      calssDetail:true,
+      calssDetail:false,
       tree:true
     },
     pageCommonSecond:{
@@ -38,18 +39,30 @@ let message = {
     },
 
     /* 班群信息 */
-    classMessage:[
-      {title:'线性代数',teacher:'李玉',nums:'67',bgColor:'#38FBBF'},
-      {title:'线性代数',teacher:'李玉',nums:'67',bgColor:'#51D6FF'},
-      {title:'线性代数',teacher:'李玉',nums:'67',bgColor:'#FFC853'}
-
+    classMessage:[/*
+      {course_name:'线性代数',teacher_name:'李玉',nums:'67',bgColor:'#38FBBF',course_id:''},
+      {course_name:'线性代数',teacher_name:'李玉',nums:'67',bgColor:'#51D6FF',course_id:''},
+      {course_name:'线性代数',teacher_name:'李玉',nums:'67',bgColor:'#FFC853',course_id:''}
+      */
     ],
     /* 下载附件的信息 */
     downloadMessage:[
       {fileName:'线性代数',fileType:1,fileSize:'11.8k',time:'1-14'},
       {fileName:'线性代数',fileType:2,fileSize:'11.8k',time:'1-14'},
       {fileName:'线性代数',fileType:1,fileSize:'11.8k',time:'1-14'}
-    ]
+    ],
+    // 班群的人员信息
+    classMessagePeople:[
+      {stu_name:'已到',
+      course_id:1,
+      student_id:2,
+      flag:true,
+      status:0,
+      classDetialBtn:[
+        {name:'已到',btn:true,color:'#38FBBF'},
+        {name:'迟到',btn:true,color:'#FEC25B'},
+        {name:'未到',btn:true,color:'#EB5526'}]
+      }]
 }
 
 // 记录按钮
@@ -82,10 +95,13 @@ recordChoose = function (e) {
 },
 /* btnTitle */
 indexBtn = function (e) {
+  
+  
   let str = e.currentTarget.dataset.str
   let index = e.currentTarget.dataset.index
   let color = e.currentTarget.dataset.color
   let item = this.data[str]
+
   for (let i = 0; i<item.length; i++) {
     if (i === index) {
       item[i].color = item[i].borderColor = color
@@ -94,10 +110,15 @@ indexBtn = function (e) {
       item[i].borderColor= 'transparent'
     }
   }
+  console.log(item,str, this.data.CommonpageContainControll);
+  getDataBase.fuc.getTieList(this)
   this.setData({
-    [str] :item,
-    CommonpageContainControll : index
-  })
+      [str] :item,
+      CommonpageContainControll: index
+    })
+    
+  
+
 },
 /* 班群里面的按钮 */
 classBtn = function (e) {
@@ -106,7 +127,7 @@ classBtn = function (e) {
   let pageStr = this.data[page]
   console.log(pageStr)
   for (let i in pageStr) {
-    i === str? pageStr[i] = false:pageStr[i] = true;
+    i === str? pageStr[i] = false:pageStr[i] = true; 
   }
   console.log(pageStr)
   this.setData({
@@ -117,7 +138,46 @@ let fuc = {
   choseClose : choseClose,
   recordChoose :recordChoose,
   indexBtn :indexBtn,
-  classBtn :classBtn
+  classBtn :classBtn,
+  // 课程列表的请求
+  classMessageBtn:(e)=>{
+    console.log(e.currentTarget.dataset.id);
+    getDataBase.fuc.getCommonClassListDetail(this,e.currentTarget.dataset.id)
+    
+  },
+  classMessageDetailBtn(e) {
+    console.log(e.currentTarget);
+    let index = e.currentTarget.dataset.index
+    console.log(e.currentTarget.dataset.index);
+    let classDetialPeople = this.data.classDetialPeople
+    for(let i of classDetialPeople.keys()) {
+      if(!classDetialPeople[i].flage) //classDetialPeople[i].flage =tru
+      this.setData({
+        [`classDetialPeople[${i}].flag`] :true
+      })
+    }
+    this.setData({
+      [`classDetialPeople[${index}].flag`] :false
+    })
+  },
+  closeStatusBtn(e) {
+    // 关闭按钮
+    //console.log(e);
+    
+    let classDetialPeople = this.data.classDetialPeople
+    for(let i of classDetialPeople.keys()) {
+      if(!classDetialPeople[i].flage) //classDetialPeople[i].flage =tru
+      this.setData({
+        [`classDetialPeople[${i}].flag`] :true
+      })
+    }
+   
+  },
+  //改变status
+  classMessageChageStatus(e) {
+    console.log(e);
+    
+  }
 }
 module.exports = {
   fuc :fuc,
