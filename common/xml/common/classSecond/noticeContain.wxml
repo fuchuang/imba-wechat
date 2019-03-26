@@ -1,16 +1,16 @@
-<view class='noticeContainBG flexRow flexRowCenterAndAround' style='top:{{gradeCardTop+50}}rpx;height:{{noticeHeight+10}}rpx;'>
+<view hidden='{{pageClassSecond.notice}}' class='noticeContainBG flexRow flexRowCenterAndAround' style='top:{{gradeCardTop+50}}rpx;height:{{noticeHeight+10}}rpx;'>
   <view style='width:640rpx;height:{{noticeHeight}}rpx;background: white;border-radius: 20rpx;'>
-    <view class='noticeContainTitle flexColumn inManyLine '>
-      <view>{{noticeMessageDetauil.notiTitle}}</view>
+    <view class='noticeContainTitle flexColumn '>
+      <view>关于计算机考试</view>
       <view style='width:400rpx;border-bottom:solid 2px #37fbbf;height:20rpx;'></view>
     </view>
     <scroll-view  style='height:{{noticeHeight-260}}rpx;width:640rpx;margin-top:20rpx;' scroll-y>
       <view style='width:100%;align-items: center;' class='flexColumn'>
-        <view class='noticeContainText'>{{noticeMessageDetauil.content}}
+        <view class='noticeContainText'>1231111111111111111113211111111111111111111142421111142421
         </view> 
        <view class='noticeContainFoot flexRow'>
           <view>
-            <view>{{noticeMessageDetauil.title}}</view>
+            <view>教务处</view>
             <view>2018.12.22</view>
           </view>
           <view class='flexRow'>

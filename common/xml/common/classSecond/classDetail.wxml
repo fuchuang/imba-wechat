@@ -1,5 +1,6 @@
  <view hidden='{{pageClassSecond.calssDetail}}'>
   <!-- 修改迟到的按钮 -->
+
   <view class='DetailContain_edit' style="top:{{gradeCardTop+280}}rpx;"/> 
   <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #51d6ff;'
   bindtap='closeStatusBtn'
@@ -68,4 +69,6 @@
   <!-- 弹框 -->
   <include src='alert'/>
   <view   style='width:39rpx;height:59rpx;background:url("https://www.gdutrex.xyz/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
+  <!--返回-->
+  <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='' hidden='{{false}}'/>  
 </view>

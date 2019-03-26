@@ -27,43 +27,9 @@ let message = {
       messageAdd2: true
     },
     // 成绩信息
-    gradeMessage: [
-      {
-        title: '绩点',
-        num: 12
-      },
-      {
-        title: '平均绩点',
-        num: 12
-      },
-      {
-        title: '绩点排名',
-        num: 12
-      },
-      {
-        title: '综合测评',
-        num: 12
-      }
-    ],
+    gradeMessage: [ ],
     // 具体成绩
-    detailGrade: [
-      {
-        courseName: '大学英语',
-        score: 59
-      },
-      {
-        courseName: '数字媒体技术基础',
-        score: 59
-      },
-      {
-        courseName: '高等数学',
-        score: 59
-      },
-      {
-        courseName: '线性代数',
-        score: 58
-      }
-    ],
+    detailGrade: [ ],
     // 成绩页面的按钮信息
     gradeBtnOpen: false,
     gradeBtnMessage: [
@@ -91,63 +57,11 @@ let message = {
     ],
     // 教师信息
     teacherMessage: [
-      {
-        bindtap: '张',
-        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
-        message: [
-          { title: '姓名', contain: '张' },
-          { title: '任教科目', contain: '数学' },
-          { title: '联系电话', contain: '123456789' },
-          { title: '电子邮箱', contain: '8468000@11.com' },
-          { title: '办公室', contain: '7号楼1006' }
-        ]
-      },
-      {
-        bindtap: '张',
-        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
-        message: [
-          { title: '姓名', contain: '张' },
-          { title: '任教科目', contain: '数学' },
-          { title: '联系电话', contain: '123456789' },
-          { title: '电子邮箱', contain: '8468000111111111111@11.com' },
-          { title: '办公室', contain: '7号楼1006' }
-        ]
-      },
-      {
-        bindtap: '张',
-        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
-        message: [
-          { title: '姓名', contain: '张' },
-          { title: '任教科目', contain: '数学' },
-          { title: '联系电话', contain: '1234222256789' },
-          { title: '电子邮箱', contain: '84682000@11.com' },
-          { title: '办公室', contain: '7号楼1006' }
-        ]
-      },
-      {
-        bindtap: '张',
-        photoUrl: 'https://www.gdutrex.xyz/imba/teacherCircle.png',
-        message: [
-          { title: '姓名', contain: '张' },
-          { title: '任教科目', contain: '数学' },
-          { title: '联系电话', contain: '123456789' },
-          { title: '电子邮箱', contain: '8468000@11.com' },
-          { title: '办公室', contain: '7号楼1006' }
-        ]
-      }
-
+     
     ],
     // 考试信息
     examMessage: [
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' },
-      { title: '英语', position: '709', number: '9', time: '12月3日', classFirst: '1', classLast: '5' }
-    ],
+      ],
     // 按钮信息
     btnMessage: [
       [
@@ -171,18 +85,7 @@ let message = {
     ],
     // 教务通知信息
 
-    noticeMessage: [
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      }
-    ],
+    noticeMessage: [],
     // 选课宝典的内容高度
     windowHeight: app.globalData.windowHeight,
     chooseHeight: 0,
@@ -207,9 +110,28 @@ let message = {
   let btnEvent= function (str, that, URL) {
     // 请求
     let cookies = wx.getStorageSync('cookies')
+    console.log(str);
+    
     if(str === 'messageGrade') {
       mes.fucBtnEvent.getGrade(URL, cookies, that)
     }
+    if(str==='messageNotice') {
+      // 教务通知
+      mes.fucBtnEvent.getNoticeList(URL,cookies, that) 
+    }
+    if(str==='messageTeacher') {
+      // 教师信息
+      mes.fucBtnEvent.getTeacherList(URL, cookies, that)
+    }
+    if(str=='messageExam') {
+      mes.fucBtnEvent.getExamMessage(URL, cookies, that)
+    }
+    /// messageAdd
+    if(str==='messageAdd') {
+      mes.fucBtnEvent.getAddMore(URL,cookies,that)
+    }
+    
+    
           
     mes.turnInOther(str, that)
     
@@ -281,7 +203,14 @@ let message = {
   // 教务通知事件
   noticeEvent = function (e) {
     let str = e.currentTarget.dataset.message
-
+    // if(noticeDetail)
+    if ('noticeDetail' === e.currentTarget.dataset.type) {
+      // 处理数据
+     
+      this.setData({
+        noticeMessageDetauil:e.currentTarget.dataset.item
+      })
+    }
     mes.turnInSecond(str, this)
   },
   // 选课宝典时间

@@ -1,0 +1,14 @@
+<!-- <view style="position:absolute;left:750rpx;top:300rpx;"
+wx:for-item='item' wx:for-index='index' 
+id='danmu{{index}}' 
+adnimation='{{animationData}}'
+wx:for='{{danContent}}' wx:key='danContent' >
+  {{item.content}}}
+</view> -->
+<view wx:for='{{danContent}}' wx:key='danContent' wx:for-item='item' id='danmu{{index}}' 
+ animation='{{item.animationData}}' style="display:block;position:absolute;left:{{item.left}}rpx;top:{{item.top}}rpx;">
+  <text style="white-space:nowrap;">{{item.content}}</text>
+</view>
+<view animation='{{addContenAboutDM.animationData}}' id='addContenAboutDM' style="display:block;position:absolute;left:{{addContenAboutDM.left}}rpx;top:{{addContenAboutDM.top}}rpx;white-space:nowrap;">
+  {{addContenAboutDM.content}}
+</view>

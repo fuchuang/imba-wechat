@@ -1,0 +1,27 @@
+<view hidden='{{pageClassSecond.notice}}' class='notice' style='top:{{gradeCardTop+60}}rpx;'>
+  <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{classMessageDetialNoti}}' wx:key='classMessageDetialNoti' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+    <view class='noticeItemContian flexRow flexRowCenterAndAround' >
+      <view style='width:80%;' class='flexCloumn flexRowCenterAndAround'>
+        <!-- <view class='flexRow flexRowCenterAndAround' >
+          <view class='noticeLogo' />
+          <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
+          <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
+          <view style='width:15%;'/>
+        </view> -->
+        <view 
+        style='font-size:small;color:#C5C5C5;font-weight:800;margin-left:20rpx;' 
+        class='fontOverFlowHidden'>{{item.notification}}</view>
+      </view>
+      <view style='width:20%;' class='flexRow flexRowCenterAndAround'>
+        <view class='haveRead' hidden='{{true}}'></view>
+      </view>
+    </view>
+  </view>
+    <!--返回-->
+  <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='turnIntoThird' 
+  data-firstPage='classMessage' 
+  data-second='pageClassSecond'
+  data-index='0' 
+  data-back='classIndex' 
+  data-now='notice'/>  
+</view>

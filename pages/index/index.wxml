@@ -12,7 +12,7 @@
     wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround'>
       <view wx:for='{{item.class}}' 
       wx:for-item='classItem' 
-      wx:key='classContain'
+      wx:key='classContain{{index}}'
       data-message = '{{classItem}}'
       bindtap='classContainDetail'
       style="text-align: center;color:white;font-size:small;width: 100%;height:{{classItem.classLength*104}}rpx;background: {{classItem.color}};border-radius: 10rpx;justify-content:space-between;" class="flexColumn"
@@ -33,10 +33,10 @@
 
 </view>
 
-
+<!-- 顶部按钮 -->
 <view style='width:100%;height:120rpx;position:fixed;background:#f6f6f6;top:{{headHeight}}px;' hidden='{{isClass}}'>
  <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://www.gdutrex.xyz/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;' bindtap='menuBindEvent' data-type ='sendDanMu'/>
-  <view style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://www.gdutrex.xyz/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
+  <view bindtap='isArrayNowClass' hidden='{{isArrayClass}}' style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://www.gdutrex.xyz/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
   <!--选择周数-->
   <view style='width:100%;height:1000px;position:absolute;left:0;' hidden='{{chooseWeek}}' bindtap='clooseOpenMenuAndWC'/>
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>
@@ -68,7 +68,6 @@
 
   <view style='width:100%;height:1000px;position:absolute;left:0;z-index:2' hidden='{{chooseMenu}}' bindtap='clooseOpenMenuAndWC'/>
   <view style='width:280rpx;;height:642rpx;background:url("https://www.gdutrex.xyz/imba/select.png") no-repeat;background-size: 100% 100%;position:absolute;left:440rpx;top:80rpx;z-index:100;justify-content:flex-end;align-items:center;' class='flexColumn' hidden='{{chooseMenu}}'>
-   
     <view style='width:96%;height:105rpx;align-items:center;justify-content:space-between;' wx:for='{{menuNums}}' wx:for-item='i' wx:index='index' wx:key='chooseMenu' class='flexRow' bindtap='menuBindEvent' data-index='{{index}}' data-type='{{i.type}}'>
       <view style='width:70%;color:white;'>{{i.name}}</view>
       <view style='width:20%;height:30%;background:url("https://www.gdutrex.xyz/imba/leftA.png") no-repeat;background-size: 30% 100%;'hidden='{{index==5?true:false}}'></view>
@@ -79,4 +78,5 @@
   </view>
 </view>
 <include src='../../common/xml/qiantong.wxml'/>
+<include src='../../common/xml/danmu.wxml'/>
 

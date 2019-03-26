@@ -7,18 +7,18 @@
               <view style='' class='borderRadius titleTextContain'>
                 <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
                   <text style='color:#35c6f3;'>id</text>
-                  <text style='color:#707070;'>XXX</text>
+                  <text style='color:#707070;'>{{myMessage.name}}</text>
                   <text style='color:#35c6f3;'>性别</text>
-                  <text style='color:#707070;'>XXX</text>
+                  <text style='color:#707070;'>{{myMessage.sex}}</text>
                 </view>
                 <view style='border-bottom:solid 1px #adf2ff;margin:20rpx;'>
                   <text style='color:#35c6f3;'>班级</text>
-                  <text style='color:#707070;'>XXX</text>
+                  <text style='color:#707070;'>{{myMessage.mClass}}</text>
                 </view>
                 <view class='flexRow' style='margin:0 0 0 20rpx;justify-content: flex-start;'>
                   <text style='color:#35c6f3;width:170rpx;'>个性签名</text>
                   <scroll-view style='width:170rpx;height:100rpx;' scroll-y>
-                    <text style='word-wrap:break-word;color:#707070;'>XXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxX</text>
+                    <text style='word-wrap:break-word;color:#707070;'>{{myMessage.personalInfo}}</text>
                   </scroll-view>
                 </view>
               </view>
@@ -26,7 +26,9 @@
           </view>
           <!--按钮-->
           <view style='width:600rpx;border:solid 1px #51d6ff; ' class='borderRadius'>
-            <view style='width:600rpx;' class='flexColumn' wx:for='{{mybtnMessage}}' wx:key='myBtn' wx:for-item='item' bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
+            <view style='width:600rpx;' class='flexColumn' 
+            wx:for='{{mybtnMessage}}' wx:key='myBtn' wx:for-item='item'
+             bindtap='turnToNext' data-btnEvent='{{item.btnEvent}}'>
               <view class='flexRow btnBg' style=''>
                 <view class='btnLogo' style='background:url("https://www.gdutrex.xyz/imba/my/{{item.logoUrl}}.png") no-repeat;background-size:100% 100%;'></view>
                 <view style='width:450rpx;'>{{item.text}}</view>

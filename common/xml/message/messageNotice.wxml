@@ -1,5 +1,8 @@
 <view class='notice' style='top:{{gradeCardTop+60}}rpx;'>
-  <view class='noticeItem flexRow flexRowCenterAndAround'wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+  <view class='noticeItem flexRow flexRowCenterAndAround'
+  wx:for='{{noticeMessage}}' wx:key='noticeMessage' wx:for-item='item' 
+  wx:for-index='index' data-index='{{index}}' data-item='{{item}}' data-type="noticeDetail"
+  bindtap='noticeEvent'  data-message='messageNotice'>
     <view class='noticeItemContian flexRow flexRowCenterAndAround' >
       <view style='width:80%;' class='flexCloumn flexRowCenterAndAround'>
         <view class='flexRow flexRowCenterAndAround' >

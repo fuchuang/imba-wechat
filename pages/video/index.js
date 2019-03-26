@@ -3,6 +3,7 @@ const windowWidth = app.globalData.windowWidth;
 const windowHeight = app.globalData.windowHeight;
 const rpxTurnIntopx = 750 / app.globalData.windowWidth
 const util= require('../../common/js/util.js')
+const getDataBase = require('../../common/js/getDatabase.js')
 let message = {
     // index的btn
     indexBtn:[
@@ -11,12 +12,6 @@ let message = {
       { text: '收录', color: '#7c7c7c', borderColor: 'transparent' }
     ],
     scrollSearch:[
-      { text: '计算机' },
-      { text: '哲学' },
-      { text: '外语' },
-      { text: '理学' },
-      { text: '工学' },
-      { text: '心理学' },
       { text: '计算机' },
       { text: '哲学' },
       { text: '外语' },
@@ -59,14 +54,39 @@ let message = {
         item[i].borderColor= 'transparent'
       }
     }
+    if(index === 1) {
+      getDataBase.fuc.getVideoList(this)
+    }
+    if(index===2) {
+      getDataBase.fuc.getMyselfVideo(this,'/video/studenting')
+      getDataBase.fuc.getMyselfVideo(this,'/video/collectionlist')
+    }
     this.setData({
       [str] :item,
       Video_pageContainControll : index
     })
+  },
+  videoListBtn = function(e) {
+    let str = e.currentTarget.dataset.str
+    // 获取点播信息
+    getDataBase.fuc.getVideoPlayList(this,str)
   }
+
   let fuc = {
     indexBtn : indexBtn,
-    navigatorFooter :navigatorFooter
+    videoListBtn:videoListBtn,
+    navigatorFooter :navigatorFooter,
+    intoVideoDetail:function(e) {
+      // 请求对应的video内容
+      let id = e.currentTarget.dataset.id,index=e.currentTarget.dataset.index%10+1
+      getDataBase.fuc.getVideoPlayDetail(this,id,index)
+    },
+    returnVideo:function(e) {
+      this.setData({
+        ['videoPage.first']:false,
+        ['videoPage.second']:true
+     })
+    }
   }
 module.exports = {
   message :message,

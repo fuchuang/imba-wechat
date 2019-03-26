@@ -12,9 +12,9 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
   <view class="flexColumn">
     <!-- 不同班群 -->
     <view class="scrollItemBG" wx:for='{{classMessage}}' wx:key='classMessage' 
-    wx:for-item='item' style="background:{{item.bgColor}};"
+    wx:for-item='item' style="background:{{item.bgColor}};" data-index='{{index}}'
     wx:for-index='index' bindtap='classMessageBtn' data-id='{{item.course_id}}'
-    >
+    data-type='student' >
     <view class="scrollItemContain">
       <view style="width:120rpx;height:100%;" class='flexRow flexRowCenterAndAround'>
         <view style="background:url('https://www.gdutrex.xyz/imba/common/people{{(index)%3}}.png');background-size:100% 100%;width:88rpx;height: 88rpx;"></view>
@@ -40,20 +40,20 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
   wx:key='recordChoose' wx:for-item='item' 
   class='flexRow MYREbtnItem'  hidden='{{item.hidden}}' bindtap='recordChoose' data-index='{{index}}'wx:for-index='index'>
     <view style='margin:0 20rpx;'>{{item.text}}</view>
-    <view class='gradeAngle' />
+    <view class='gradeAngle' hidden='{{item.angleFlag}}' />
   </view>
 </view>
 <!-- 社区 -->
 <view style="top:{{gradeCardTop+130}}rpx;position:absolute;" class="flexColumn" hidden='{{CommonpageContainControll!==1}}' >
   <view class="flexRow"><!-- 搜索框 -->
     <view class="searchTitleBG flexRow " >
-      <input class="searchTitle">
+      <input class="searchTitle" bindinput='inputSearch' data-type='input'>
       <!-- 搜索按钮 -->
-        <view class="searchLogo"/> 
+        <view class="searchLogo"  catchtap='inputSearch' data-type='btn'/> 
       </input>
     </view>
     <!-- 提问按钮 -->
-    <view class="questionBtn"/>
+    <view class="questionBtn" bindtap='intoQuestion'/>
   </view>
 </view>
   <!-- 社区帖子 -->
@@ -61,7 +61,13 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
 <scroll-view scroll-y hidden='{{CommonpageContainControll!==1}}' style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;height:{{noticeHeight-20}}rpx;">
   <view class="flexColumn">
       <!-- 不同帖子 -->
-    <view class="commonScrollItem" wx:for='{{tieMessage}}' wx:for-item='item' wx:key='common2'>
+    <view class="commonScrollItem"
+     wx:for='{{tieMessage}}' 
+    data-now='commonIndex' 
+    data-next='commonDetail' 
+    data-second='commonindex' 
+    data-id ='{{item}}'
+    bindtap='intoTiePage' wx:for-item='item' wx:key='common2'>
         <view class="commonScrollItemBG">
           <view style="flex:1;border-bottom:solid 1px #5DD8FE;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;" class="flexRow">
             <view class="commonWhatLogo"/>
@@ -80,3 +86,4 @@ style="position:absolute;left:50rpx;top:{{gradeCardTop+190}}rpx;width:650rpx;hei
     </view>
   </view>
 </scroll-view>
+

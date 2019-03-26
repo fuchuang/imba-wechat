@@ -22,8 +22,8 @@
           >
              <view 
              style='width:14rpx;height:14rpx;border-radius:7rpx;background:white;margin-left:20rpx;' />
-             <view style='margin-left:10rpx;font-weight:200;'>{{itemContain.title}}：</view>
-             <view style='margin-left:2rpx;font-weight:700;' class='fontOverFlowScroll'>{{itemContain.contain}}</view>
+             <view style='margin-left:10rpx;font-weight:200;' >{{itemContain.title}}：</view>
+             <view style='margin-left:2rpx;font-weight:700;' class='fontOverFlowHidden'>{{itemContain.contain}}</view>
           </view>
         </view>
     </view>

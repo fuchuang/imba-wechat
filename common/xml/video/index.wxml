@@ -1,3 +1,4 @@
+<view hidden='{{videoPage.first}}'>
   <view class= style='top:{{gradeCardTop}}rpx;position:absolute;width:100%;' class='flexColumn'>
     <view style='height:80rpx;width:100%;' class='flexRow'>
       <view wx:for='{{Video_indexBtn}}' wx:for-item='item' wx:key='Video_indexBtn' style='background:white;' 
@@ -10,7 +11,11 @@
     <view hidden='{{Video_pageContainControll!==0}}'>
       <scroll-view scroll-x class='video_scrollTitle' >
         <view class='flexRow'>
-          <view wx:for='{{scrollSearch}}' class='video_scrollTitleContain' wx:for-item='item' 
+          <view wx:for='{{scrollSearch}}' 
+          class='video_scrollTitleContain' 
+          bindtap='videoListBtn'
+          data-str='{{item.text}}'
+          wx:for-item='item' 
           wx:key='scrollSearch'>
             <text>{{item.text}}</text>
           </view>
@@ -18,13 +23,21 @@
       </scroll-view>
       <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;' >
         <view class='flexRow video_containDisplay'>
-          <view wx:for='{{123}}' class='video_containBG flexColumn' wx:key='vedio1'>
-            <view class='video_containBG1'></view>
+          <view wx:for='{{videolist}}' wx:for-item='item'
+          wx:for-index='index'
+          class='video_containBG flexColumn' 
+          wx:key='vedio1'
+          data-index='{{index}}'
+          bindtap='intoVideoDetail'
+          data-id='{{item.id}}'
+          >
+            <view class='video_containBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
             <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-              <view class='video_containTitle'>C++程序设计</view>
+              <view class='video_containTitle fontOverFlowHidden'>{{item.courseTitle}}</view>
               <view style='font-size:smaller;  justify-content: space-between;' class='flexRow'>
-                <text style='margin-left:10rpx;'>123</text>
-                <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+                <text style='margin-left:10rpx;'>{{item.courseLecturer}}</text>
+                <view style='margin-right:20rpx;' class='flexRow'><view/>
+                  <text>{{item.watchingNum}}</text></view>
               </view>
             </view>
           </view>
@@ -35,13 +48,14 @@
     <view hidden='{{Video_pageContainControll!==1}}'>
        <scroll-view scroll-y  style='height:{{noticeHeight}}rpx;width:750rpx;' >
         <view class='flexRow video_containDisplay'>
-          <view wx:for='{{123}}' class='video_containBG flexColumn'  wx:key='vedio2'>
-            <view class='video_containBG1'></view>
+          <view wx:for='{{lineList}}' wx:for-index='index' 
+          wx:for-item='item' class='video_containBG flexColumn'  wx:key='vedio2'>
+            <view class='video_containBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
             <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-              <view class='video_containTitle'>C++程序设计</view>
+              <view class='video_containTitle fontOverFlowHidden'>{{item.liveTitle}}</view>
               <view style='font-size:smaller;  justify-content: space-between;' class='flexRow'>
-                <text style='margin-left:10rpx;'>123</text>
-                <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+                <text style='margin-left:10rpx;'>{{item.stu_name}}</text>
+                <view style='margin-right:20rpx;' class='flexRow'><view/><text>{{item.watchingNum}}</text></view>
               </view>
             </view>
           </view>
@@ -55,27 +69,32 @@
     <!-- 收录 -->
     <view hidden='{{Video_pageContainControll!==2}}'>
       <view class="videoCollectTitleBG flexRow">
-        <view class="videoCollectTitleBGLeft flexColumn">
-          <view style="width:100%;height: 180rpx;font-size: xx-large;" class="flexRow flexRowCenterAndAround">55</view>
-          <view style="width:100%;height: 100rpx;font-size:larger;" class="flexRow flexRowCenterAndAround">打开天数</view>
+        <view class="videoCollectTitleBGLeft flexColumn" style="justify-content: center;">
+          <view style="width:100%;height: 100rpx;font-size: xx-large;color:#41C2FB;font-weight: 900;" class="flexRow flexRowCenterAndAround">{{myselyVideo.dayNums}}</view>
+          <view style="width:100%;height: 100rpx;font-size:larger;" class="flexRow flexRowCenterAndAround">打卡天数</view>
         </view>
         <view style="flex:1;justify-content:center;align-items:flex-start;font-size: small;" class="flexColumn">
-          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />已学习<text style="color:#41C2FB;">123</text>门课程</view>
-          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />击败全国<text style="color:#41C2FB;">123</text>大学生</view>
+          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />已学习<text style="color:#41C2FB;">3</text>门课程</view>
+          <view class="flexRow flexRowCenterAndAround"><view class="videoCollectCircle" />击败全校<text style="color:#41C2FB;">3%</text>同学</view>
         </view>
       </view>
       <!-- 正在学习 -->
       <view class='videoContainRow flexColumn'>
-          <view style="width:100%;height:50rpx;">收藏课程</view>
+          <view style="width:100%;height:50rpx;">正在学习</view>
           <scroll-view scroll-x style="width:100%;height:230rpx;background: white;">
             <view class="flexRow" style="">
-              <view wx:for='{{[1,2,3,4,5]}}' class="videoContainRowItem"  wx:key='vedio4'>
-                <view style="height:120rpx;width:200rpx;background:#41C2FB;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;"></view>
+              <view wx:for='{{myselyVideo.studenting}}' 
+              wx:for-item='item' wx:for-index='index'
+              bindtap='intoVideoDetail'
+              data-id='{{item.id}}'
+              data-index='{{index}}'
+              class="videoContainRowItem"  wx:key='vedio4'>
+                <view style="height:120rpx;width:200rpx;background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;"></view>
                 <view style='height:60rpx;width:200rpx;font-size: smaller ;border-bottom-left-radius: 20rpx;border-bottom-right-radius: 20rpx; ' class="flexColumn">
-                  <view >123456</view>
+                  <view class='fontOverFlowHidden'>{{item.courseTitle}}</view>
                   <view  class="flexRow" style="justify-content:space-between;align-items:flex-start;">
-                    <view>123</view>
-                    <view>123</view>
+                    <view>{{item.courseLecturer}}</view>
+                    <view>{{item.watchingNum}}</view>
                   </view>
                 </view>
               </view>
@@ -87,13 +106,18 @@
           <view style="width:100%;height:50rpx;">收藏课程</view>
           <scroll-view scroll-x style="width:100%;height:230rpx;background: white;">
             <view class="flexRow" style="">
-              <view wx:for='{{[1,2,3,4,5]}}' class="videoContainRowItem"  wx:key='vedio3'>
-                <view style="height:120rpx;width:200rpx;background:#41C2FB;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;"></view>
+              <view wx:for='{{myselyVideo.collectionlist}}' 
+              wx:for-item='item' wx:for-index='index'
+              bindtap='intoVideoDetail'
+              data-index='{{index}}'
+              data-id='{{item.id}}'
+              class="videoContainRowItem"  wx:key='vedio3'>
+                <view style="height:120rpx;width:200rpx;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
                 <view style='height:60rpx;width:200rpx;font-size: smaller ;border-bottom-left-radius: 20rpx;border-bottom-right-radius: 20rpx; ' class="flexColumn">
-                  <view >123456</view>
+                  <view class='fontOverFlowHidden'>{{item.courseTitle}}</view>
                   <view  class="flexRow" style="justify-content:space-between;align-items:flex-start;">
-                    <view>123</view>
-                    <view>123</view>
+                    <view>{{item.courseLecturer}}</view>
+                    <view>{{item.watchingNum}}</view>
                   </view>
                 </view>
               </view>
@@ -102,3 +126,7 @@
         </view>
     </view>
   </view>
+</view>
+<view hidden='{{videoPage.second}}'>
+  <include src='videoDetial.wxml'></include>
+</view>

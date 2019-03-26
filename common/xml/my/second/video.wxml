@@ -1,0 +1,25 @@
+<view style="position:absolute;top:{{gradeCardTop+60}}rpx;left: 75rpx;" class='flexColumn'>
+  <view class='flexRow' style="justify-content: center;align-items: center; width:600rpx;height: 250rpx;background: #4ed7f6;border-top-left-radius: 20rpx;border-top-right-radius: 20rpx;">
+    <view style='width: 300rpx;height: 250rpx;background:url("{{videoDetailMessage.imageURL}}") no-repeat;background-size: 100% 100%;'></view>
+  </view>
+  <view style="width:600rpx;height: 150rpx;background: white;" class='flexRow'>
+    <view style="width:450rpx;align-content: center;height: 100%;" class="flexColumn">
+      <view style='font-size: xx-large;color:#4ed7f6;' class='fontOverFlowScroll'>{{videoDetailMessage.course_title}}</view>
+      <view style="font-size:small;color:#a1a1a1;">{{videoDetailMessage.course_lecturer}}</view>
+    </view>
+    <view style="width:150rpx;align-items:center;justify-content: center;height: 100%"  class="flexColumn">
+      <view style="background: url('https://www.gdutrex.xyz/imba/MCC_zanOff.png');background-size: 100% 100%;width: 50rpx;height: 50rpx;"></view>
+    </view>
+  </view>
+  <view style="width:600rpx;height:1px;background:#a1a1a1;margin-bottom: 10rpx;"></view>
+  <scroll-view style="width:600rpx;height: {{noticeHeight-330}}rpx;background:white;">
+    <view class='flexColumn' style="align-items: center;">
+      <view wx:for='{{videoDetailMessage.videomodels}}' wx:for-item='item' wx:key='videoList' style="color:#a1a1a1;margin:10rpx 0;width:560rpx;height:60rpx;border-radius:20rpx;border:2px solid #4ed7f6;align-content: center;" class='flexRow'> 
+        <view style="margin-left:10rpx;">{{item.video_title}}</view>
+      </view>
+    </view>
+  </scroll-view>
+
+</view>
+ <!--返回-->
+ <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnMyVideo' />  

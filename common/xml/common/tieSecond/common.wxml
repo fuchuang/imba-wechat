@@ -1,31 +1,29 @@
 <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background:white;'>
   <!-- 顶部btn -->
   <view class='flexRow TSC_topBg'>
-    <view class='TSC_topBtn'>取消</view>
+    <view class='TSC_topBtn' bindtap='returnTie'>取消</view>
     <view>提问</view>
-    <view class='TSC_topBtn'>发布</view>
+    <view class='TSC_topBtn' bindtap='inputQuestion' data-type='btn'>发布</view>
   </view>
   <!-- 输入框 -->
   <view style='width:100%;height:80rpx;align-items: center;' class='flexRow'>
-    <input type='text' style='color:#7c7c7c;width:100%;' placeholder='请输入标题'></input>
+    <input type='text' style='color:#7c7c7c;width:100%;' placeholder='请输入标题' data-str='title'  data-type='input'  bindinput='inputQuestion'></input>
   </view>
-  <view style='width:100%;height:300rpx;border-bottom:solid 1px #C4F5FF;'>
-    <textarea type='text' style='color:#7c7c7c;width:100%;height:100%;' placeholder='请输入标题(选填)'></textarea>
+  <view style='width:100%;height:500rpx;border-bottom:solid 1px #C4F5FF;'>
+    <textarea type='text' style='color:#7c7c7c;width:100%;height:100%;' placeholder='请输入标题(选填)'  data-type='input'  data-str='content' bindinput='inputQuestion'></textarea>
     <!-- 匿名按钮 -->
     <view  class='Tsc_secretBtn flexRow'>匿名</view>
   </view>
   <!-- tag -->
-  <view style='' class='Tsc_tag flexColumn'>
-    <view>添加tag</view>
-    <input style='width:600rpx;background:#e9e9e9;height'placeholder='点击输入tag'>
-      <view class='Tsc_TagBtn'></view>
-    </input>
+  <view  class='Tsc_tag flexColumn'>
+    <view>选择tag</view>
     <!-- tag放的地方 -->
     <view class='flexRow Tsc_tagContain'>
-      <view style='border-radius:10rpx;margin:10rpx 10rpx;background: #57D7FF;color:white;justify-content:center; align-items:center;' class='flexRow' 
-      wx:for='{{[1,2,3,4]}}' wx:key='common3'>
-        <text style='margin:2rpx 5rpx;'>tag</text>
-        <view class='Tsc_tagContainClose'/>
+      <view style='border-radius:10rpx;margin:10rpx 10rpx;background: #57D7FF;color:white;justify-content:center; align-items:center;'
+       class='flexRow' wx:for='{{tag}}' wx:key='common3' wx:for-item='item' wx:for-index='index' 
+       hidden='{{!item.flag}}'>
+        <text style='margin:2rpx 5rpx;'>{{item.name}}</text>
+        <view class='Tsc_tagContainClose' bindtap='tagContainClose' data-index='{{index}}'/>
       </view>
     </view>
   </view>

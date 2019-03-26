@@ -1,13 +1,13 @@
 <view  style='top:{{gradeCardTop+20}}rpx; width:  650rpx;position: absolute;left: 50rpx;' >
   <view style='' class='chooseInput'>选课宝典</view>
-  <view class='inputSearch flexRow flexRowCenterAndAround'>
+  <!-- <view class='inputSearch flexRow flexRowCenterAndAround'>
     <view style='width:540rpx;height:50rpx;background:white;border-radius:10rpx;' class='flexRow flexRowCenterAndAround'>
         <input type='text' placeholder='输入你想要的内容' confirm-type='search' placeholder-style='margin-left:20rpx;' style='margin-left:20rpx;width:480rpx;'/>
         <view class='serchLogo'/>
         
 
     </view>
-  </view>
+  </view> -->
   <view style='width:100%;height:60rpx;margin-top:30rpx;' class='flexRow flexRowCenterAndAround'> 
     <!--按钮-->
     <view style='background:{{item.bgColor}};' 

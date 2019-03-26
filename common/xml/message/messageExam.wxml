@@ -5,7 +5,10 @@
       <view style='flex:1;align-items:flex-start;justify-content: space-around;' class='flexColumn '>
         <view class='flexRow ' >
           <view style='' class='examItem'>考试时间:</view>
-          <view style='flex:1;' class='fontOverFlowScroll'>{{item.time}}    {{item.classFirst}}~{{item.classLast}}节</view>
+          <view style='flex:1;' class='fontOverFlowScroll'>{{item.time}}  
+               
+             <!-- {{item.classFirst}}~{{item.classLast}}节 -->
+            </view>
         </view>
         <view style='' class='flexRow '>
            <view style='' class='examItem'>考试地点:</view>

@@ -16,34 +16,37 @@
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 通知 -->
       <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
-        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{historynoticeMessage}}' wx:key='historynoticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{myMessage.viewRecentlyNotice}}' wx:key='historynoticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
           <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
                 <view class='MynoticeLogo' />
-                <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
+                <text style='font-size:medium;color:#939393;font-weight:500;' class='fontOverFlowHidden'>{{item.notiTitle}}</text>
                 <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
                 <view style='width:15%;'/>
               </view>
               <view 
               style='font-size:small;color:#C5C5C5;font-weight:800;margin-left:20rpx;' 
-              class='fontOverFlowHidden'>{{item.contain}}</view>
+              class='fontOverFlowHidden'>{{item.notiSummarized}}</view>
             </view>
             <view style='width:20%;' class='flexRow flexRowCenterAndAround'>
-              <view class='haveRead' hidden='{{item.hasRead}}'></view>
+              <view class='haveRead' hidden='{{true}}'></view>
             </view>
           </view>
         </view>
       </view>
      <!-- 视频 -->
      <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
-        <view wx:for='{{123}}' class='MycontainBG flexColumn ' wx:key='my1'>
-          <view class='MycontainBG1'></view>
+        <view wx:for='{{myMessage.videoViewedHistory}}' 
+        bindtap='myHistoyVedio' data-item='{{item}}'
+        wx:for-item='item' wx:for-index='index' 
+        class='MycontainBG flexColumn ' wx:key='my1'>
+          <view class='MycontainBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-            <view class='MycontainTitle'>C++程序设计</view>
+            <view class='MycontainTitle fontOverFlowHidden' >{{item.courseTitle}}}</view>
             <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
-              <text style='margin-left:10rpx;'>123</text>
-              <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+              <text style='margin-left:10rpx;'>{{item.courseLecturer}}</text>
+              <view style='margin-right:20rpx;' class='flexRow'><view/><text>{{item.watchingNum}}</text></view>
             </view>
           </view>
         </view>

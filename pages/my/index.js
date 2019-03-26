@@ -17,6 +17,7 @@ let message = {
     secondPageTextColor: '#fadb91;',
     pageSecond:{
       pagerecord: true, 
+      pagetreeRank:true,
       pagetree: true, 
       pagecollect: true, 
       pagehistory: true, 
@@ -54,58 +55,10 @@ let message = {
     ],
     // 二级页面对应的内容控制器
     collectContainControll:0,
-    collectChooseClass: [
-      { title: '中国建筑', teacher: '王阳', zan: false, num: 123 },
-      { title: '中国建筑1', teacher: '王阳', zan: false, num: 123 },
-      { title: '中国建筑2', teacher: '王阳', zan: false, num: 123 },
-      { title: '中国建筑3', teacher: '王阳', zan: false, num: 123 },
-      { title: '中国建筑4', teacher: '王阳', zan: false, num: 123 }
-    ],
-    collectnoticeMessage: [
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },      
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-      {
-        title: '教务处',
-        contain: '热烈欢迎',
-        hasRead: false
-      },
-    ],
+ 
     // 我的帖子按钮
     myTieBtn: [
-      { title: '已发', color: '#fadb91;', borderColor: '#fadb91'},
+      { title: '已发', color: '#5BFFCD;', borderColor: '#5BFFCD'},
       { title: '已看', color: '#7c7c7c', borderColor: 'transparent' },
       { title: '喜欢', color: '#7c7c7c;', borderColor: 'transparent' }
     ],
@@ -164,6 +117,15 @@ let message = {
     let item = e.currentTarget.dataset.item
     let color = e.currentTarget.dataset.color
     let data = this.data[item]
+    if(item === 'myTieBtn') {
+      // 更新页面
+      console.log(index);
+      this.setData({
+        noticeMessageIndex:index
+      })
+      /*let url = ['/Profile/myPosts/viewdRecently','/Profile/myPosts/posted','/Profile/myPosts/likes']
+      my.requset3(this,1,url[index])*/
+    }
     for (let i = 0; i < data.length;i++) {
       if(i === index) {
         data[i].color = color;
@@ -221,7 +183,8 @@ let message = {
   // 下一个页面的时间
   turnToNext = function(e) {
     let btnEvent = e.currentTarget.dataset.btnevent
-    my.changePage(this, btnEvent)
+    let index = 0
+    my.changePage(this, btnEvent,index)
   },
   // 返回
   returnIndex = function(e) {
@@ -231,14 +194,23 @@ let message = {
     this.setData({
       collectContainControll: 0
     }) 
+  },
+  returnTree=function(e){
+    let str= 'pagetree'
+    my.changePage(this,str)
   }
   let fuc = {
+    returnTree:returnTree,
     returnIndex :returnIndex,
     turnToNext : turnToNext,
     recordBtn :recordBtn,
     recordChoose :recordChoose,
     choseClose:choseClose,
-    collectBtn:collectBtn
+    collectBtn:collectBtn,
+    myHistoyVedio:function(e) {
+      console.log(e.currentTarget.dataset);
+      
+    }
   }
 
 module.exports={

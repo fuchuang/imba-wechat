@@ -3,7 +3,7 @@
 <view class='borderRadius flexColumn flexRowCenterAndAround MYREcontainBG' style='top:{{mygradeCardTop+50}}rpx;  height:{{noticeHeight}}rpx;'>
   <view class='borderRadius flexColumn MYREcontain' scroll-y style='height:{{noticeHeight-10}}rpx;'>
     <view style='' class='MYREcontainText flexColumn flexRowCenterAndAround'>
-      <text>title</text>
+      <text>考勤表</text>
     </view>
     <view style='width:100rpx;height:80rpx;'></view>
     <!--表格-->

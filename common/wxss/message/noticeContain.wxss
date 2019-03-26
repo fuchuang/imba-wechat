@@ -10,7 +10,7 @@
 }
 .noticeContainTitle{
   height:120rpx;
-  width:640rpx;
+  width:600rpx;
   align-items: center;
   justify-content: flex-end;
   font-size: larger;
@@ -26,7 +26,6 @@
   line-height: 80rpx;
   font-weight: 600;
   color: #707070;
-
 }
 .noticeContainFoot{
   height:120rpx;

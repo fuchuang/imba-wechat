@@ -1,0 +1,42 @@
+
+<view class='mainBG' style='top:{{gradeCardTop}}rpx;background:url("https://www.gdutrex.xyz/imba/my/bgTree.png");background-size:100% 100%;height:{{noticeHeight+120}}rpx;' />
+<view hidden='{{false}}'>
+  <!-- 树苗 -->
+<view style="background:url('https://www.gdutrex.xyz/imba/my/trre1.png');background-size: 100% 100%;width: 477rpx;height: 571rpx;position: absolute;bottom: {{20+372}}rpx;left: 136rpx;"/>
+<!-- 泥土 -->
+<view style="background:url('https://www.gdutrex.xyz/imba/my/treeNITUBottom.png');background-size: 100% 100%;width: 750rpx;height: 382rpx;position: absolute;bottom: 20rpx;"/>
+<!-- 进度条 -->
+<view style="position:absolute;top:{{gradeCardTop+80}}rpx;width:662rpx;left:44rpx;" class='flexColumn'>
+  <view class="flexRow" style="color:aquamarine;font-size: medium;font-weight: 900;">
+    <view style="width:53rpx;height:47rpx;background: white;border: 2px solid #4ed7f6;text-align: center;border-radius: 20rpx;margin-right: 150rpx;">芽</view>
+    <view style="width:53rpx;height:47rpx;background: white;border: 2px solid #4ed7f6;text-align: center;border-radius: 20rpx;margin-right: 150rpx;">苗</view>
+    <view style="width:53rpx;height:47rpx;background: white;border: 2px solid #4ed7f6;text-align: center;border-radius: 20rpx;margin-right: 150rpx;">枝</view>
+    <view style="width:53rpx;height:47rpx;background: white;border: 2px solid #4ed7f6;text-align: center;border-radius: 20rpx;">树</view>
+  </view>
+  <view class="flexRow" style="">
+    <view style="background:url('https://www.gdutrex.xyz/imba/my/stand.png');background-size:100% 100%;width: 5rpx;height: 16rpx;margin-left: 25rpx;"/>
+    <view style="background:url('https://www.gdutrex.xyz/imba/my/stand.png');background-size:100% 100%;width: 5rpx;height: 16rpx;margin-left: 200rpx;"/>
+    <view style="background:url('https://www.gdutrex.xyz/imba/my/stand.png');background-size:100% 100%;width: 5rpx;height: 16rpx;margin-left: 200rpx;"/>
+    <view style="background:url('https://www.gdutrex.xyz/imba/my/stand.png');background-size:100% 100%;width: 5rpx;height: 16rpx;margin-left: 200rpx;"/>
+  </view>
+  <view class="flexRow" style="border:3px solid #4ed7f6;border-radius:40rpx;width: 662rpx;height: 40rpx;background: white;align-items: center">
+    <view style="background: #4ed7f6;margin-left: 10rpx;width: {{20*5}}rpx;border-top-left-radius:20rpx;border-bottom-left-radius:20rpx;height:35rpx;"></view>
+    <view style="width:60rpx;height:60rpx;background:url('https://www.gdutrex.xyz/imba/my/logo.png');background-size:100% 100%;"></view>
+  </view>
+</view>
+
+<!-- 按钮 -->
+<view  
+data-firstPage='classMessage' 
+data-second='pageClassSecond'
+data-index='0' 
+data-back='treeRank' 
+data-now='tree'
+bindtap='turnIntoThird'
+hidden='{{pageClassSecond.tree}}' 
+style="background:url('https://www.gdutrex.xyz/imba/my/btn.png');background-size:100% 100%;width:105rpx;height: 110rpx;position: absolute;left:600rpx;top: {{gradeCardTop+220}}rpx;"></view>
+</view>
+<!-- 按钮 我的信息-->
+<view  hidden='{{!pageClassSecond.tree}}' bindtap='turnToNext' data-btnEvent='pagetreeRank'  style="background:url('https://www.gdutrex.xyz/imba/my/btn.png');background-size:100% 100%;width:105rpx;height: 110rpx;position: absolute;left:600rpx;top: {{gradeCardTop+220}}rpx;"></view>
+
+

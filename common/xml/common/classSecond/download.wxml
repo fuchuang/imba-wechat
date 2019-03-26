@@ -29,4 +29,10 @@
       </scroll-view>
     </view>
     <view style='width:39rpx;height:59rpx;background:url("https://www.gdutrex.xyz/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
+    <view class='return' 
+    style='top:{{gradeCardTop+10}}rpx;' 
+    bindtap='turnIntoThird' 
+    data-back='classIndex' 
+    data-now='download' 
+    data-second='pageClassSecond'/>  
 </view>

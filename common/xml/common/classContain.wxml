@@ -2,21 +2,21 @@
   <view class='moreMessage' style='top:{{gradeCardTop+50}}rpx;background: #37FABE;'>
     <view 
     style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' 
-    class='flexRow flexRowCenterAndAround'><view>className</view></view>
+    class='flexRow flexRowCenterAndAround'><view>{{classMessage[classMessageDetial.index].course_name}}</view></view>
     <scroll-view class='moreMessageContain' 
     style='height:{{noticeHeight-50}}rpx;' scroll-y>
       <view style='width:100%;height:50rpx;' ></view>
       <!-- 顶部的按钮 -->
       <view class="flexRow" style="justify-content: space-between;width:100%;">
-        <view class='treeBtn'/>
-        <view class='messageLogo'>
+        <view class='treeBtn' bindtap="intoCommonClssTree"/>
+        <view class='messageLogo' bindtap='inToCommonClassNotice' data-id ='{{classMessageDetial.id}}'>
           <view class="messageLogoNums flexRow flexRowCenterAndAround">
-            1
+            {{classMessageDetialNotiLength}}
           </view>
         </view>
       </view>
       <!-- 签到按钮 -->
-      <view class="singinBtn">
+      <view class="singinBtn" bindtap='isArrayNowClass' style="background:url('https://www.gdutrex.xyz/imba/common/signin{{isArrayClass}}.png');background-size:100% 100% ">
 
       </view>
       <!-- 签到信息 -->
@@ -25,26 +25,34 @@
         <view class="flexColumn" style="width:400rpx;height:100%;font-size: initial;align-items: center;">
           <view class='singinMessageContain'>
             <text style='color:#7c7c7c;width:150rpx;'>总课时:</text>
-            <text class="singinMessageContainNums">60</text>
+            <text class="singinMessageContainNums">{{classMessageDetial.total}}</text>
           </view>
           <view class='singinMessageContain'>
               <text style='color:#7c7c7c;width:150rpx;'>已缺:</text>
-              <text class="singinMessageContainNums">60</text>
+              <text class="singinMessageContainNums">{{classMessageDetial.latecount}}</text>
           </view>
           <view class='singinMessageContain'>
               <text style='color:#7c7c7c;width:150rpx;'>已迟:</text>
-              <text class="singinMessageContainNums">60</text>
+              <text class="singinMessageContainNums">{{classMessageDetial.truantcount}}</text>
           </view>
           <!-- 附件按钮 -->
-          <view class="singinMessageContainBtn" bindtap='classBtn' 
-            data-page='pageClassSecond'
+          <view class="singinMessageContainBtn"
+            bindtap='classBtn' 
+            data-page='pageClassSecond' 
+            data-id = '{{classMessageDetial.id}}'
             data-str='download'
           /> 
         </view>
       </view>
     </scroll-view>
   </view>
-
+ <!--返回-->
+ <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='turnIntoSecond' 
+ data-firstPage='classMessage' 
+ data-second='pageClassSecond'
+ data-index='0' 
+ data-back='commonIndex' 
+ data-now='classIndex'/>  
   <view style='width:39rpx;height:59rpx;background:url("https://www.gdutrex.xyz/imba/MAC_biaoqian.png") no-repeat;background-size:100% 100%;position:absolute;top:{{gradeCardTop+50}}rpx;left:100rpx;'></view>
 </view>
 <!-- 下载附件 -->
@@ -56,6 +64,31 @@
   <include src='classSecond/classDetail.wxml' />
 </view>
 <!-- 树 -->
-<view >
-  <include src='classSecond/classDetail.wxml' />
+<view hidden='{{pageClassSecond.tree}}'>
+  <include src='../tree.wxml' />
+   <!-- 返回 -->
+ <view class='return' 
+ data-firstPage='classMessage' 
+ data-second='pageClassSecond'
+ data-index='0' 
+ data-back='classIndex' 
+ data-now='tree'
+ style='top:{{gradeCardTop+10}}rpx;' bindtap='turnIntoThird'
+  hidden='{{pageClassSecond.tree}}'/>  
+</view>
+<view    hidden='{{pageClassSecond.treeRank}}'>
+  <include src='../treeRank.wxml' />
+     <!-- 返回 -->
+    <view class='return' 
+    data-firstPage='classMessage' 
+    data-second='pageClassSecond'
+    data-index='0' 
+    data-back='tree' 
+    data-now='treeRank'
+    style='top:{{gradeCardTop+10}}rpx;' bindtap='turnIntoThird'
+      hidden='{{pageClassSecond.treeRank}}'/>  
+</view>
+<!-- notiList -->
+<view>
+  <include src='classSecond/messageNotice.wxml' />
 </view>

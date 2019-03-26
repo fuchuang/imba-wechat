@@ -5,7 +5,36 @@ const windowHeight = app.globalData.windowHeight;
 const util = require('../../common/js/util.js');
 const alertEvent = require('../../common/js/alertEvent.js');
 const classContainJS = require('../../common/js/classContain.js');
+let startDanmu= function(that){
+  // 重置
+  that.setData({
+    danContent:wx.getStorageSync('danContent')
+  })
+  let animation = wx.createAnimation({
+    duration:3000
+  })
+  let danContent = that.data.danContent
+  let query = wx.createSelectorQuery()
+  for(let i of danContent.keys()){
+    query.select(`#danmu${i}`).boundingClientRect((res)=>{
+     // console.log(res)
+      animation = animation.translateX(-res.left -res.width).step()
+      danContent[i].animationData = animation.export()
+      // that.setData({
+      //   [`danContent[${i}].animationData`]:animation.export()
+      // })
+      }).exec()
+  }
+  setTimeout(() => {
+    // console.log('danmu');
+    that.setData({
+      danContent:danContent,
+      classDanmu: [false, 'borderRadiuClose', 'borderCircleColse'],
+    })
+  }, 1000);
+ 
 
+}
 let getWeekAndData = function (that,index) {
 
   let classAboutSevenM //=  wx.getStorageSync('classAboutSevenM')
@@ -78,7 +107,9 @@ menuBindEvent = function(e){
   let index = e.currentTarget.dataset.index
   let type = e.currentTarget.dataset.type
   let str = type + '.hidden'
-  if (index===5){
+  
+  if (index===5){// 切换弹幕样式
+    // 弹幕样式
       let classDanmu = this.data.classDanmu
       if (classDanmu[0]){
         this.setData({
@@ -88,9 +119,60 @@ menuBindEvent = function(e){
         this.setData({
           classDanmu: [true, 'borderRadiuOpen', 'borderCircleOpen'],
         }) 
+        //重置
+        startDanmu(this)
+        this.setData({
+         
+          chooseWeek: true,
+          chooseMenu: true
+        })
       }
-  }else{
+  }else if(index === 6){
+    // 课程表样式
+    this.setData({
+      isClass:true,
+      chooseWeek: true,
+      chooseMenu: true
+    })
+    
+  } else {
     alertEvent.alertAndCloseMenu(str, this)
+  }
+},
+//fasong 弹幕
+sendDanmu=function(e) {
+  let type = e.currentTarget.dataset.type
+  if(type==='input') {
+    this.setData({
+      ['addContenAboutDM.top']:Math.floor(Math.random()*300)+200,
+      ['addContenAboutDM.left']:Math.floor(Math.random()*300)+750,
+      ['addContenAboutDM.content']:e.detail.value
+    })
+  }
+  if(type==='btn') {
+    wx.showLoading()
+    let addContenAboutDM =this.data.addContenAboutDM
+    let animation = wx.createAnimation({
+      duration:3000
+    })
+    let danContent = this.data.danContent
+    danContent.push(addContenAboutDM)
+    let query = wx.createSelectorQuery()
+    query.select(`#addContenAboutDM`).boundingClientRect((res)=>{
+      console.log(danContent)
+      wx.setStorageSync('danContent', danContent)
+      animation = animation.translateX(-res.left -res.width).step()
+      addContenAboutDM.animationData = animation.export()
+      this.setData({
+      addContenAboutDM:addContenAboutDM,
+      // danContent:danContent,
+      [e.currentTarget.dataset.str.concat('.hidden')]:true
+      })
+      wx.hideLoading()
+      }).exec()
+    
+
+
   }
 },
 //关闭设置弹出框
@@ -183,8 +265,6 @@ changeValue=function(e){
 changeFirstClass = function(e){
   let value = alertEvent.changeFirstClass(e)
   let str = 'addClassMes.value'
-  console.log(value);
-  
   this.setData({
     [str]: value
   })
@@ -248,7 +328,9 @@ onload = function (that) {
 // 课程详情的点击事件
 classContainDetail = function(e) {
   let message = e.currentTarget.dataset.message
-  console.log(message)
+  if(typeof message.position==='undefined'){
+    return
+  }
   let str = 'classContainDetail.hidden',str2='classContainDetail.message'
   // 设置课程信息
   let startTime = 480;
@@ -289,7 +371,8 @@ let fuc = {
   navigatorFooter:navigatorFooter,
   onload:onload,
   selectWeek:selectWeek,
-  determineTan :determineTan
+  determineTan :determineTan,
+  sendDanmu:sendDanmu
 }
 let message = {
   // footer 导航
@@ -394,10 +477,25 @@ let message = {
     { name: '添加背景', type: 'changeBG' },
     { name: '扫一扫', type: 'havaAScan' },
     { name: '弹幕   ', type: 'danMu' },
+    { name: '课程样式   ', type: 'classStyle' },
     ],
     //当前月份
   nowMonth:12,
-  classContain:{}
+  classContain:{},
+ // 弹幕内容
+  danContent:[
+    {content:'这周的课好多啊',left:750,animationData:{},top:300},
+    {content:'不想上课了',left:900,animationData:{},top:400},
+    {content:'我想家了',left:1800,animationData:{},top:600},
+    {content:'数字媒体基础有人组队吗',left:1200,animationData:{},top:200},
+    {content:'数字媒体基础有人组队',left:800,animationData:{},top:450},
+    {content:'这周的课好多啊',left:750,animationData:{},top:600},
+    {content:'不想上课了',left:900,animationData:{},top:100},
+    {content:'我想家了',left:1800,animationData:{},top:400},
+    {content:'数字媒体基础有人组队吗',left:1200,animationData:{},top:500},
+    {content:'数字媒体基础有人组队',left:800,animationData:{},top:150}
+  ],
+  addContenAboutDM:{content:'',animationData:{},left:'',top:''}
 
   
 }

@@ -18,4 +18,13 @@
 <view class='container' hidden='{{mypageSecond.pagesave}}'>
   <include src='../../common/xml/my/save.wxml'/>
 </view>
-<view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>
+<view class='container' hidden='{{mypageSecond.pagetree}}'>
+  <include src='../../common/xml/tree.wxml'/>
+</view>
+<view class='container' hidden='{{mypageSecond.pagetreeRank}}'>
+  <include src='../../common/xml/treeRank.wxml'></include>
+</view> 
+<view wx:if='{{!mypageSecond.pagetreeRank}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnTree' data-back='pagetree'></view>
+  
+
+<view wx:else class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>

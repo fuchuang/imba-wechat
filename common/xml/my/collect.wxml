@@ -16,48 +16,49 @@
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 公选课 -->
       <view class='flexRow MychooseContain' hidden='{{collectContainControll!==2}}'>
-         <view wx:for='{{collectChooseClass}}' class='MychooseClass flexRow' 
+         <view wx:for='{{myMessage.electiveCollection}}' class='MychooseClass flexRow' 
           wx:key='chooseClass' wx:for-item='item'>
             <view style='width:75%;height:100%;' class='flexColumn'>
-              <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.title}}</view>
+              <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.courseName}}</view>
               <view style='font-size:small;color:#A1A1A1;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.teacher}}</view>
             </view>
             <view style='width:25%;height:100%;color:#FF4040;' class='flexRow flexRowCenterAndAround'>
               <view style='background:url("https://www.gdutrex.xyz/imba/chooseLoveLogo.png");background-size:100% 100%;width:32rpx;height:32rpx;'></view>
-              <text style='font-size:xx-small;'>{{item.num}}</text>
+              <text style='font-size:xx-small;'>{{item.likesNumber}}</text>
             </view>
           </view>
       </view>
       <!-- 通知 -->
       <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
-        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{collectnoticeMessage}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{myMessage.notificationCollection}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
           <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
                 <view class='MynoticeLogo' />
-                <text style='font-size:medium;color:#939393;font-weight:500;'>{{item.title}}</text>
+                <text style='font-size:medium;color:#939393;font-weight:500;' class="fontOverFlowHidden">{{item.notiTitle}}</text>
                 <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
                 <view style='width:15%;'/>
               </view>
               <view 
               style='font-size:small;color:#C5C5C5;font-weight:800;margin-left:20rpx;' 
-              class='fontOverFlowHidden'>{{item.contain}}</view>
+              class='fontOverFlowHidden'>{{item.notiSummarized}}</view>
             </view>
             <view style='width:20%;' class='flexRow flexRowCenterAndAround'>
-              <view class='haveRead' hidden='{{item.hasRead}}'></view>
+              <view class='haveRead' hidden='{{item.read}}'></view>
             </view>
           </view>
         </view>
       </view>
      <!-- 视频 -->
      <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
-        <view wx:for='{{123}}' class='MycontainBG flexColumn ' wx:key='my2'>
+        <view wx:for='{{myMessage.videoCollection}}' wx:for-item='item'
+        class='MycontainBG flexColumn ' wx:key='my2'>
           <view class='MycontainBG1'></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
-            <view class='MycontainTitle'>C++程序设计</view>
+            <view class='MycontainTitle fontOverFlowHidden'>{{item.courseTitle}}</view>
             <view style='font-size:small;  justify-content: space-between;' class='flexRow'>
-              <text style='margin-left:10rpx;'>123</text>
-              <view style='margin-right:20rpx;' class='flexRow'><view/><text>123</text></view>
+              <text style='margin-left:10rpx;'>{{item.courseLecturer}}</text>
+              <view style='margin-right:20rpx;' class='flexRow'><view/><text>{{item.watchingNum}}</text></view>
             </view>
           </view>
         </view>

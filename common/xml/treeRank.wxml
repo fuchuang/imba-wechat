@@ -1,0 +1,20 @@
+<view style='top:{{gradeCardTop+60}}rpx;position: absolute;left:81.5rpx;'>
+  <view style="background:url('https://www.gdutrex.xyz/imba/my/main_bg3.png');background-size:100% 100%;width:587rpx;height: 108rpx;"></view>
+  <view style="background:#0ee1a1;color:white;justify-content: space-around;font-weight: 700;align-items: center;" class='flexRow'>
+    <view>排名</view>
+    <view>班级</view>
+    <view>出勤率</view>
+    <view>等级</view>
+  </view>
+  <scroll-view scroll-y style="height:{{noticeHeight-100}}rpx;background: white;">
+    <view class="flexRow" style="color:#4ed7f6;background: white;" wx:for='{{getTree}}' wx:for-index='index' wx:for-item='item' wx:key='strr'>
+      <view style="width:130rpx;text-align: center;font-weight: 700;">{{index+1}}</view>
+      <view style="flex:4;text-align: center;font-size: medium;" class="fontOverFlowScroll">{{item.value}}</view>
+      <view style="flex:3;text-align: center;font-size: medium;">{{item.score}}%</view>
+      <view style="flex:3;text-align: center;font-size: medium;">{{item.level}}</view>
+    </view>
+  </scroll-view>
+</view>
+ <!-- 返回
+ <view class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='' hidden='{{false}}'/>  
+     -->
