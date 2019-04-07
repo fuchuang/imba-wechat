@@ -13,7 +13,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.1",
+	"libVersion": "2.6.2",
 	"appid": "wx23d4ad322c95471e",
 	"projectname": "IMBA2",
 	"debugOptions": {

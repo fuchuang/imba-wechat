@@ -185,7 +185,6 @@ const changePage = function (that,str,index) {
     // 收藏列表
     requset2(that,1,'/Profile/videoCollection')
     requset2(that,1,'/Profile/electiveCollection')
-    
     requset1(that,1,0,6,'/Profile/notificationCollection')
   }
   // 浏览历史
@@ -199,9 +198,6 @@ const changePage = function (that,str,index) {
     requset3(that,1,url[0],0)
     requset3(that,1,url[1],1)
     requset3(that,1,url[2],2)
-    
-    /*requset2(that,1,'/Profile/myPosts/posted')
-    requset2(that,1,'/Profile/myPosts/likes')*/
   }
   if(str==='pagetree') {
     // 请求排行榜

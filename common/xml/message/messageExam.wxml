@@ -1,5 +1,6 @@
 <view style='position:absolute;width:650rpx;left:50rpx;top:{{gradeCardTop+50}}rpx;'>
-  <view wx:for='{{examMessage}}' wx:for-item='item' wx:key='exam' class='flexColumn examBG'>
+  <view wx:for='{{examMessage}}' wx:for-index='index'
+  wx:for-item='item' wx:key='exam' class='flexColumn examBG'>
     <view style='flex:1;justify-content: flex-start;' class='flexRow flexRowCenterAndAround '><text style='' class='examTitle fontOverFlowScroll'>{{item.title}}</text></view>
     <view style='width:100%;height:110rpx;background:white;font-size:small;' class='flexRow flexRowCenterAndAround'>
       <view style='flex:1;align-items:flex-start;justify-content: space-around;' class='flexColumn '>
@@ -17,7 +18,8 @@
            <view style='' class='fontOverFlowScroll'>{{item.number}}</view>
         </view>
       </view>
-      <view style='width:154rpx;height:45rpx;background:yellow;background:url("https://www.gdutrex.xyz/imba/examLogo.png") no-repeat;background-size:100% 100%;'></view>
+      <view bindtap='addExamToClass' hidden='{{item.flag}}' data-index='{{index}}' 
+      style='width:154rpx;height:45rpx;background:yellow;background:url("https://www.gdutrex.xyz/imba/examLogo.png") no-repeat;background-size:100% 100%;'></view>
     </view>
   </view>
-</view>120918549
+</view>

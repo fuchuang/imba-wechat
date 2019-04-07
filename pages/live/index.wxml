@@ -1,0 +1,14 @@
+
+<camera style="height: 100%;width: 750rpx;">
+  <cover-view  style='top:{{80}}rpx;width:60rpx;height:80rpx;position: :absolute;'>
+      <cover-image src='https://www.gdutrex.xyz/imba/message_return.png' bindtap='returnLive' style='top:{{80}}rpx;width:60rpx;height:80rpx;position: :relative;'  />
+  </cover-view >
+ 
+    <cover-image src='https://www.gdutrex.xyz/imba/livebtn.png' 
+    bindtap='returnLive' 
+    style='margin-top:1100rpx;margin-left:283rpx;width:183rpx;height:183rpx;position: :relative;'  />
+</camera>
+
+
+
+

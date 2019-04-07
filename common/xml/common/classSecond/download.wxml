@@ -7,7 +7,9 @@
       <scroll-view class='moreMessageContain' 
       style='height:{{noticeHeight-50}}rpx;' scroll-y>
         <view class="flexColumn " style="justify-content: center;">
-          <view wx:for='{{downloadMessage}}' wx:for-item='item' wx:key='downloadMessage' class='itemContainBG'>
+          <view wx:for='{{downloadMessage}}' wx:for-item='item'
+          bindtap='downloadFile'
+           wx:key='downloadMessage' class='itemContainBG'>
             <!-- 图标 -->
             <view style="height:100%;width:150rpx;justify-content: center;" class="flexRow ">
               <view class="itemContainImage" style="background: url('https://www.gdutrex.xyz/imba/common/document{{item.fileType}}.png') no-repeat; background-size: 100% 100%;"></view>

@@ -16,13 +16,18 @@
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 通知 -->
       <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
-        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{myMessage.viewRecentlyNotice}}' wx:key='historynoticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'
+        wx:for='{{myMessage.viewRecentlyNotice}}' wx:key='historynoticeMessage' 
+        bindtap='myIntoNotice' data-item = '{{item}}' 
+        data-next='pageNotiHistory' data-now="pagehistory"
+        wx:for-item='item' for-index='index' data-index='{{index}}'
+        data-message='messageNotice'>
           <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
                 <view class='MynoticeLogo' />
-                <text style='font-size:medium;color:#939393;font-weight:500;' class='fontOverFlowHidden'>{{item.notiTitle}}</text>
-                <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
+                <text style='font-size:medium;color:#939393;font-weight:500;flex:1;' class='fontOverFlowHidden'>{{item.notiTitle}}</text>
+                <!-- <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text> -->
                 <view style='width:15%;'/>
               </view>
               <view 
@@ -38,8 +43,8 @@
      <!-- 视频 -->
      <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
         <view wx:for='{{myMessage.videoViewedHistory}}' 
-        bindtap='myHistoyVedio' data-item='{{item}}'
-        wx:for-item='item' wx:for-index='index' 
+        bindtap='myHistoyVedio' data-item='{{item}}' data-now='pagehistory'
+        wx:for-item='item' wx:for-index='index'  data-next='pageVideoHistory' 
         class='MycontainBG flexColumn ' wx:key='my1'>
           <view class='MycontainBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>

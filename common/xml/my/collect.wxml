@@ -16,7 +16,9 @@
     <scroll-view scroll-y  style='height:{{noticeHeight-112}}rpx;' class="MychooseContain">
       <!-- 公选课 -->
       <view class='flexRow MychooseContain' hidden='{{collectContainControll!==2}}'>
-         <view wx:for='{{myMessage.electiveCollection}}' class='MychooseClass flexRow' 
+         <view wx:for='{{myMessage.electiveCollection}}' 
+         bindtap='myIntoChoose' data-item='{{item}}'
+         class='MychooseClass flexRow' 
           wx:key='chooseClass' wx:for-item='item'>
             <view style='width:75%;height:100%;' class='flexColumn'>
               <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.courseName}}</view>
@@ -29,14 +31,21 @@
           </view>
       </view>
       <!-- 通知 -->
-      <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" hidden='{{collectContainControll!==0}}'>
-        <view class='MynoticeItem flexRow flexRowCenterAndAround'wx:for='{{myMessage.notificationCollection}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
+      <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" 
+      hidden='{{collectContainControll!==0}}'>
+        <view class='MynoticeItem flexRow flexRowCenterAndAround'
+        bindtap='myIntoNotice' data-item = '{{item}}' 
+        data-next='pageNotiCollect' data-now="pagecollect"
+        wx:for='{{myMessage.notificationCollection}}' 
+        wx:key='noticeMessage' 
+        wx:for-item='item' for-index='index' data-index='{{index}}' 
+         data-message='messageNotice'>
           <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
-                <view class='MynoticeLogo' />
-                <text style='font-size:medium;color:#939393;font-weight:500;' class="fontOverFlowHidden">{{item.notiTitle}}</text>
-                <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
+                <text class='MynoticeLogo' />
+                <text style='font-size:medium;color:#939393;font-weight:500;flex:1;' class="fontOverFlowHidden"> {{item.notiTitle}}</text>
+                <!-- <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text> -->
                 <view style='width:15%;'/>
               </view>
               <view 
@@ -51,9 +60,11 @@
       </view>
      <!-- 视频 -->
      <view class='flexRow MycontainDisplay' hidden='{{collectContainControll!==1}}'>
-        <view wx:for='{{myMessage.videoCollection}}' wx:for-item='item'
+        <view wx:for='{{myMessage.videoCollection}}' wx:for-item='item'  wx:for-index='index'  data-next='pageVideoCollect' 
+        bindtap='myHistoyVedio' data-item="{{item}}" data-now='pagecollect'
         class='MycontainBG flexColumn ' wx:key='my2'>
-          <view class='MycontainBG1'></view>
+          <view class='MycontainBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"
+          ></view>
           <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
             <view class='MycontainTitle fontOverFlowHidden'>{{item.courseTitle}}</view>
             <view style='font-size:small;  justify-content: space-between;' class='flexRow'>

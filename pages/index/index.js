@@ -11,7 +11,7 @@ let startDanmu= function(that){
     danContent:wx.getStorageSync('danContent')
   })
   let animation = wx.createAnimation({
-    duration:3000
+    duration:5000
   })
   let danContent = that.data.danContent
   let query = wx.createSelectorQuery()
@@ -306,7 +306,8 @@ navigatorFooter = function (e, that) {
   }
   footPage[str] = false;
   that.setData({
-    footPage :footPage
+    footPage :footPage,
+    alertEveryDay:true
   })
 },
 
@@ -375,6 +376,7 @@ let fuc = {
   sendDanmu:sendDanmu
 }
 let message = {
+  cameraHeight:windowHeight /windowWidth *750  - 130,
   // footer 导航
   footPage :{
     // login:false,
@@ -477,7 +479,7 @@ let message = {
     { name: '添加背景', type: 'changeBG' },
     { name: '扫一扫', type: 'havaAScan' },
     { name: '弹幕   ', type: 'danMu' },
-    { name: '课程样式   ', type: 'classStyle' },
+    // { name: '课程样式   ', type: 'classStyle' },
     ],
     //当前月份
   nowMonth:12,

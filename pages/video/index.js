@@ -82,10 +82,19 @@ let message = {
       getDataBase.fuc.getVideoPlayDetail(this,id,index)
     },
     returnVideo:function(e) {
-      this.setData({
-        ['videoPage.first']:false,
-        ['videoPage.second']:true
-     })
+      let type = e.currentTarget.dataset.type
+      if(typeof type === 'undefined') {
+        this.setData({
+          ['videoPage.first']:false,
+          ['videoPage.second']:true
+       })
+      } else {
+        this.setData({
+          ['videoPage.second']:false,
+          ['videoPage.playVideo']:true
+       })
+      }
+
     }
   }
 module.exports = {

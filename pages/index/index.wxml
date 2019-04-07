@@ -9,7 +9,8 @@
     </view>
     <view class='' style='width:13%;height:95%;border: 2rpx solid transparent;' 
     wx:for="{{classAboutSevenM}}" wx:key='classAboutSevenM' 
-    wx:for-item='item' wx:index='index' class='flexColumn flexRowCenterAndAround'>
+    wx:for-item='item' wx:index='index' 
+    class='flexColumn flexRowCenterAndAround'>
       <view wx:for='{{item.class}}' 
       wx:for-item='classItem' 
       wx:key='classContain{{index}}'
@@ -36,7 +37,7 @@
 <!-- 顶部按钮 -->
 <view style='width:100%;height:120rpx;position:fixed;background:#f6f6f6;top:{{headHeight}}px;' hidden='{{isClass}}'>
  <view style='width:70rpx;;height:70rpx;left:30rpx;background:url("https://www.gdutrex.xyz/imba/tan.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;' bindtap='menuBindEvent' data-type ='sendDanMu'/>
-  <view bindtap='isArrayNowClass' hidden='{{isArrayClass}}' style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://www.gdutrex.xyz/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
+  <view bindtap='chageClass'  style='width:70rpx;;height:60rpx;left:150rpx;background:url("https://www.gdutrex.xyz/imba/qian.png") no-repeat;background-size: 100% 100%;position:absolute;top:25rpx;'/>
   <!--选择周数-->
   <view style='width:100%;height:1000px;position:absolute;left:0;' hidden='{{chooseWeek}}' bindtap='clooseOpenMenuAndWC'/>
  <view style='width:200rpx;height:100%;color:#28c2f2;position:absolute;left:275rpx;background:#f6f6f6;  justify-content:center; ' class='flexColumn flexRowCenterAndAround'>

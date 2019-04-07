@@ -1,7 +1,8 @@
 {
   "pages":[
     "pages/login/index",
-    "pages/control/index"
+    "pages/control/index",
+    "pages/live/index"
 
   ],
   "window":{

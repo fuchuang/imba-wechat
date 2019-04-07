@@ -120,7 +120,8 @@ let fucBtnEvent = {
       success: function(res){
         // success
         let data = res.data.data.data
-      
+        console.log('test',data);
+        
         let arr ={},noticeMessage=[]
         for(let i of res.data.data.data.keys()){
           noticeMessage.push({
@@ -208,11 +209,20 @@ let fucBtnEvent = {
         for (let i of data.keys()) {
           let item = data[i]
           let examMessage = {
-            title:item.coursesName,
+            title:item.courseName,
             position:item.site,
             number:item.seatNumber,
             teacherName:item.invigilator,
-            time:[`第${item.dayOfWeek}周 星期${item.dayOfWeek}  ${item.examTime}`]
+            time:[`第${item.dayOfWeek}周 星期${item.dayOfWeek}  ${item.examTime}`],
+            flag:false,
+            addMessage:{
+              title:item.courseName,
+              start:item.examTime,
+              position:item.site,
+              day:item.dayOfWeek,
+              week:item.dayOfWeek,
+              teacherName:item.invigilator
+            }
           }
           arr.push(examMessage)
         }
