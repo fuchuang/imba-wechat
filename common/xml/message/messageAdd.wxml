@@ -1,17 +1,14 @@
 <view  style='top:{{gradeCardTop+20}}rpx; width:  650rpx;position: absolute;left: 50rpx;'>
   <view style='position:relative;width:100%;color:#7c7c7c;font-weight:700;texalign:center;left:250rpx;'>比赛信息</view>
   <view style='width:100%;justify-content:flex-start;align-content: flex-start;flex-wrap:wrap;' class='flexRow'>
-    <!-- <view style='' class='flexRow flexRowCenterAndAround addBG1' 
+    <view style='' class='flexRow flexRowCenterAndAround addBG1' 
     wx:for='{{addMessage}}' wx:key='addBG1' wx:for-item='item'
     bindtap='addEvent' data-message='messageAdd' data-kind ='1'>
       <view class='fontOverFlowHidden'>{{item.matchTitle}}</view>
-    </view> -->
-    <!-- <view style='' class='addBorderBottom'></view> -->
-    <view style='' class='flexRow flexRowCenterAndAround addBG2'
-    wx:for-item='item' data-item='{{item}}'
-     wx:for='{{addMessage}}' wx:key='addBG2' bindtap='addEvent' 
-     data-message='messageAdd' data-kind ='2'>
-      <view class='fontOverFlowHidden'>{{item.matchTitle}}</view>
     </view>
+    <!-- <view style='' class='addBorderBottom'></view>
+    <view style='' class='flexRow flexRowCenterAndAround addBG2' wx:for='{{[1,2,3,4]}}' wx:key='addBG2' bindtap='addEvent' data-message='messageAdd' data-kind ='2'>
+      <view class='fontOverFlowHidden'>12215453</view>
+    </view> -->
   </view>
 </view>

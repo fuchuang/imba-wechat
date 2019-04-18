@@ -14,12 +14,7 @@
   <view style="width:600rpx;height:1px;background:#a1a1a1;margin-bottom: 10rpx;"></view>
   <scroll-view style="width:600rpx;height: {{noticeHeight-330}}rpx;background:white;">
     <view class='flexColumn' style="align-items: center;">
-      <view wx:for='{{videoDetailMessage.videomodels}}' 
-      bindtap='playVideo' 
-      wx:for-item='item' 
-      wx:key='videoList' 
-      style="color:#a1a1a1;margin:10rpx 0;width:560rpx;height:60rpx;border-radius:20rpx;border:2px solid #4ed7f6;align-content: center;" 
-      class='flexRow'> 
+      <view wx:for='{{videoDetailMessage.videomodels}}' wx:for-item='item' wx:key='videoList' style="color:#a1a1a1;margin:10rpx 0;width:560rpx;height:60rpx;border-radius:20rpx;border:2px solid #4ed7f6;align-content: center;" class='flexRow'> 
         <view style="margin-left:10rpx;">{{item.video_title}}</view>
       </view>
     </view>

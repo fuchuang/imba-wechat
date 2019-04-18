@@ -24,48 +24,7 @@
 <view class='container' hidden='{{mypageSecond.pagetreeRank}}'>
   <include src='../../common/xml/treeRank.wxml'></include>
 </view> 
-<!-- 选课 -->
-<view hidden='{{mypageSecond.pageChoose}}'>
-  <include src='../../common/xml/my/second/messageChooseContain.wxml'/>
-</view>
-<!-- 视频 -->
-<view hidden='{{mypageSecond.pageVideoHistory}}'>
-  <include src='../../common/xml/my/second/video.wxml'/>
-</view>
-<view hidden='{{mypageSecond.pageVideoCollect}}'>
-  <include src='../../common/xml/my/second/video.wxml'/>
-</view>
+<view wx:if='{{!mypageSecond.pagetreeRank}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnTree' data-back='pagetree'></view>
+  
 
-
-<!-- 帖子 -->
-<view hidden='{{mypageSecond.pageNotiCollect}}'>
-  <include src='../../common/xml/my/second/noticeContain.wxml'/>
-</view>
-<view hidden='{{mypageSecond.pageNotiHistory}}'>
-  <include src='../../common/xml/my/second/noticeContain.wxml'/>
-</view>
-<view hidden='{{mypageSecond.pageNotiTie}}'>
-  <include src='../../common/xml/my/second/noticeContain.wxml'/>
-</view>
-
-<!-- 返回 -->
-<view hidden='{{!mypageSecond.pageindex}}'>
-  <view hidden='{{!mypageSecond.pagetreeRank}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagetree'></view>
-  <view hidden='{{mypageSecond.pagetreeRank}}' class='return' 
-  style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>
-  <view hidden='{{mypageSecond.pageChoose}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagecollect'></view>
-  <view hidden='{{mypageSecond.pageVideoCollect}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagecollect'></view>
-  <view hidden='{{mypageSecond.pageVideoHistory}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagehistory'></view>
-  <view hidden='{{mypageSecond.pageNotiTie}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagetie'></view>
-  <view hidden='{{mypageSecond.pageNotiHistory}}'  class='return' style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagehistory'></view>
-  <view hidden='{{mypageSecond.pageNotiCollect}}'  class='return' 
-  style='top:{{gradeCardTop+10}}rpx;' 
-  bindtap='returnTree' data-back='pagecollect'></view>
-</view>
+<view wx:else class='return' style='top:{{gradeCardTop+10}}rpx;' bindtap='returnIndex' hidden='{{!mypageSecond.pageindex}}'/>

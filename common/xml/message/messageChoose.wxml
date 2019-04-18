@@ -12,19 +12,17 @@
     <!--按钮-->
     <view style='background:{{item.bgColor}};' 
     class='chooseBtnMessage flexRowCenterAndAround flexRow' 
-    wx:for='{{chooseBtn}}' wx:for-item='item' wx:key='chooseBtn'  data-item='{{item}}'
+    wx:for='{{chooseBtn}}' wx:for-item='item' wx:key='chooseBtn' 
     bindtap='chooseBtn' data-color='{{item.bgColor}}'><text>{{item.title}}</text></view>
   </view>
       <!--内容-->
-  <view style='background:{{chooseBGColor}};'  
+  <view style='background:{{chooseBGColor}};' 
   class='chooseBG flexRow flexRowCenterAndAround' 
->
+  bindtap='chooseEvent' data-message='messageChoose'>
     <view style='height:{{chooseHeight}}rpx;min-height:{{chooseHeight}}rpx;' 
     class='flexRow chooseContain'>
-        <view wx:for='{{chooseClass}}'   
-        bindtap='chooseEvent' data-message='messageChoose' 
-        class='chooseClass flexRow' 
-        wx:key='chooseClass' wx:for-item='item' data-item='{{item}}'>
+        <view wx:for='{{chooseClass}}' class='chooseClass flexRow' 
+        wx:key='chooseClass' wx:for-item='item'>
           <view style='width:75%;height:100%;' class='flexColumn'>
             <view style='font-size:medium;color:#707070;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.title}}</view>
             <view style='font-size:small;color:#A1A1A1;margin-left:10rpx;' class='fontOverFlowScroll'>{{item.teacher}}</view>

@@ -23,14 +23,7 @@ let message = {
       pagehistory: true, 
       pagetie: true, 
       pagesave: true, 
-      pageindex: false,
-      pageChoose:true,
-      pageVideoCollect:true,
-      pageVideoHistory:true,
-      pageNotiCollect:true,
-      pageNotiHistory:true,
-      pageNotiTie:true,
-      pageVideoPlay:true,
+      pageindex: false, 
     },
     // 考勤按钮
     recorderBtnFlag: false,
@@ -50,9 +43,9 @@ let message = {
     ],
     displayRecorderMessage: [1, 2, 3, 4, 5, 6, 7, 8],
     recorderMessage: [
-      { className: '高数英语', record: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], displayRecord: [1, 1, 1, 1, 1, 1, 1, 1] },
-      { className: '体育', record: [1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], displayRecord: [1, 1, 1, 1, 1, 1, 1, 1] },
-      { className: '大学英语', record: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], displayRecord: [1, 1, 1, 1, 1, 1, 1, 1] }
+      { className: '高数英语', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] },
+      { className: '体育育育育育育育育育育育育育', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] },
+      { className: '大学英语', record: [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1], displayRecord: [0, 1, 1, 1, 1, 1, 1, 1] }
     ],
     // 收藏页面按钮
     collectBtn: [
@@ -203,7 +196,7 @@ let message = {
     }) 
   },
   returnTree=function(e){
-    let str= e.currentTarget.dataset.back
+    let str= 'pagetree'
     my.changePage(this,str)
   }
   let fuc = {
@@ -214,96 +207,9 @@ let message = {
     recordChoose :recordChoose,
     choseClose:choseClose,
     collectBtn:collectBtn,
-
     myHistoyVedio:function(e) {
-      // console.log(e.currentTarget.dataset.item);
-      let str = e.currentTarget.dataset.item.id
-      if(typeof str === 'undefined') {
-        str = 1
-      }
-      let next = e.currentTarget.dataset.next
-      let now = e.currentTarget.dataset.now
-      // 获取点播信息
-      console.log(str);
-      wx.showLoading({
-        title:'正在加载'
-      })
-      // let myselyVideo = that.data.myselyVideo
-      let url ='https://campus.gbdev.cn:8080/IMBA'.concat('/video/list')
-      let cookies = wx.getStorageSync('cookies')
-      wx.request({
-        url: url,
-        data: {
-          video_series_id:str
-        },
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        header: {
-          'content-type': 'application/json',
-          "Cookie": `JSESSIONID=${cookies}`
-        }, 
-        success: (res)=>{
-          // success
-          console.log(res.data.msg);
-          res.data.msg[0].imageURL = `https://www.gdutrex.xyz/imba/video/videoLogo(1).png`
-          this.setData({
-            ['videoDetailMessage']:res.data.msg[0],
-            [`mypageSecond.${next}`]:false,
-            [`mypageSecond.${now}`]:true
-         })
-
-        },complete(e) {
-          wx.hideLoading()
-        }
-      })
-    },
-    myIntoChoose:function(e){
-      console.log(e.currentTarget.dataset.item);
-      let item =e.currentTarget.dataset.item
-      let chooseClassDetail={
-        content:[
-          {name:'授课名称',value:item.courseName},
-          {name:'授课教师',value:item.teacher},
-          {name:'学分',value:1.5},
-          {name:'总学时',value:'1-16周'}
-        ],
-        comment:[
-          {name:'小明',content:'老师人很好',time:'2019-1-21',imageUrl:'https://www.gdutrex.xyz/imba/ladyStu.png'},
-          {name:'小刚',content:'受益匪浅',time:'2019-1-21',imageUrl:'https://www.gdutrex.xyz/imba/ladyStu.png'},
-          {name:'小杰',content:'不错 老师认真负责',time:'2019-1-21',imageUrl:'https://www.gdutrex.xyz/imba/ladyStu.png'}
-        ]
-      }
-      this.setData({
-        ['mypageSecond.pageChoose']:false,
-        ['mypageSecond.pagecollect']:true,
-        chooseClassDetail:chooseClassDetail
-      })
-    },
-    //进入通知页面
-    myIntoNotice:function(e) {
-      let item = e.currentTarget.dataset.item
-      let now = e.currentTarget.dataset.now,next=e.currentTarget.dataset.next
-      let noticeMessageDetauil 
-      if(now === 'pagetie') {
-        console.log(item);
-        
-        noticeMessageDetauil = {
-          notiTitle:item.postsTitle,
-          content:item.postsContent,
-          title:'教务处'
-        }
-      } else{
-        noticeMessageDetauil = {
-          notiTitle:item.notiTitle,
-          content:item.notiSummarized,
-          title:'教务处'
-        }
-      }
-
-      this.setData({
-        noticeMessageDetauil:noticeMessageDetauil,
-        [`mypageSecond.${now}`]:true,
-        [`mypageSecond.${next}`]:false
-      })
+      console.log(e.currentTarget.dataset);
+      
     }
   }
 

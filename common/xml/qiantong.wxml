@@ -3,51 +3,31 @@
   <view style='height:100%;width:80%;'>
     <view style='position:fixed;width:80%;height:400rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qiantongBefore.png");background-size:100% 100%;'></view>
     
-    <view bindtap='changQiantongClass' data-str='next' style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:345rpx;bottom:260rpx;' class='flexColumn'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:345rpx;bottom:260rpx;' class='flexColumn'>
       <view style='width:100%;height:2.4%;'></view>
-      <view style='width:100%;height:5.2%;font-size:small;'  class='flexRow flexRowCenterAndAround'>
+      <view style='width:100%;height:5.2%;font-size:small;' class='flexRow flexRowCenterAndAround'>
         <text wx:for='{{nowData}}' hidden='{{item.nextData}}' wx:for-item='item' wx:key='nextData'>{{item.data}}</text>
       </view>
     </view>
-    <view  bindtap='changQiantongClass' data-str='left' style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(-10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:205rpx;bottom:260rpx;'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;transform: rotate(-10deg);background:url("https://www.gdutrex.xyz/imba/qianfinal.png");background-size:100% 100%;left:205rpx;bottom:260rpx;'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:small;' class='flexRow flexRowCenterAndAround'>
         <text wx:for='{{nowData}}' hidden='{{item.lastData}}' wx:for-item='item' wx:key='lastData'>{{item.data}}</text>
       </view>
     </view>
-    <view  style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qianfinal.png");font-size:small;background-size:100% 100%;left:275rpx;bottom:280rpx;align-items: center;' class='flexColumn'>
+    <view style='position:fixed;width:200rpx;height:820rpx;bottom:40rpx;background:url("https://www.gdutrex.xyz/imba/qianfinal.png");font-size:small;background-size:100% 100%;left:275rpx;bottom:280rpx;align-items: center;' class='flexColumn'>
       <view style='width:100%;height:2.4%;'></view>
       <view style='width:100%;height:5.2%;font-size:smaller;' class='flexRow flexRowCenterAndAround'>
         <text wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData'>{{item.data}}</text>
       </view>
-      <view wx:for='{{nowData}}' 
-      wx:for-item='item' wx:key='nowData' wx:for-index='index'
-      style='width:100%;height:105rpx;margin-bottom:10rpx;' class='flexColumn flexRowCenterAndAround'>
-        <view wx:for='{{item.class}}' style='width:50%;height:60rpx;'  hidden='{{item.nowData}}'
-        wx:key='classItemNowData{{index}}' wx:for-item='classItem'>
-          <view style='width:100%;height:60rpx;' class='inManyLine'  >{{classItem.name}}</view>
+      <view wx:for='{{nowData}}' hidden='{{item.nowData}}' wx:for-item='item' wx:key='nowData' style='width:100%;height:105rpx;margin-bottom:10rpx;' class='flexColumn flexRowCenterAndAround'>
+        <view wx:for='{{item.class}}' style='width:50%;height:60rpx;' wx:key='classItemNowData' wx:for-item='classItem'>
+          <view style='width:100%;height:60rpx;' class='inManyLine'>{{classItem.name}}</view>
         </view>
       </view>
+
     </view>
-    <view bindtap='alertEveryDay' data-type='open' style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://www.gdutrex.xyz/imba/qiantongFront.png");background-size:100% 100%;'>
-      <view style="left:221rpx;top:120rpx;position:relative;width:157rpx;height:88rpx;background:url('https://www.gdutrex.xyz/imba/yaoyiyao.png');background-size:100% 100%;"></view>
-    </view>
+    <view bindtap='' style='position:fixed;width:80%;height:400rpx;bottom:00rpx;background:url("https://www.gdutrex.xyz/imba/qiantongFront.png");background-size:100% 100%;'></view>
   </view>
 </view>
 <view style='position:absolute;width:120rpx;height:60rpx;top:{{headHeight+20}}px;left:600rpx;background:url("https://www.gdutrex.xyz/imba/btn_class.png");background-size:100% 100%;' bindtap='changeClassStyle' hidden='{{!isClass}}'></view>
-<!-- 每日一签 -->
-<view hidden='{{alertEveryDay}}'>
-  <view style="width:100%;height:100%;position:absolute;"></view>
-  <view class="flexColumn" style="position:absolute;align-items: center; bottom:{{330}}rpx;left:75rpx;height:{{800}}rpx;width:600rpx;background:url('https://www.gdutrex.xyz/imba/alertRect.png');background-size:100% 100%;">
-    <view style="width:100%;height: 80rpx;justify-content: flex-end;align-items: center;" class="flexRow">
-        <view bindtap='alertEveryDay' data-type='close' 
-        style='margin-right:10rpx;background:url("https://www.gdutrex.xyz/imba/alertClose.png") no-repeat;background-size: 100% 100%;width:40rpx;height:40rpx;' 
->
-      </view>
-    </view>
-    <view style="height:80%;width:500rpx;align-items: center; " class="flexColumn" >
-      <view style="background:url('https://www.gdutrex.xyz/imba/alertImage.png');background-size: 100% 100%;width: 500rpx;height: 500rpx;"/>
-      <view style="background:url('https://www.gdutrex.xyz/imba/danci.png');background-size: 100% 100%;width: 500rpx;height: 580rpx;margin:50rpx 0"/>
-    </view>
-  </view>
-</view>

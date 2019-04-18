@@ -8,12 +8,10 @@
   class="flexColumn MCC_contain" 
   style="top:{{gradeCardTop+80}}rpx;">
   <view style="" class='flexColumn MCC_contain_bg'>
-    <view wx:for='{{chooseClassDetail.content}}' 
-    wx:for-item='item'
-    class="flexRow MCC_contain_classContain" 
+    <view wx:for='{{[1,2,3,4]}}' class="flexRow MCC_contain_classContain" 
     wx:key = 'classContain'>
-      <view  style="" class="MCC_contain_classTitle">{{item.name}}:</view>
-      <view style='' class="MCC_contain_classCntain">{{item.value}}</view>
+      <view  style="" class="MCC_contain_classTitle">授课名称:</view>
+      <view style='' class="MCC_contain_classCntain">六大明珠</view>
     </view>
     <view style="" class="flexRow MCC_contain_classBtn">
       <view class="MCC_contain_classBtnSize" style='background:url("https://www.gdutrex.xyz/imba/MCC_saveOff.png") no-repeat;background-size:100% 100%;'></view>
@@ -21,13 +19,12 @@
     </view>
   </view>
    <scroll-view style="margin-top:20rpx;height:{{windowHeight*0.3}}px;" class='flexColumn MCC_contain_bg' scroll-y>
-      <view wx:for='{{chooseClassDetail.comment}}' class="flexRow"  wx:for-item='item'
-      style="margin:0 20rpx;width:100%;align-items: center;  justify-content: space-around;" wx:key='peopleCommon'>
-        <view  style='width:100rpx;height:100rpx;border-radius: 50rpx;background:url("{{item.imageUrl}}") no-repeat;background-size:100% 100%;'></view>
+      <view wx:for='{{[1,2,3,5,6,7,8]}}' class="flexRow" style="margin:0 20rpx;width:100%;align-items: center;  justify-content: space-around;" wx:key='peopleCommon'>
+        <view  style='width:100rpx;height:100rpx;border-radius: 50rpx;background:url("https://www.gdutrex.xyz/imba/teacherCircle.png") no-repeat;background-size:100% 100%;'></view>
         <view class='flexColumn' style="width:400rpx;margin:20rpx;">
-          <text style='font-size:large;'>{{item.name}}</text>
-          <text style='font-size:medium;color:#A6A6A6;'>{{item.content}}</text>
-          <text style='font-size:small;color:#A6A6A6;font-weight:200;border-bottom:1px #a6a6a6 solid;'>{{item.time}}</text>
+          <text style='font-size:large;'>血寻</text>
+          <text style='font-size:medium;color:#A6A6A6;'>血寻</text>
+          <text style='font-size:small;color:#A6A6A6;font-weight:200;border-bottom:1px #a6a6a6 solid;'>2018.1.12 12：20</text>
         </view>
       </view>
    </scroll-view>

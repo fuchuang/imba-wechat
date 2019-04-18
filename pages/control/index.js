@@ -52,8 +52,6 @@ Page({
     // 弹幕内容
     danContent:index.message.danContent,
     // add danmu
-    //相机高度
-    cameraHeight:index.message.cameraHeight,
     addContenAboutDM:index.message.addContenAboutDM,
     //弹幕样式
     classDanmu: index.message.classDanmu,
@@ -63,7 +61,7 @@ Page({
     classContain:index.message.classContain,
     // foot导航
     footPage: index.message.footPage,
-    alertEveryDay:true,
+
     // common data
     recordBtnMessage: common.message.recordBtnMessage,
     cardTop : message.message.cardTop,
@@ -136,12 +134,7 @@ Page({
     myNoticeMessage:[],
     myTieBtn: my.message.myTieBtn,
     historyBtn: my.message.historyBtn,
-// // mySecond 三级页面
-//     mySecond:{
-//       choose:true,
-//       video:true,
-//       tie:true
-//     },
+
     //   个人信息
     myMessage:{},
     // video data
@@ -150,8 +143,7 @@ Page({
     Video_pageContainControll : video.message.pageContainControll,
     videoPage:{
       first:false,
-      second:true,
-      playVideo:true
+      second:true
     },
     // video信息页面
     videoDetailMessage:{},
@@ -175,7 +167,6 @@ Page({
     //danmu 
     wx.setStorageSync('danContent', this.data.danContent)
     //my
-    // wx.setStorageSync('mySecond', this.data.mySecond)
     wx.setStorageSync('mypageSecond', this.data.mypageSecond)    
     wx.setStorageSync('collectBtn', this.data.collectBtn)  
     wx.setStorageSync('historyBtn', this.data.historyBtn)
@@ -291,7 +282,7 @@ Page({
   classMessageBtn :common.fuc.classMessageBtn,
 // 进入发帖
   commonTiebtn:common.fuc.commonTiebtn,
-
+  // tagContainClose
   //search
   inputSearch:common.fuc.inputSearch,
   //删除tag
@@ -318,102 +309,10 @@ Page({
   closeStatusBtn:common.fuc.closeStatusBtn,
   //video 事件
   intoVideoDetail:video.fuc.intoVideoDetail,
-  intoLivePlay:function(e){
-     let cameraHeight =  this.data.cameraHeight
-     console.log(cameraHeight);
-      wx.navigateTo({
-        url: `../live/index?cameraHeight=${cameraHeight}`,
-    })
-    
-  },
-  downloadFile:function(e){
-    wx.showLoading({
-      title:'传送中'
-    })
-    setTimeout(() => {
-      wx.hideLoading()
-      wx.showToast({
-        title:'发送完成',
-        icon:'suesses'
-      })
-
-    }, 2000);
-  },
   // 二级页面返回
   returnVideo:video.fuc.returnVideo,
-  playVideo:function(e){
-    this.setData({
-      ['videoPage.second']:true,
-      ['videoPage.playVideo']:false,
-    })
-  },chageClass(e){
-    this.setData({
-      isClass:true,
-      chooseWeek: true,
-      chooseMenu: true
-    })
-  },
-  changQiantongClass(e){
-    let str = e.currentTarget.dataset.str
-    console.log(str);
-    let data = this.data.nowData
-    wx.setStorageSync('data',data)
-    let now;
-    console.log(data);
-    
-    for(let index of data.keys()) {
-      if(!data[index].nowData) {
-        // now =index
-        // 获取到之后重新
-        if(str === 'next') {
-          // 找到当天的
-          let last = (index+6)%7,next = (index+8)%7
-          //前一天的
-          data[index].nowData = true
-          data[(index+1)%7].nowData = false
-          data[index].lastData = false
-          data[(index+6)%7].lastData = true
-          data[(index+8)%7].nextData = true
-          data[(index+9)%7].nextData = false
-        } else{
-          data[index].nowData = true
-          data[(index+6)%7].nowData = false
-          data[(index+6)%7].lastData = true
-          data[(index+5)%7].lastData = false
-          data[(index+1)%7].nextData = true
-          data[index].nextData = false
-        }
-        this.setData({
-          nowData:data
-        })
-        return;
-      }
-    }
-
- 
-  },
-  alertEveryDay(e){
-    let type = e.currentTarget.dataset.type
-    console.log(1);
-    
-    if(type === 'open') {
-      this.setData({
-        alertEveryDay:false
-      })
-      
-    }else {
-      this.setData({
-        alertEveryDay:true
-      })
-      
-    }
-  
-  },
-  //  比赛信息
-  messageContent:{},
   Video_indexBtn : video.fuc.indexBtn,
   videoListBtn:video.fuc.videoListBtn,
-
   // message 事件
   addEvent :message.fuc.addEvent,
   chooseBtn :message.fuc.chooseBtn,
@@ -427,14 +326,11 @@ Page({
     // let Url = app.globalData.requestURL
     message.fuc.btnEvent(str, this, URL)
   },
-  // class
-  addExamToClass:message.fuc.addExamToClass,
+
 
   // my事件
   returnIndex :my.fuc.returnIndex,
-//  myIntoChoose
-  myIntoNotice:my.fuc.myIntoNotice,
-  myIntoChoose:my.fuc.myIntoChoose,
+
   myHistoyVedio:my.fuc.myHistoyVedio,
   //返回树木
   returnTree:my.fuc.returnTree,

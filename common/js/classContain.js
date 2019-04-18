@@ -245,7 +245,7 @@ let fcu = {
 
     let strclassContain = JSON.stringify(classContain)
  
-    // wx.setStorageSync('classContain', strclassContain)
+     wx.setStorageSync('classContain', strclassContain)
 
     
   }

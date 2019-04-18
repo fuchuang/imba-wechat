@@ -2,10 +2,11 @@
   <view style='width:100%;height:100rpx;color:white;font-size:larger;letter-spacing:10rpx;' class='flexRow flexRowCenterAndAround'><view>比赛信息</view></view>
   <scroll-view class='moreMessageContain' style='height:{{noticeHeight-50}}rpx;' scroll-y>
     <view style='width:100%;height:50rpx;'></view>
-    <view class='flexColumn' style='margin:0 5rpx  40rpx  5rpx;width:640rpx;align-items: center;'>
-      <!-- <view style='width:20rpx;height:20rpx;border-radius:10rpx;letter-spacing:30rpx;font-size:medium;'/> -->
-      <view style='margin-bottom:20rpx;color:#5dd1f5;margin-right:20rpx;font-size: x-large;'>{{messageContent.title}}</view>
-      <view style='color:#707070;width: 95%;'>{{messageContent.content}}</view>
+    <view class='flexRow' style='margin:0 5rpx  40rpx  5rpx;width:640rpx;' wx:for='{{[1,2,3,4,5,6]}}' wx:key='MAC_message'>
+      
+      <view style='width:20rpx;height:20rpx;border-radius:10rpx;letter-spacing:30rpx;font-size:medium;'/>
+      <view style='color:#5dd1f5;margin-right:20rpx;'>报名时间:</view>
+      <view style='color:#707070;'>11月12日</view>
     </view>
   </scroll-view>
 </view>

@@ -30,8 +30,7 @@
           data-index='{{index}}'
           bindtap='intoVideoDetail'
           data-id='{{item.id}}'
-          > 
-          <!-- https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png -->
+          >
             <view class='video_containBG1' style="background:url('https://www.gdutrex.xyz/imba/video/videoLogo({{index%10+1}}).png') no-repeat;background-size: 100% 100%;"></view>
             <view style='flex:1;color:#7c7c7c;' class='flexColumn'>
               <view class='video_containTitle fontOverFlowHidden'>{{item.courseTitle}}</view>
@@ -62,7 +61,7 @@
           </view>
         </view>
       </scroll-view> 
-      <view class='videoRECBtn flexColumn' bindtap='intoLivePlay'>
+      <view class='videoRECBtn flexColumn'>
         <view>我要</view>
         <view>直播</view>
       </view>
@@ -130,7 +129,4 @@
 </view>
 <view hidden='{{videoPage.second}}'>
   <include src='videoDetial.wxml'></include>
-</view>
-<view hidden='{{videoPage.playVideo}}'>
-  <include src='videoPlay.wxml'></include>
 </view>

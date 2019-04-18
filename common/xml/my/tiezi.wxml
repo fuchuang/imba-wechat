@@ -17,21 +17,13 @@
       <!-- 通知 -->
       <view class="MynoticeContainBG flexColumn flexRowCenterAndAround" >
         <view class='MynoticeItem flexRow flexRowCenterAndAround'
-        wx:for='{{myNoticeMessage[noticeMessageIndex]}}' 
-        wx:key='noticeMessage' 
-        wx:for-item='item' 
-        bindtap='myIntoNotice' data-item = '{{item}}' 
-        data-next='pageNotiTie' data-now="pagetie"
-      
-        for-index='index' 
-        data-index='{{index}}' 
-        data-message='messageNotice'>
+        wx:for='{{myNoticeMessage[noticeMessageIndex]}}' wx:key='noticeMessage' wx:for-item='item' for-index='index' data-index='{{index}}' bindtap='noticeEvent'  data-message='messageNotice'>
           <view class='MynoticeItemContian flexRow flexRowCenterAndAround' >
             <view style='width:80%;' class=' '>
               <view class='flexRow flexRowCenterAndAround' >
                 <view class='MynoticeLogo' />
-                <text style='font-size:medium;color:#939393;font-weight:500;flex:1;' class='fontOverFlowHidden'>{{item.postsTitle}}</text>
-                <!-- <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text> -->
+                <text style='font-size:medium;color:#939393;font-weight:500;' class='fontOverFlowHidden'>{{item.postsTitle}}</text>
+                <text style='font-size:medium;color:#42C9F4;font-weight:800;'>发来一条通知:</text>
                 <view style='width:15%;'/>
               </view>
               <view 

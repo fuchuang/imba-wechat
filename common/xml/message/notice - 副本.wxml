@@ -1,0 +1,9 @@
+<view class='moreMessage' style='top:{{gradeCardTop+120}}rpx;++ '>
+  <scroll-view class='moreMessageContain' style='height:{{noticeHeight}}rpx;margin-top:50rpx;' scroll-y>
+    <view class='flexRow'>
+      <view>123</view>
+      <view>123</view>
+      <view>123</view>
+    </view>
+  </scroll-view>
+</view>
